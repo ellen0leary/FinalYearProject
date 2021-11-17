@@ -21,4 +21,6 @@ public class TruckManager : MonoBehaviour
     //         print("Stop truck");
     //     }
     // }
+
+    
 }
