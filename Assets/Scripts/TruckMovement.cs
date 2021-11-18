@@ -19,6 +19,10 @@ public class TruckMovement : MonoBehaviour
         if(!stop){
             this.transform.Translate (Vector3.forward * 1 * Time.deltaTime);
         }
+
+        if(transform.position.z >5){
+            Destroy(this.gameObject);
+        }
     }
 
     void OnTriggerEnter(Collider other)

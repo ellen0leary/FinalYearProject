@@ -9,18 +9,35 @@ public class WorkerManager : MonoBehaviour
     public Vector3 walkPoint;
     public float walkPointRange;
     public LayerMask whatIsGround;
-    bool walkPointSet;
+    bool isBusy, walkPointSet;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        isBusy= false;
     }
 
     // Update is called once per frame
     void Update()
     {
-       Patrolling(); 
+        int randomInt = -1;
+        //random movement
+        //setTasks
+        //eating working
+
+        if(!isBusy){
+            randomInt = Random.Range(0,2);
+            isBusy=true;
+        }
+
+    Patrolling(); 
+        if(randomInt == 0){
+            Patrolling(); 
+        }else if(randomInt==1){
+            //eat
+        }else if(randomInt == 2){
+            //working
+        }
     }
 
     void Patrolling(){
