@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 5074947116093081794}
   - component: {fileID: 5074947116093081793}
   - component: {fileID: 5074947116093081821}
-  - component: {fileID: 5074947116093081822}
   - component: {fileID: 5074947116093081823}
+  - component: {fileID: 6282823678352686093}
   m_Layer: 0
   m_Name: Worker
   m_TagString: Untagged
@@ -115,24 +115,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &5074947116093081822
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5074947116093081792}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e00be357af8f1043acbc9116758d1f3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nav: {fileID: 5074947116093081823}
-  walkPoint: {x: 0, y: 0, z: 0}
-  walkPointRange: 10
-  whatIsGround:
-    serializedVersion: 2
-    m_Bits: 64
 --- !u!195 &5074947116093081823
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -155,3 +137,22 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &6282823678352686093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5074947116093081792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a4b5cb2bebeb534abb5f8659e86dae3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nav: {fileID: 5074947116093081823}
+  walkPoint: {x: 0, y: 0, z: 0}
+  walkPointRange: 10
+  brick: {fileID: 0}
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 64

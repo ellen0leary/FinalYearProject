@@ -8,9 +8,10 @@ public class TruckMovement : MonoBehaviour
     bool stop = false;
     public GameObject uiScreen;
     // Start is called before the first frame update
+    private WorkerManager workerManager;
     void Start()
     {
-        
+        workerManager = FindObjectOfType<WorkerManager>();
     }
 
     // Update is called once per frame
@@ -36,6 +37,7 @@ public class TruckMovement : MonoBehaviour
 
     public void closeScreen(){
         uiScreen.SetActive(false);
+        workerManager.sendWorker();
         stop = false;
     }
 }

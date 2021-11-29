@@ -22,6 +22,7 @@ public class UiManager : MonoBehaviour
     public void sendWorkerPlastic(){
         print("Sending worker to get plastic");
         script.closeScreen();
+        
     }
 
     public void sendWorkerCardboard()
