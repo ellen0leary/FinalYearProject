@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TruckManager : MonoBehaviour
 {
+    public GameObject[] truck;
     // Start is called before the first frame update
     void Start()
     {

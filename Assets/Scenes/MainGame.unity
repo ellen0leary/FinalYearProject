@@ -2195,6 +2195,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82e924c56a37b204ab2a2a52721557e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  truck: []
 --- !u!1001 &1258233649
 PrefabInstance:
   m_ObjectHideFlags: 0
