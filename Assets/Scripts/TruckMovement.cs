@@ -7,7 +7,6 @@ public class TruckMovement : MonoBehaviour
 
     bool stop = false;
     public GameObject uiScreen;
-    public GameObject mainUIScreen;
     TruckManager manager;
     // Start is called before the first frame update
     private WorkerManager workerManager;
