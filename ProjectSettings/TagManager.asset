@@ -6,6 +6,7 @@ TagManager:
   tags:
   - truck
   - Stopping Area
+  - sorting
   layers:
   - Default
   - TransparentFX
