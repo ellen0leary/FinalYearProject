@@ -31,8 +31,8 @@ public class UiManager : MonoBehaviour
         TextMeshProUGUI title = material2Heading.GetComponent<TextMeshProUGUI>();
         title.text = name;
     }
-    public void sendWorkerPlastic(){
-        print("Sending worker to get plastic");
+    public void sendWorker(){
+        print("Sending worker to get ......");
         script.closeScreen();
         
     }
