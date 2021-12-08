@@ -134,6 +134,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a4b5cb2bebeb534abb5f8659e86dae3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &142290379 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8302591751691718045, guid: ab0984e7e14050a448f5cacaf033ab95, type: 3}
+  m_PrefabInstance: {fileID: 3061606189918968965}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &142478771
 GameObject:
   m_ObjectHideFlags: 0
@@ -665,11 +670,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &882132382 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3061606190264195355, guid: ab0984e7e14050a448f5cacaf033ab95, type: 3}
-  m_PrefabInstance: {fileID: 3061606189918968965}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &882485438 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5074947116093081820, guid: 9d4af84debbe147478cf1d17b239f766, type: 3}
@@ -1314,41 +1314,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a4b5cb2bebeb534abb5f8659e86dae3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1558153817
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1558153818}
-  m_Layer: 5
-  m_Name: Material1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1558153818
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1558153817}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1703239809}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &1563634651
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1469,11 +1434,6 @@ MonoBehaviour:
 --- !u!1 &1703239808 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3061606189474561029, guid: ab0984e7e14050a448f5cacaf033ab95, type: 3}
-  m_PrefabInstance: {fileID: 3061606189918968965}
-  m_PrefabAsset: {fileID: 0}
---- !u!224 &1703239809 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 3061606189474561028, guid: ab0984e7e14050a448f5cacaf033ab95, type: 3}
   m_PrefabInstance: {fileID: 3061606189918968965}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1795191023 stripped
@@ -1874,6 +1834,14 @@ PrefabInstance:
       propertyPath: truck
       value: 
       objectReference: {fileID: 1795191023}
+    - target: {fileID: 416457915235184835, guid: 87da756a2670aea4583838cc4892d535, type: 3}
+      propertyPath: material1Heading
+      value: 
+      objectReference: {fileID: 1972065945}
+    - target: {fileID: 416457915235184835, guid: 87da756a2670aea4583838cc4892d535, type: 3}
+      propertyPath: material2Heading
+      value: 
+      objectReference: {fileID: 142290379}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 87da756a2670aea4583838cc4892d535, type: 3}
 --- !u!1001 &3061606189918968965
@@ -1973,11 +1941,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3102038974293664674, guid: ab0984e7e14050a448f5cacaf033ab95, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5897931847477169342, guid: ab0984e7e14050a448f5cacaf033ab95, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ab0984e7e14050a448f5cacaf033ab95, type: 3}
@@ -1988,18 +1956,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1795191024, guid: 7e833cf6240c0c14fa477730df175453, type: 3}
-      propertyPath: heading
-      value: 
-      objectReference: {fileID: 1972065945}
-    - target: {fileID: 1795191024, guid: 7e833cf6240c0c14fa477730df175453, type: 3}
-      propertyPath: uiElement
-      value: 
-      objectReference: {fileID: 1703239808}
-    - target: {fileID: 1795191024, guid: 7e833cf6240c0c14fa477730df175453, type: 3}
-      propertyPath: buttonText
-      value: 
-      objectReference: {fileID: 882132382}
     - target: {fileID: 4739966651755348773, guid: 7e833cf6240c0c14fa477730df175453, type: 3}
       propertyPath: m_Name
       value: Truck

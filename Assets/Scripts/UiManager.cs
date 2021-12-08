@@ -1,12 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEngine.UI;
 
 public class UiManager : MonoBehaviour
 {
 
     public GameObject truck;
     TruckMovement script;
+    public GameObject material1Heading;
+    public GameObject material2Heading;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +23,14 @@ public class UiManager : MonoBehaviour
         
     }
 
+    public void SetMaterialOne(string name){
+        TextMeshProUGUI title = material1Heading.GetComponent<TextMeshProUGUI>();
+        title.text = name;
+    }
+    public void SetMaterialTwo(string name){
+        TextMeshProUGUI title = material2Heading.GetComponent<TextMeshProUGUI>();
+        title.text = name;
+    }
     public void sendWorkerPlastic(){
         print("Sending worker to get plastic");
         script.closeScreen();
