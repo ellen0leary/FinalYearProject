@@ -8,13 +8,16 @@ public class UiManager : MonoBehaviour
 {
 
     public GameObject truck;
+    public GameObject helpScreen;
     TruckMovement script;
     public GameObject material1Heading;
     public GameObject material2Heading;
     // Start is called before the first frame update
     void Start()
     {
+        // helpScreen.SetActive(false);
         script = truck.GetComponent<TruckMovement>();
+        
     }
 
     // Update is called once per frame
@@ -47,5 +50,13 @@ public class UiManager : MonoBehaviour
     {
         print("Sending worker to get tin");
         script.closeScreen();
+    }
+
+    public void clickHelp(){
+        helpScreen.SetActive(true);
+    }
+
+    public void closeHelp(){
+        helpScreen.SetActive(false);
     }
 }
