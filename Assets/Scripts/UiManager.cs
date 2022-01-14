@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class UiManager : MonoBehaviour
 {
 
-    public GameObject truck;
+    // public GameObject truck;
     public GameObject helpScreen;
     TruckMovement script;
     public GameObject material1Heading;
@@ -16,7 +16,7 @@ public class UiManager : MonoBehaviour
     void Start()
     {
         // helpScreen.SetActive(false);
-        script = truck.GetComponent<TruckMovement>();
+        
         
     }
 
@@ -35,6 +35,9 @@ public class UiManager : MonoBehaviour
         title.text = name;
     }
     public void sendWorker(){
+        // GameObject truck = GameObject.Find("Truck");
+        // script = truck.GetComponent<TruckMovement>();
+        script = GameObject.FindObjectOfType<TruckMovement>();
         print("Sending worker to get ......");
         script.closeScreen();
         
