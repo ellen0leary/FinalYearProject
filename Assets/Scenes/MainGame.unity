@@ -1742,8 +1742,16 @@ PrefabInstance:
         first\n - <b>Cardboard</b> should be <color=\"black\">shredded</color> first"
       objectReference: {fileID: 0}
     - target: {fileID: 2136450286, guid: 87da756a2670aea4583838cc4892d535, type: 3}
+      propertyPath: m_fontSize
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 2136450286, guid: 87da756a2670aea4583838cc4892d535, type: 3}
       propertyPath: m_margin.z
       value: -340.8614
+      objectReference: {fileID: 0}
+    - target: {fileID: 2136450286, guid: 87da756a2670aea4583838cc4892d535, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 416457914771800053, guid: 87da756a2670aea4583838cc4892d535, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
