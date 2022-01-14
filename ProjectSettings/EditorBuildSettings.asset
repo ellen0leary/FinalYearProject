@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainGame.unity
     guid: 33c98dd76d5b4084da17521904ba0073
+  - enabled: 1
+    path: Assets/Scenes/Quiz.unity
+    guid: 294217bc85132ce449d5eb35803b1abc
   m_configObjects: {}

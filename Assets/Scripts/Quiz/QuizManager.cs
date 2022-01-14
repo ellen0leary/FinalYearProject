@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class QuizManager : MonoBehaviour
 {
@@ -14,9 +15,12 @@ public class QuizManager : MonoBehaviour
     int currentQuestions=0;
     int totalQuestions=2;
     TextMeshProUGUI questionText;
-    
+    public GameObject trueBtn;
+    public GameObject falseBtn;
+    public GameObject mainBtn;
     void Start()
     {
+        mainBtn.SetActive(false);
         questionText =GetComponent<TextMeshProUGUI>();
         setQuestion();
     }
@@ -57,5 +61,15 @@ public class QuizManager : MonoBehaviour
         print("you are finished");
         questionText.text = "You have finished with "+ correctQuestions.ToString() +" right.";
         //TODO - remove btn
+        Destroy(trueBtn);
+        Destroy(falseBtn);
+        mainBtn.SetActive(true);
+    }
+
+
+
+    // btn methods
+    public void goToMainMenu(){
+        SceneManager.LoadScene(0);
     }
 }
