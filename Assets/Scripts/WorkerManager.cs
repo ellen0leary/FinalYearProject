@@ -21,7 +21,6 @@ public class WorkerManager : MonoBehaviour
 
     public void sendWorker(){
         int index = Random.Range(0, workers.Length-1);
-        print(index);
         workers[index].sendToTruck();
     }
 }

@@ -48,7 +48,6 @@ public class WorkerMovement : MonoBehaviour
 
     void Patrolling()
     {
-        print("Patrolling");
         if (!walkPointSet)
         {
             lookForPoint();
@@ -80,7 +79,6 @@ public class WorkerMovement : MonoBehaviour
 
     void GoToEat()
     {
-        print("eat");
         walkPoint = new Vector3(6.4f, transform.position.y, -1.6f);
         nav.SetDestination(walkPoint);
 
@@ -95,7 +93,6 @@ public class WorkerMovement : MonoBehaviour
     }
 
     public void sendToTruck(){
-        print("going to truck");
         nav.SetDestination(new Vector3(-3f,0.12f, 1f));
         walkPointSet = true;
         walkPoint = new Vector3(-3f, 0.12f, 1f);

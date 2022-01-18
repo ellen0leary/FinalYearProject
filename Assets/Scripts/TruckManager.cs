@@ -36,11 +36,6 @@ public class TruckManager : MonoBehaviour
         timerActivate = true;
         numOfTrucks--;
     }
-    // void OnTriggerEnter(Collider other) {
-    //     if(other.gameObject.CompareTag("truck")){
-    //         print("Stop truck");
-    //     }
-    // }
 
     
 }
