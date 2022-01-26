@@ -439,7 +439,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 938996768}
         m_TargetAssemblyTypeName: MenuContriller, Assembly-CSharp
-        m_MethodName: featureUnavabile
+        m_MethodName: startLearn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
