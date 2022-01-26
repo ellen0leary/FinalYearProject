@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class QuizManager : MonoBehaviour
 {
+    private LoadQuestions QuestionLoader;
 
     private string[] questions = {"Tin should be sorted first","Plastic should be cleaned first","Cardboard should be shreaded first"};
     private bool[] answers = {false, false, true};
@@ -25,17 +26,6 @@ public class QuizManager : MonoBehaviour
         setQuestion();
     }
 
-
-    public void clickTrue(){
-        checkValidity(true);
-        setQuestion();
-    }
-
-    public void clickFalse(){
-        checkValidity(false);
-        setQuestion();
-    }
-
     void setQuestion(){
         if(currentQuestions == totalQuestions){
             showResults();return;
@@ -43,6 +33,11 @@ public class QuizManager : MonoBehaviour
         currentQuestions++;
         questionValue = Random.Range(0, questions.Length);
         questionText.text = questions[questionValue];
+
+
+        // StartCoroutine(QuestionLoader.getJSON(1));
+        
+
     }
 
     void checkValidity(bool answer){
@@ -54,13 +49,11 @@ public class QuizManager : MonoBehaviour
             //wrong
             print("wrong");
         }
-        //show yes or no
     }
 
     void showResults(){
         print("you are finished");
         questionText.text = "You have finished with "+ correctQuestions.ToString() +" right.";
-        //TODO - remove btn
         Destroy(trueBtn);
         Destroy(falseBtn);
         mainBtn.SetActive(true);
@@ -72,4 +65,15 @@ public class QuizManager : MonoBehaviour
     public void goToMainMenu(){
         SceneManager.LoadScene(0);
     }
+
+     public void clickTrue(){
+        checkValidity(true);
+        setQuestion();
+    }
+
+    public void clickFalse(){
+        checkValidity(false);
+        setQuestion();
+    }
+
 }
