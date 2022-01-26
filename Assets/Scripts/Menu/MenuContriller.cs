@@ -20,7 +20,7 @@ public class MenuContriller : MonoBehaviour
     }
 
     public void startLearn(){
-
+        SceneManager.LoadScene("Quiz");
     }
 
     public void startOptions(){
