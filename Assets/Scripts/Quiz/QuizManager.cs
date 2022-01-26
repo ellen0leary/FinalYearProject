@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class QuizManager : MonoBehaviour
 {
     private LoadQuestions QuestionLoader;
+    private IntelligentTutor intelligentTutor;
 
     private string[] questions = {"Tin should be sorted first","Plastic should be cleaned first","Cardboard should be shreaded first"};
     private bool[] answers = {false, false, true};
@@ -22,6 +23,7 @@ public class QuizManager : MonoBehaviour
     void Start()
     {
         mainBtn.SetActive(false);
+        intelligentTutor = GetComponent<IntelligentTutor>();
         questionText =GetComponent<TextMeshProUGUI>();
         setQuestion();
     }
@@ -53,9 +55,12 @@ public class QuizManager : MonoBehaviour
 
     void showResults(){
         print("you are finished");
-        questionText.text = "You have finished with "+ correctQuestions.ToString() +" right.";
+        intelligentTutor.addScore(correctQuestions);
+        int average = intelligentTutor.getAverage();
+        questionText.text = "You have finished with "+ correctQuestions.ToString() +" right. \n Your average so far is "+average.ToString();
         Destroy(trueBtn);
         Destroy(falseBtn);
+        intelligentTutor.saveScores();
         mainBtn.SetActive(true);
     }
 

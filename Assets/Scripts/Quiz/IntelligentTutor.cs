@@ -30,7 +30,7 @@ public class IntelligentTutor : MonoBehaviour
     }
 
 
-    int average(){
+    public int getAverage(){
         int average = 0;
         foreach(int i in listOfScores){
             average+= i;

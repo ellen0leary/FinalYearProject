@@ -665,6 +665,7 @@ GameObject:
   - component: {fileID: 849368141}
   - component: {fileID: 849368140}
   - component: {fileID: 849368142}
+  - component: {fileID: 849368143}
   m_Layer: 5
   m_Name: QuestionTxt
   m_TagString: Untagged
@@ -803,6 +804,18 @@ MonoBehaviour:
   trueBtn: {fileID: 1799516717}
   falseBtn: {fileID: 133145618}
   mainBtn: {fileID: 1357896718}
+--- !u!114 &849368143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 849368138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be9231ea8de200d43afb5dc9a9661b24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1033789700
 GameObject:
   m_ObjectHideFlags: 0
@@ -1444,7 +1457,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1885815030}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e2804d3b578cb9b4396101faabe5ea45, type: 3}
   m_Name: 
