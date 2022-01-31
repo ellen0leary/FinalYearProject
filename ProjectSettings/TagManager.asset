@@ -7,7 +7,7 @@ TagManager:
   - truck
   - Stopping Area
   - sorting
-  - item
+  - building
   layers:
   - Default
   - TransparentFX
@@ -16,8 +16,8 @@ TagManager:
   - Water
   - UI
   - Ground
-  - 
-  - 
+  - Truck
+  - Material
   - 
   - 
   - 
