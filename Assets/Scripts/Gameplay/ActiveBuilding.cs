@@ -6,7 +6,7 @@ public class ActiveBuilding : MonoBehaviour
 {
     bool ifActive = false;
     //for change the size of the building
-    float changeValue = 0.1f;
+    float changeValue = 0.15f;
     float maxTime = 50;
     float timer;
     bool whichDir = false;
@@ -16,10 +16,14 @@ public class ActiveBuilding : MonoBehaviour
     float materialTimer;
     // Start is called before the first frame update
     public GameObject material;
+    public GameObject scoreController;
+    public MaterialController matCon;
     void Start()
     {
         timer = maxTime;
         materialTimer = maxMaterialTimer;
+        scoreController = GameObject.FindGameObjectWithTag("score");
+        matCon = scoreController.GetComponent<MaterialController>();
     }
 
     // Update is called once per frame
@@ -37,10 +41,12 @@ public class ActiveBuilding : MonoBehaviour
             if(timer<=0){
                 if (materialTimer <= 0 && whichDir)
                 {
-                    //instaite object
-                    Instantiate(material, new Vector3(transform.position.x+1, transform.position.y, transform.position.z+1), Quaternion.identity);
+                    material.SetActive(true);
+                    material.transform.position =  new Vector3(transform.position.x + 1, transform.position.y, transform.position.z + 1);
                     ifActive = false;
-
+                    int thisLayer = (int) this.gameObject.layer;
+                    matCon.materialFinished(this.gameObject.layer);
+                    // Debug.Log((int)this.gameObject.layer);
                 }
                 timer = maxTime;
                 whichDir = !whichDir;
@@ -50,7 +56,17 @@ public class ActiveBuilding : MonoBehaviour
 
     }
 
-    public void StartMaterial(){
-        ifActive = true;
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.CompareTag("material") && !ifActive)
+        {
+            ifActive = true;
+            other.gameObject.SetActive(false);
+            material = other.gameObject;
+        }
     }
 }
+
+
+// get material contriller
+// send layer to materialcontriller once done
