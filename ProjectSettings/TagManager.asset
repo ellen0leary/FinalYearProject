@@ -8,6 +8,8 @@ TagManager:
   - Stopping Area
   - sorting
   - building
+  - material
+  - score
   layers:
   - Default
   - TransparentFX
@@ -18,9 +20,9 @@ TagManager:
   - Ground
   - Truck
   - Material
-  - 
-  - 
-  - 
+  - Building1
+  - Building2
+  - Building3
   - 
   - 
   - 
