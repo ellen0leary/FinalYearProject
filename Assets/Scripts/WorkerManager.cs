@@ -7,10 +7,13 @@ public class WorkerManager : MonoBehaviour
 {
     public GameObject woker;
     public WorkerMovement[] workers;
+    ScoreController sc;
 
     // Start is called before the first frame update
     void Start()
     {
+        GameObject go = GameObject.Find("ScoreController");
+        sc = go.GetComponent<ScoreController>();
 
     }
 
@@ -26,7 +29,7 @@ public class WorkerManager : MonoBehaviour
     }
 
     public void addWorker(){
-        //to do - add worker
+        if(sc.setScore(-500)){
         //create temp array
         int lastIndex = workers.Length;
         WorkerMovement[] temp = new WorkerMovement[lastIndex + 1];
@@ -35,5 +38,6 @@ public class WorkerManager : MonoBehaviour
         //add worker
         GameObject newWorker = Instantiate(woker, new Vector3(-0.0384554863f, 0.109999992f, -0.737234116f),woker.transform.rotation);
         workers[lastIndex] = newWorker.GetComponent<WorkerMovement>();
+        }
     }
 }
