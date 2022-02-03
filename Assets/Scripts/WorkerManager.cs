@@ -34,5 +34,6 @@ public class WorkerManager : MonoBehaviour
         workers = temp;
         //add worker
         GameObject newWorker = Instantiate(woker, new Vector3(-0.0384554863f, 0.109999992f, -0.737234116f),woker.transform.rotation);
+        workers[lastIndex] = newWorker.GetComponent<WorkerMovement>();
     }
 }
