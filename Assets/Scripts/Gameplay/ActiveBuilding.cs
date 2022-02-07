@@ -17,13 +17,11 @@ public class ActiveBuilding : MonoBehaviour
     // Start is called before the first frame update
     public GameObject material;
     public GameObject scoreController;
-    public MaterialController matCon;
     void Start()
     {
         timer = maxTime;
         materialTimer = maxMaterialTimer;
         scoreController = GameObject.FindGameObjectWithTag("score");
-        matCon = scoreController.GetComponent<MaterialController>();
     }
 
     // Update is called once per frame
@@ -45,7 +43,7 @@ public class ActiveBuilding : MonoBehaviour
                     material.transform.position =  new Vector3(transform.position.x + 1, transform.position.y, transform.position.z + 1);
                     ifActive = false;
                     int thisLayer = (int) this.gameObject.layer;
-                    matCon.materialFinished(this.gameObject.layer);
+                    material.GetComponent<MaterialController>().materialFinished(this.gameObject.layer);
                     // Debug.Log((int)this.gameObject.layer);
                 }
                 timer = maxTime;
