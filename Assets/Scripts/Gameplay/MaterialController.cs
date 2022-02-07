@@ -43,7 +43,7 @@ public class MaterialController : MonoBehaviour
         {
             Debug.Log(other.gameObject.tag);
             sell();
-            Destroy(this);
+            Destroy(this.gameObject);
         }
     }
 
