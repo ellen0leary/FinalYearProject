@@ -20,7 +20,7 @@ public class ScoreController : MonoBehaviour
 
     void Update(){
         mainTimer-= 50*Time.deltaTime;
-        if(mainTimer>= 0){
+        if(mainTimer<= 0){
             Debug.Log("Game over");
             SceneManager.LoadScene("Quiz");
         }

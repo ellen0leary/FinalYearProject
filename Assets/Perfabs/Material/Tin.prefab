@@ -14,10 +14,10 @@ GameObject:
   - component: {fileID: 6030292274503704420}
   - component: {fileID: 6030292274503704424}
   - component: {fileID: 6030292274503704425}
-  - component: {fileID: 6030292274503704430}
+  - component: {fileID: 2473833546124930665}
   m_Layer: 8
   m_Name: Tin
-  m_TagString: Untagged
+  m_TagString: material
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -126,7 +126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e16cb765b58de57438750b2bc3a78560, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &6030292274503704430
+--- !u!114 &2473833546124930665
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -135,6 +135,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 6030292274503704423}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd4b91e7fc400324d9d4033633a8a4cc, type: 3}
+  m_Script: {fileID: 11500000, guid: 966be33490a5fb74190716009bcb9e99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

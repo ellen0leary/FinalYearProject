@@ -15,6 +15,7 @@ public class TruckManager : MonoBehaviour
         timerActivate = false;
         timeLeft = 0;
         numOfTrucks =2+ Random.Range(0, 6);
+        Debug.Log(numOfTrucks.ToString());
     }
 
     // Update is called once per frame
@@ -24,9 +25,10 @@ public class TruckManager : MonoBehaviour
             SceneManager.LoadScene(2);
         }else if(timerActivate){
             timeLeft--;
-            if(timeLeft==0){
+            if(timeLeft<=0){
                 // print("rest")
                 Instantiate(truck, truck.transform.position, truck.transform.rotation);
+                timerActivate= false;
             }
         }
     }
