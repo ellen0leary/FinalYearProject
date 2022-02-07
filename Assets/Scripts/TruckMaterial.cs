@@ -17,6 +17,7 @@ public class TruckMaterial : MonoBehaviour
     
 
     string[] materials = {"Plastic", "Cardboard", "Tin"};
+    public GameObject[] mats;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,14 +33,17 @@ public class TruckMaterial : MonoBehaviour
 
     public void setMaterial(){
         uiManager = FindObjectOfType<UiManager>();
-        int randInt1 = Random.Range(0, materials.Length);
+        int randInt1 = Random.Range(0, mats.Length);
         int randInt2 = Random.Range(0, materials.Length);
         
         
         
         // string materialName = materialNames[randInt1];
-        uiManager.SetMaterialOne(materials[randInt1]);
-        uiManager.SetMaterialTwo(materials[randInt2]);
+        // uiManager.SetMaterialOne(mats[randInt1]);
+        // uiManager.SetMaterialTwo(materials[randInt2]);
+        GameObject go = mats[randInt1];
+        go.tag = "material";
+        Instantiate(go, new Vector3(transform.position.x+1, transform.position.y+1,transform.position.z), go.transform.rotation);
         
         // TextMeshPro buttonText = uiElement.GetComponentInChildren<Button>().GetComponentInChildren<TextMeshPro>();
 

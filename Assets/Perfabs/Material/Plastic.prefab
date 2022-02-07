@@ -11,13 +11,13 @@ GameObject:
   - component: {fileID: 147024178412740861}
   - component: {fileID: 147024178412740862}
   - component: {fileID: 147024178412740863}
-  - component: {fileID: 147024178412740848}
   - component: {fileID: 147024178412740849}
   - component: {fileID: 147024178412740850}
   - component: {fileID: 147024178412740851}
+  - component: {fileID: 7828458614426579523}
   m_Layer: 8
   m_Name: Plastic
-  m_TagString: Untagged
+  m_TagString: material
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -85,18 +85,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &147024178412740848
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 147024178412740852}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd4b91e7fc400324d9d4033633a8a4cc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &147024178412740849
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -136,5 +124,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e16cb765b58de57438750b2bc3a78560, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7828458614426579523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 147024178412740852}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 966be33490a5fb74190716009bcb9e99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

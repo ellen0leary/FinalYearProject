@@ -21,7 +21,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4739966651755348793
 Transform:
   m_ObjectHideFlags: 0
@@ -141,3 +141,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   btn: {fileID: 0}
   uiManager: {fileID: 0}
+  mats:
+  - {fileID: 407089972839730780, guid: d2555d690aff14148814e97b1b9836b5, type: 3}
+  - {fileID: 147024178412740852, guid: 34235c2662ce1564c82f45ccc301b68f, type: 3}
+  - {fileID: 6030292274503704423, guid: 66e9d8342f38a514e9c4f0bbdfa554a7, type: 3}

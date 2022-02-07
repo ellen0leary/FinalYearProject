@@ -37,8 +37,10 @@ public class TruckMovement : MonoBehaviour
         if (other.gameObject.CompareTag("Stopping Area"))
         {
             stop = true;
-            uiScreen.SetActive(true);
+            // uiScreen.SetActive(true);
             gameObject.GetComponent<TruckMaterial>().setMaterial();
+            workerManager.sendWorker();
+            stop = false;
         }
     }
 

@@ -10,6 +10,7 @@ TagManager:
   - building
   - material
   - score
+  - selling
   layers:
   - Default
   - TransparentFX

@@ -14,7 +14,7 @@ public class TruckManager : MonoBehaviour
     {
         timerActivate = false;
         timeLeft = 0;
-        numOfTrucks = Random.Range(0, 6);
+        numOfTrucks =2+ Random.Range(0, 6);
     }
 
     // Update is called once per frame

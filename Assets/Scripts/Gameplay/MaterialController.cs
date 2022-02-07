@@ -4,16 +4,18 @@ using UnityEngine;
 
 public class MaterialController : MonoBehaviour
 {
-    int currentScore = 0;
+    int currentScore = 100;
     int[] material = {0,1,2};
     int value = 1000;
     int curentIndex = 0;
     int[] currentProcess = {-1-1,-1};
     int extraActons = 0;
     // Start is called before the first frame update
+    ScoreController sc;
     void Start()
     {
-        
+        GameObject gb = GameObject.FindGameObjectWithTag("score");
+        sc = gb.GetComponent<ScoreController>();
     }
     // makegamegud plz()
 
@@ -25,19 +27,29 @@ public class MaterialController : MonoBehaviour
 
     public void materialFinished(int layer){
         //add to []
-        Debug.Log(layer);
-        
+        // Debug.Log(layer);
+        currentScore += 1000;
     }
 
     public void sell(){
         //calculate
+        Debug.Log("selling for " + currentScore);
+        sc.setScore(currentScore);
     }
 
 
+    private void OnCollisionEnter(Collision other) {
+        if(other.gameObject.CompareTag("selling"))
+        {
+            Debug.Log(other.gameObject.tag);
+            sell();
+            Destroy(this);
+        }
+    }
 
 
     /** 
-    base class for materials
+    base class for materials - idk if i will use this
     **/
     public class Material {
         enum Order {
