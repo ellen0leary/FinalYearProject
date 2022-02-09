@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 5074947116093081821}
   - component: {fileID: 5074947116093081823}
   - component: {fileID: 6282823678352686093}
+  - component: {fileID: 3680489612972824275}
   m_Layer: 0
   m_Name: Worker
   m_TagString: Untagged
@@ -156,3 +157,18 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 64
+--- !u!114 &3680489612972824275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5074947116093081792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f60e7223ea583b84f896960a6074e1c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sleepNeed: 0
+  eatNeed: 0
+  knowledge: 0

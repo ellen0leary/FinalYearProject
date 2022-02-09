@@ -40,4 +40,26 @@ public class WorkerManager : MonoBehaviour
         workers[lastIndex] = newWorker.GetComponent<WorkerMovement>();
         }
     }
+
+    public void IncreaseEat(){
+        foreach(WorkerMovement i in workers){
+            i.gameObject.GetComponent<WorkerFeelings>().IncreaseEat(70);
+        }
+    }
+
+    public void IncreaseSleep()
+    {
+        foreach (WorkerMovement i in workers)
+        {
+            i.gameObject.GetComponent<WorkerFeelings>().IncreaseSleep(70);
+        }
+    }
+
+    public void IncreaseKnowledge()
+    {
+        foreach (WorkerMovement i in workers)
+        {
+            i.gameObject.GetComponent<WorkerFeelings>().IncreaseKnowledge(70);
+        }
+    }
 }
