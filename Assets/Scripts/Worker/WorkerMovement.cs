@@ -22,10 +22,12 @@ public class WorkerMovement : MonoBehaviour
     float eatTimer = 200;
     Vector3 sleepPoint;
     Vector3 eatPoint;
+    WorkerFeelings feel;
     void Start()
     {
         isBusy = false;
         eatPoint = GameObject.FindGameObjectWithTag("cantain").transform.position;
+        feel = GetComponent<WorkerFeelings>();
     }
 
     // Update is called once per frame
@@ -95,8 +97,9 @@ public class WorkerMovement : MonoBehaviour
 
         walkPointSet = true;
         Vector3 distaneToPoint = transform.position - walkPoint;
-        if (distaneToPoint.magnitude < 0.5f)
+        if (distaneToPoint.magnitude < 1f)
         {
+            feel.IncreaseEat(70);
             ifTimerActive = true;
             timer = eatTimer;
             walkPointSet = false;
@@ -129,7 +132,7 @@ public class WorkerMovement : MonoBehaviour
     }
 
     public void sendWorkerToEat(){
-        print("Sending worker to eat");
+        // print("Sending worker to eat");
         GoToEat();
     }
 }

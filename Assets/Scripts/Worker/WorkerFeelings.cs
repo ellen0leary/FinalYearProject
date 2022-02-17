@@ -42,7 +42,7 @@ public class WorkerFeelings : MonoBehaviour
     public void IncreaseEat(int value)
     {
         eatNeed += value;
-        this.gameObject.GetComponent<WorkerMovement>().sendWorkerToEat();
+        // this.gameObject.GetComponent<WorkerMovement>().sendWorkerToEat();
     }
 
     public void IncreaseKnowledge(int value)

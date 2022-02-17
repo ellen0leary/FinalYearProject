@@ -44,7 +44,7 @@ public class WorkerManager : MonoBehaviour
     public void IncreaseEat(){
         foreach(WorkerMovement i in workers){
             print("btn clicked");
-            i.gameObject.GetComponent<WorkerFeelings>().IncreaseEat(70);
+            i.gameObject.GetComponent<WorkerMovement>().sendWorkerToEat();
         }
     }
 
