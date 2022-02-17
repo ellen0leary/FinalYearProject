@@ -52,7 +52,7 @@ public class WorkerManager : MonoBehaviour
     {
         foreach (WorkerMovement i in workers)
         {
-            i.gameObject.GetComponent<WorkerFeelings>().IncreaseSleep(70);
+            i.gameObject.GetComponent<WorkerMovement>().sendWorkerToSleep();
         }
     }
 

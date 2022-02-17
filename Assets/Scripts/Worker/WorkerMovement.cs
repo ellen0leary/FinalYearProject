@@ -27,6 +27,7 @@ public class WorkerMovement : MonoBehaviour
     {
         isBusy = false;
         eatPoint = GameObject.FindGameObjectWithTag("cantain").transform.position;
+        sleepPoint = GameObject.FindGameObjectWithTag("dormitory").transform.position;
         feel = GetComponent<WorkerFeelings>();
     }
 
@@ -46,7 +47,7 @@ public class WorkerMovement : MonoBehaviour
             randomInt = (int)Random.Range(0, 5);
             isBusy = true;
         }
-        if (randomInt == 0f || randomInt == 2f || randomInt == 4f)
+        if (randomInt == 0f || randomInt == 4f)
         {
             Patrolling();
         }
@@ -55,7 +56,7 @@ public class WorkerMovement : MonoBehaviour
             GoToEat();
         }
         // else if(randomInt == 2){
-        //     //working
+        //     GoToSleep();
         // }
     }
 
@@ -108,7 +109,21 @@ public class WorkerMovement : MonoBehaviour
 
     }
 
-    public void GoToSleep(){
+    void GoToSleep()
+    {
+        walkPoint = sleepPoint;
+        nav.SetDestination(walkPoint);
+
+        walkPointSet = true;
+        Vector3 distaneToPoint = transform.position - walkPoint;
+        if (distaneToPoint.magnitude < 1f)
+        {
+            feel.IncreaseSleep(70);
+            ifTimerActive = true;
+            timer = eatTimer;
+            walkPointSet = false;
+            isBusy = false;
+        }
 
     }
 
@@ -132,7 +147,11 @@ public class WorkerMovement : MonoBehaviour
     }
 
     public void sendWorkerToEat(){
-        // print("Sending worker to eat");
         GoToEat();
+    }
+
+    public void sendWorkerToSleep(){
+        print("sending to sleep");
+        GoToSleep();
     }
 }
