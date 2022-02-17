@@ -42,25 +42,36 @@ public class WorkerManager : MonoBehaviour
     }
 
     public void IncreaseEat(){
-        foreach(WorkerMovement i in workers){
-            print("btn clicked");
-            i.gameObject.GetComponent<WorkerMovement>().sendWorkerToEat();
+        int num = 4;
+        while(num >=0){
+            int index = Random.Range(0, workers.Length - 1);
+            print(index);
+            workers[index].gameObject.GetComponent<WorkerMovement>().sendWorkerToEat();
+            num--;
         }
     }
 
     public void IncreaseSleep()
     {
-        foreach (WorkerMovement i in workers)
+        int num = 4;
+        while (num >= 0)
         {
-            i.gameObject.GetComponent<WorkerMovement>().sendWorkerToSleep();
+            int index = Random.Range(0, workers.Length - 1);
+            print(index);
+            workers[index].gameObject.GetComponent<WorkerMovement>().sendWorkerToSleep();
+            num--;
         }
     }
 
     public void IncreaseKnowledge()
     {
-        foreach (WorkerMovement i in workers)
+        int num = 4;
+        while (num >= 0)
         {
-            i.gameObject.GetComponent<WorkerMovement>().sendWorkerToKnowelge();
+            int index = Random.Range(0, workers.Length - 1);
+            print(index);
+            workers[index].gameObject.GetComponent<WorkerMovement>().sendWorkerToKnowelge();
+            num--;
         }
     }
 }
