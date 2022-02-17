@@ -20,12 +20,14 @@ public class WorkerFeelings : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        sleepNeed -= 5 * Time.deltaTime;
-        eatNeed -= 5 * Time.deltaTime;
-        knowledge -= 5 * Time.deltaTime;
-        if (sleepNeed < 30 || eatNeed <= 20)
+        sleepNeed -= 2 * Time.deltaTime;
+        eatNeed -= 4 * Time.deltaTime;
+        knowledge -= 1 * Time.deltaTime;
+        if (sleepNeed < 10 || eatNeed <= 15)
         {
-            this.gameObject.GetComponent<WorkerMovement>().setSpeed();
+            this.gameObject.GetComponent<WorkerMovement>().setSpeed(false);
+        } else {
+            this.gameObject.GetComponent<WorkerMovement>().setSpeed(true);
         }
         if(sleepNeed<=0 || eatNeed<=0 || knowledge<=0){
             this.gameObject.GetComponent<WorkerMovement>().noFeels(false);
