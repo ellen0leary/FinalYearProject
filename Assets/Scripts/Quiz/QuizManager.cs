@@ -58,6 +58,16 @@ public class QuizManager : MonoBehaviour
         intelligentTutor.addScore(correctQuestions);
         int average = intelligentTutor.getAverage();
         questionText.text = "You have finished with "+ correctQuestions.ToString() +" right. \n Your average so far is "+average.ToString();
+        if( correctQuestions> average){
+            questionText.text += "\n You have improved you average";
+        }
+        if(intelligentTutor.returnLastScore()!= -1){
+            if(correctQuestions >intelligentTutor.returnLastScore()){
+                questionText.text += "\n You did better this quiz than the last one!";
+            } else {
+                questionText.text += "\n You did worst than the last quiz. Try again";
+            }
+        }
         Destroy(trueBtn);
         Destroy(falseBtn);
         intelligentTutor.saveScores();

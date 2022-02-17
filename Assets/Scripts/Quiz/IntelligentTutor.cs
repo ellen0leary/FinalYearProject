@@ -7,6 +7,7 @@ public class IntelligentTutor : MonoBehaviour
 {
     List<int> listOfScores = new List<int>();
     private string playerPrefName = "ListOfScores";
+    int lastScore = -1;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,6 +17,7 @@ public class IntelligentTutor : MonoBehaviour
            foreach(string x in stringOfScores){
                 int result = Int32.Parse(x);
                 listOfScores.Add(result);
+                getLastScore();
            }
        } else {
            PlayerPrefs.SetString(playerPrefName,"2,1,4,5,2");
@@ -28,7 +30,9 @@ public class IntelligentTutor : MonoBehaviour
     {
         
     }
-
+    void getLastScore(){
+        lastScore = listOfScores[listOfScores.Count-1];
+    }
 
     public int getAverage(){
         int average = 0;
@@ -51,5 +55,7 @@ public class IntelligentTutor : MonoBehaviour
         PlayerPrefs.SetString(playerPrefName, str);
     }
 
-
+    public int returnLastScore(){
+        return lastScore;
+    }
 }
