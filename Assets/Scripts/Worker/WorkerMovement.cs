@@ -23,6 +23,7 @@ public class WorkerMovement : MonoBehaviour
     Vector3 sleepPoint;
     Vector3 eatPoint;
     Vector3 knowedgePoint;
+    Vector3 stopingArea;
     WorkerFeelings feel;
     void Start()
     {
@@ -30,6 +31,7 @@ public class WorkerMovement : MonoBehaviour
         eatPoint = GameObject.FindGameObjectWithTag("cantain").transform.position;
         sleepPoint = GameObject.FindGameObjectWithTag("dormitory").transform.position;
         knowedgePoint = GameObject.FindGameObjectWithTag("knowledge").transform.position;
+        stopingArea = GameObject.FindGameObjectWithTag("Stopping Area").transform.position;
         feel = GetComponent<WorkerFeelings>();
     }
 
@@ -49,7 +51,7 @@ public class WorkerMovement : MonoBehaviour
             randomInt = (int)Random.Range(0, 5);
             isBusy = true;
         }
-        if (randomInt == 0f ||randomInt == 2|| randomInt == 4f)
+        if (randomInt == 0f || randomInt == 4f)
         {
             Patrolling();
         }
@@ -57,9 +59,9 @@ public class WorkerMovement : MonoBehaviour
         {
             GoToEat();
         }
-        // else if(randomInt == 2){
-        //     GoToSleep();
-        // }
+        else if(randomInt == 2){
+            GoToWork();
+        }
     }
 
     void Patrolling()
@@ -147,6 +149,21 @@ public class WorkerMovement : MonoBehaviour
 
     }
 
+    void GoToWork(){
+        walkPoint = stopingArea;
+        nav.SetDestination(walkPoint);
+
+        walkPointSet = true;
+        Vector3 distaneToPoint = transform.position - walkPoint;
+        if (distaneToPoint.magnitude < 1f)
+        {
+            ifTimerActive = true;
+            timer = eatTimer;
+            walkPointSet = false;
+            isBusy = false;
+        }
+
+    }
     public void sendToTruck(){
         nav.SetDestination(new Vector3(-3f,0.12f, 1f));
         walkPointSet = true;
