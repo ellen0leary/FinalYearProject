@@ -23,6 +23,15 @@ public class WorkerFeelings : MonoBehaviour
         sleepNeed -= 5 * Time.deltaTime;
         eatNeed -= 5 * Time.deltaTime;
         knowledge -= 5 * Time.deltaTime;
+        if (sleepNeed < 30 || eatNeed <= 20)
+        {
+            this.gameObject.GetComponent<WorkerMovement>().setSpeed();
+        }
+        if(sleepNeed<=0 || eatNeed<=0 || knowledge<=0){
+            this.gameObject.GetComponent<WorkerMovement>().noFeels(false);
+        } else {
+            this.gameObject.GetComponent<WorkerMovement>().noFeels(true);
+        }
     }
 
 
@@ -33,6 +42,7 @@ public class WorkerFeelings : MonoBehaviour
     public void IncreaseEat(int value)
     {
         eatNeed += value;
+        this.gameObject.GetComponent<WorkerMovement>().sendWorkerToEat();
     }
 
     public void IncreaseKnowledge(int value)

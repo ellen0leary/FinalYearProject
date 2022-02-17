@@ -13,21 +13,32 @@ public class WorkerMovement : MonoBehaviour
     bool isBusy;
     bool walkPointSet;
     float randomInt = -1;
+    bool noFeelings=true;
 
     // Start is called before the first frame update
+    bool ifTimerActive;
+    float timer = 0;
+    float sleepTimer = 500;
+    float eatTimer = 200;
+    Vector3 sleepPoint;
+    Vector3 eatPoint;
     void Start()
     {
         isBusy = false;
+        eatPoint = GameObject.FindGameObjectWithTag("cantain").transform.position;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(!noFeelings){
+            // nav.SetDestination(this.gameObject.transform.position);
+            nav.ResetPath();
+            return;
+        }
+        if(ifTimerActive){
 
-        //random movement
-        //setTasks
-        //eating working
-
+        }
         if (!isBusy)
         {
             randomInt = (int)Random.Range(0, 5);
@@ -79,16 +90,26 @@ public class WorkerMovement : MonoBehaviour
 
     void GoToEat()
     {
-        walkPoint = new Vector3(6.4f, transform.position.y, -1.6f);
+        walkPoint =eatPoint;
         nav.SetDestination(walkPoint);
 
         walkPointSet = true;
         Vector3 distaneToPoint = transform.position - walkPoint;
-        if (distaneToPoint.magnitude < 3f)
+        if (distaneToPoint.magnitude < 0.5f)
         {
+            ifTimerActive = true;
+            timer = eatTimer;
             walkPointSet = false;
             isBusy = false;
         }
+
+    }
+
+    public void GoToSleep(){
+
+    }
+
+    public void GoGetKnowledge(){
 
     }
 
@@ -97,5 +118,18 @@ public class WorkerMovement : MonoBehaviour
         walkPointSet = true;
         walkPoint = new Vector3(-3f, 0.12f, 1f);
         isBusy=true;
+    }
+
+    public void noFeels(bool obj){
+        noFeelings = obj;
+    }
+
+    public void setSpeed(){
+        GetComponent<NavMeshAgent>().speed = 0.1f;
+    }
+
+    public void sendWorkerToEat(){
+        print("Sending worker to eat");
+        GoToEat();
     }
 }

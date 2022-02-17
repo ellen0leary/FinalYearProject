@@ -11,6 +11,7 @@ TagManager:
   - material
   - score
   - selling
+  - cantain
   layers:
   - Default
   - TransparentFX
