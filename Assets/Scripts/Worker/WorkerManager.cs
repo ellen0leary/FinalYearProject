@@ -60,7 +60,7 @@ public class WorkerManager : MonoBehaviour
     {
         foreach (WorkerMovement i in workers)
         {
-            i.gameObject.GetComponent<WorkerFeelings>().IncreaseKnowledge(70);
+            i.gameObject.GetComponent<WorkerMovement>().sendWorkerToKnowelge();
         }
     }
 }

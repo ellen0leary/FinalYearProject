@@ -22,12 +22,14 @@ public class WorkerMovement : MonoBehaviour
     float eatTimer = 200;
     Vector3 sleepPoint;
     Vector3 eatPoint;
+    Vector3 knowedgePoint;
     WorkerFeelings feel;
     void Start()
     {
         isBusy = false;
         eatPoint = GameObject.FindGameObjectWithTag("cantain").transform.position;
         sleepPoint = GameObject.FindGameObjectWithTag("dormitory").transform.position;
+        knowedgePoint = GameObject.FindGameObjectWithTag("knowledge").transform.position;
         feel = GetComponent<WorkerFeelings>();
     }
 
@@ -47,7 +49,7 @@ public class WorkerMovement : MonoBehaviour
             randomInt = (int)Random.Range(0, 5);
             isBusy = true;
         }
-        if (randomInt == 0f || randomInt == 4f)
+        if (randomInt == 0f ||randomInt == 2|| randomInt == 4f)
         {
             Patrolling();
         }
@@ -127,7 +129,21 @@ public class WorkerMovement : MonoBehaviour
 
     }
 
-    public void GoGetKnowledge(){
+    void GoGetKnowledge()
+    {
+        walkPoint = knowedgePoint;
+        nav.SetDestination(walkPoint);
+
+        walkPointSet = true;
+        Vector3 distaneToPoint = transform.position - walkPoint;
+        if (distaneToPoint.magnitude < 1f)
+        {
+            feel.IncreaseKnowledge(70);
+            ifTimerActive = true;
+            timer = eatTimer;
+            walkPointSet = false;
+            isBusy = false;
+        }
 
     }
 
@@ -151,7 +167,10 @@ public class WorkerMovement : MonoBehaviour
     }
 
     public void sendWorkerToSleep(){
-        print("sending to sleep");
         GoToSleep();
+    }
+
+    public void sendWorkerToKnowelge(){
+        GoGetKnowledge();
     }
 }
