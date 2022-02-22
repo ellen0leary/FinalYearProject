@@ -23,7 +23,10 @@ public class WorkerClick : MonoBehaviour
             if (Physics.Raycast(ray, out hit))
             {
                 print(hit.transform.tag.ToString());
-                if (hit.transform.tag == "worker") wdScreen.SetActive(true);
+                if (hit.transform.tag == "worker"){ 
+                    wdScreen.SetActive(true);
+                    hit.transform.gameObject.GetComponent<WorkerDisplay>().setDeatils();
+                    }
                 else wdScreen.SetActive(false);
             }
             
