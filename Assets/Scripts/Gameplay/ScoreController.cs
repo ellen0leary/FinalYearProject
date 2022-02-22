@@ -10,8 +10,9 @@ public class ScoreController : MonoBehaviour
     int currentScore;
     public TextMeshProUGUI scoreText;
     GameObject scorePanel;
+    TextMeshProUGUI timerTxt;
 
-    float mainTimer = 10f;
+    float mainTimer = 1000f;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,16 +20,14 @@ public class ScoreController : MonoBehaviour
         setScoreText();
         scorePanel = GameObject.Find("Score Panel");
         scorePanel.SetActive(false);
+        timerTxt = GameObject.Find("Timer Text").GetComponent<TextMeshProUGUI>();
     }
 
     void Update(){
-        mainTimer-= 50*Time.deltaTime;
+        mainTimer-= 1*Time.deltaTime;
         if(mainTimer<= 0){
-            // Debug.Log("Game over");
-            // SceneManager.LoadScene("Quiz");
             gameOverScreen();
-        }
-        // print(mainTimer.ToString());
+        }else timerTxt.text = "Timer Remaining : " + Mathf.FloorToInt(mainTimer % 60);
     }
 
     // Update is called once per frame
