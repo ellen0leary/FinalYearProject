@@ -47,7 +47,6 @@ public class MaterialController : MonoBehaviour
         }
     }
 
-
     /** 
     base class for materials - idk if i will use this
     **/

@@ -50,4 +50,11 @@ public class WorkerFeelings : MonoBehaviour
     {
         knowledge += value;
     }
+
+    void OnMouseEnter() {
+        print("enter");
+        if(Input.GetMouseButtonDown(0)){
+            print("clicking");
+        }
+    }
 }

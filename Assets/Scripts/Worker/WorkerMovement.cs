@@ -33,7 +33,7 @@ public class WorkerMovement : MonoBehaviour
         knowedgePoint = GameObject.FindGameObjectWithTag("knowledge").transform.position;
         stopingArea = GameObject.FindGameObjectWithTag("Stopping Area").transform.position;
         feel = GetComponent<WorkerFeelings>();
-        GetComponent<NavMeshAgent>().speed = 2f;
+        GetComponent<NavMeshAgent>().speed = 0.7f;
     }
 
     // Update is called once per frame
@@ -179,7 +179,7 @@ public class WorkerMovement : MonoBehaviour
     public void setSpeed(bool ifSlow){
         if(ifSlow)
         {
-            GetComponent<NavMeshAgent>().speed = 2f;
+            GetComponent<NavMeshAgent>().speed = 0.7f;
         } else {
             GetComponent<NavMeshAgent>().speed = 0.1f;
         }
