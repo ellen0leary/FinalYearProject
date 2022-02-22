@@ -25,9 +25,16 @@ public class WorkerMovement : MonoBehaviour
     Vector3 knowedgePoint;
     Vector3 stopingArea;
     WorkerFeelings feel;
+
+    bool isWorking;
+    bool isFirstPos;
+    Vector3 startPos;
+    Vector3 endPos;
+
     void Start()
     {
         isBusy = false;
+        isWorking = false;
         eatPoint = GameObject.FindGameObjectWithTag("cantain").transform.position;
         sleepPoint = GameObject.FindGameObjectWithTag("dormitory").transform.position;
         knowedgePoint = GameObject.FindGameObjectWithTag("knowledge").transform.position;
@@ -39,30 +46,31 @@ public class WorkerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!noFeelings){
-            // nav.SetDestination(this.gameObject.transform.position);
-            nav.ResetPath();
+        // if(!noFeelings){
+        //     // nav.SetDestination(this.gameObject.transform.position);
+        //     nav.ResetPath();
+        //     return;
+        // }
+        if(isWorking){
+            checkWorking();
             return;
         }
-        if(ifTimerActive){
-
-        }
-        if (!isBusy)
-        {
-            randomInt = (int)Random.Range(0, 5);
-            isBusy = true;
-        }
-        if (randomInt == 0f || randomInt == 4f)
-        {
-            Patrolling();
-        }
-        else if (randomInt == 3f || randomInt == 1f)
-        {
-            GoToEat();
-        }
-        else if(randomInt == 2){
-            GoToWork();
-        }
+        // if (!isBusy)
+        // {
+        //     randomInt = (int)Random.Range(0, 5);
+        //     isBusy = true;
+        // }
+        // if (randomInt == 0f || randomInt == 4f)
+        // {
+        //     Patrolling();
+        // }
+        // else if (randomInt == 3f || randomInt == 1f)
+        // {
+        //     GoToEat();
+        // }
+        // else if(randomInt == 2){
+        //     GoToWork();
+        // }
     }
 
     void Patrolling()
@@ -195,5 +203,36 @@ public class WorkerMovement : MonoBehaviour
 
     public void sendWorkerToKnowelge(){
         GoGetKnowledge();
+    }
+
+    public void sendToWork(Vector3 start, Vector3 end){
+        print("sending to work");
+        startPos = start;
+        endPos = end;
+        isWorking = true;
+        isFirstPos = true;
+        nav.SetDestination(startPos);
+    }
+    void checkWorking(){
+        if(isFirstPos){
+            Vector3 distaneToPoint = transform.position - walkPoint;
+            print(Vector3.Distance(transform.position, walkPoint));
+            if (Vector3.Distance(transform.position, walkPoint) < 3.5f)
+            {
+                print("point 1");
+                isFirstPos = false;
+                walkPoint = endPos;
+                nav.SetDestination(endPos);
+            }
+        }else {
+            Vector3 distaneToPoint = transform.position - walkPoint;
+            if (distaneToPoint.magnitude < 0.25f)
+            {
+                print("done");
+                isFirstPos = true;
+                isWorking = false;
+                walkPointSet = false;
+            }
+        }
     }
 }

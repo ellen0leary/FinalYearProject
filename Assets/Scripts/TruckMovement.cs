@@ -39,14 +39,14 @@ public class TruckMovement : MonoBehaviour
             stop = true;
             // uiScreen.SetActive(true);
             gameObject.GetComponent<TruckMaterial>().setMaterial();
-            workerManager.sendWorker();
+            // workerManager.sendWorker();
             stop = false;
         }
     }
 
     public void closeScreen(){
         uiScreen.SetActive(false);
-        workerManager.sendWorker();
+        // workerManager.sendWorker()s;
         stop = false;
     }
 }

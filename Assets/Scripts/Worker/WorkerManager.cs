@@ -23,9 +23,17 @@ public class WorkerManager : MonoBehaviour
         
     }
 
-    public void sendWorker(){
-        int index = Random.Range(0, workers.Length-1);
-        workers[index].sendToTruck();
+    public void sendWorker(Vector3 startPos, Vector3 endPos){
+        GameObject g = new GameObject();
+        float shortestPos =200000000f;
+        foreach(WorkerMovement i in workers){
+            if(Vector3.Distance(startPos,i.gameObject.transform.position)<shortestPos){
+                shortestPos = Vector3.Distance(startPos,i.gameObject.transform.position);
+                g =i.gameObject;
+            }
+        }
+        print(g.name);
+        g.GetComponent<WorkerMovement>().sendToWork(startPos, endPos);
     }
 
     public void addWorker(){
