@@ -9,20 +9,24 @@ public class ScoreController : MonoBehaviour
     int startingScore = 5000;
     int currentScore;
     public TextMeshProUGUI scoreText;
+    GameObject scorePanel;
 
-    float mainTimer = 10000f;
+    float mainTimer = 10f;
     // Start is called before the first frame update
     void Start()
     {
         currentScore = startingScore;
         setScoreText();
+        scorePanel = GameObject.Find("Score Panel");
+        scorePanel.SetActive(false);
     }
 
     void Update(){
         mainTimer-= 50*Time.deltaTime;
         if(mainTimer<= 0){
-            Debug.Log("Game over");
-            SceneManager.LoadScene("Quiz");
+            // Debug.Log("Game over");
+            // SceneManager.LoadScene("Quiz");
+            gameOverScreen();
         }
         // print(mainTimer.ToString());
     }
@@ -42,5 +46,29 @@ public class ScoreController : MonoBehaviour
 
     void setScoreText(){
         scoreText.text = "Money - €" + currentScore.ToString();
+    }
+    void gameOverScreen(){
+        string text = "";
+        if(mainTimer<=0){
+            text = "You Lost....";
+        } else {
+            text = "You Won!";
+        }
+        scorePanel.SetActive(true);
+        GameObject.Find("FinalTextScore").GetComponent<TextMeshProUGUI>().text = text;
+        //set final score
+        GameObject.Find("FinalScoreScore").GetComponent<TextMeshProUGUI>().text = "Final Score is "+ currentScore.ToString();
+    }
+
+    public void goToMainMenu(){
+        SceneManager.LoadScene("Menu");
+    }
+
+    void goToReplay(){
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    void goToQuiz(){
+        SceneManager.LoadScene("Quiz");
     }
 }
