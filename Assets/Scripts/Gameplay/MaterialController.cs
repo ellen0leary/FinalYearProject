@@ -34,7 +34,7 @@ public class MaterialController : MonoBehaviour
     public void sell(){
         //calculate
         Debug.Log("selling for " + currentScore);
-        sc.setScore(currentScore);
+        sc.setScore(currentScore, true);
     }
 
 

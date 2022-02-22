@@ -29,7 +29,7 @@ public class WorkerManager : MonoBehaviour
     }
 
     public void addWorker(){
-        if(sc.setScore(-500)){
+        if(sc.setScore(-500, false)){
         //create temp array
         int lastIndex = workers.Length;
         WorkerMovement[] temp = new WorkerMovement[lastIndex + 1];

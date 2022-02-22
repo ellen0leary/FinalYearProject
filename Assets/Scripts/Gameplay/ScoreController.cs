@@ -9,10 +9,13 @@ public class ScoreController : MonoBehaviour
     int startingScore = 5000;
     int currentScore;
     public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI countText;
     GameObject scorePanel;
     TextMeshProUGUI timerTxt;
 
     float mainTimer = 1000f;
+    int materCount = 0;
+    int materGoal = 20;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,21 +24,26 @@ public class ScoreController : MonoBehaviour
         scorePanel = GameObject.Find("Score Panel");
         scorePanel.SetActive(false);
         timerTxt = GameObject.Find("Timer Text").GetComponent<TextMeshProUGUI>();
+        countText.text = "Material Count " + materCount.ToString() + "/" + materGoal.ToString();
     }
 
     void Update(){
         mainTimer-= 1*Time.deltaTime;
         if(mainTimer<= 0){
             gameOverScreen();
-        }else timerTxt.text = "Timer Remaining : " + Mathf.FloorToInt(mainTimer % 60);
+        }else{ 
+            timerTxt.text = "Timer Remaining : " + Mathf.FloorToInt(mainTimer % 60);
+            countText.text = "Material Count " + materCount.ToString() + "/"+materGoal.ToString();
+        }
     }
 
     // Update is called once per frame
-    public bool setScore(int addition){
+    public bool setScore(int addition, bool increseCounter){
         if(currentScore + addition>=0) {
             currentScore+=addition;
             print(currentScore);
             setScoreText();
+            if (increseCounter) materCount++;
             return true;
         }
         else return false;
