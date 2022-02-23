@@ -46,31 +46,31 @@ public class WorkerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // if(!noFeelings){
-        //     // nav.SetDestination(this.gameObject.transform.position);
-        //     nav.ResetPath();
-        //     return;
-        // }
+        if(!noFeelings){
+            // nav.SetDestination(this.gameObject.transform.position);
+            nav.ResetPath();
+            return;
+        }
         if(isWorking){
             checkWorking();
             return;
         }
-        // if (!isBusy)
-        // {
-        //     randomInt = (int)Random.Range(0, 5);
-        //     isBusy = true;
-        // }
-        // if (randomInt == 0f || randomInt == 4f)
-        // {
-        //     Patrolling();
-        // }
-        // else if (randomInt == 3f || randomInt == 1f)
-        // {
-        //     GoToEat();
-        // }
-        // else if(randomInt == 2){
-        //     GoToWork();
-        // }
+        if (!isBusy)
+        {
+            randomInt = (int)Random.Range(0, 5);
+            isBusy = true;
+        }
+        if (randomInt == 0f || randomInt == 4f)
+        {
+            Patrolling();
+        }
+        else if (randomInt == 3f || randomInt == 1f)
+        {
+            GoToEat();
+        }
+        else if(randomInt == 2){
+            GoToWork();
+        }
     }
 
     void Patrolling()
