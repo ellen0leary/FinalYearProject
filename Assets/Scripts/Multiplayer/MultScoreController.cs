@@ -24,17 +24,15 @@ public class MultScoreController : MonoBehaviour
 
 
     TextMeshProUGUI timerTxt;
-    float mainTimer = 1000f;
+    float mainTimer = 10f;
     int materGoal = 20;
     GameObject scorePanel;
     void Start()
     {
         scoreP1 = startingScore;
         scoreP2 = startingScore;
-        scorePanelP1 = GameObject.Find("Score Panel");
-        scorePanelP1.SetActive(false);
-        scorePanelP2 = GameObject.Find("Score Panel");
-        scorePanelP2.SetActive(false);
+        scorePanel = GameObject.Find("Score Panel");
+        scorePanel.SetActive(false);
 
         timerTxt = GameObject.Find("TimerText").GetComponent<TextMeshProUGUI>();
 
@@ -85,17 +83,20 @@ public class MultScoreController : MonoBehaviour
         if(scoreP1 > scoreP2){
             p1EndText = "You Won!";
             p2EndText = "You Lost.....";
-        }else  {
+        }else if  (scoreP1 < scoreP2) {
             p2EndText = "You Won!";
             p1EndText = "You Lost.....";
+        } else {
+            p2EndText = "Its a tie";
+            p1EndText = "Its a tie";
         }
         scorePanel.SetActive(true);
         GameObject.Find("FinalTextScoreP1").GetComponent<TextMeshProUGUI>().text = p1EndText;
         //set final score
-        GameObject.Find("FinalScoreScoreP1").GetComponent<TextMeshProUGUI>().text = "Final Score is " + scoreP1.ToString();
+        GameObject.Find("FinalScoreScoreP1").GetComponent<TextMeshProUGUI>().text = "Your Final Score is " + scoreP1.ToString();
         GameObject.Find("FinalTextScoreP2").GetComponent<TextMeshProUGUI>().text = p2EndText;
         //set final score
-        GameObject.Find("FinalScoreScoreP2").GetComponent<TextMeshProUGUI>().text = "Final Score is " + scoreP2.ToString();
+        GameObject.Find("FinalScoreScoreP2").GetComponent<TextMeshProUGUI>().text = "Your Final Score is " + scoreP2.ToString();
     }
     public void goToMainMenu()
     {
