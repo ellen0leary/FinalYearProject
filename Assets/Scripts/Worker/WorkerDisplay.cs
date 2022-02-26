@@ -18,17 +18,17 @@ public class WorkerDisplay : MonoBehaviour
         // if(gameObject.activeInHierarchy){
         if (ifActive)
         {
-            GameObject.Find("knowledge").GetComponent<TextMeshProUGUI>().text = wf.knowledge.ToString();
-            GameObject.Find("eat skill").GetComponent<TextMeshProUGUI>().text = wf.eatNeed.ToString();
-            GameObject.Find("sleep skill").GetComponent<TextMeshProUGUI>().text = wf.sleepNeed.ToString();
+            GameObject.Find("knowledge").GetComponent<TextMeshProUGUI>().text = "knowledge skill " + (int)wf.knowledge;
+            GameObject.Find("eat skill").GetComponent<TextMeshProUGUI>().text = "eat need  " + (int)wf.eatNeed;
+            GameObject.Find("sleep skill").GetComponent<TextMeshProUGUI>().text = "knowledge skill " + (int)wf.sleepNeed;
         }
     }
 
     public void setDeatils(){
         //get components
-        GameObject.Find("knowledge").GetComponent<TextMeshProUGUI>().text = wf.knowledge.ToString();
-        GameObject.Find("eat skill").GetComponent<TextMeshProUGUI>().text = wf.eatNeed.ToString();
-        GameObject.Find("sleep skill").GetComponent<TextMeshProUGUI>().text = wf.sleepNeed.ToString();
+        GameObject.Find("knowledge").GetComponent<TextMeshProUGUI>().text = "knowledge skill " + (int) wf.knowledge;
+        GameObject.Find("eat skill").GetComponent<TextMeshProUGUI>().text = "eat need  " + (int) wf.eatNeed;
+        GameObject.Find("sleep skill").GetComponent<TextMeshProUGUI>().text = "knowledge skill " + (int) wf.sleepNeed;
         ifActive = true;
         //set component
     }

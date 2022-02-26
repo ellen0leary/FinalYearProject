@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 5074947116093081823}
   - component: {fileID: 6282823678352686093}
   - component: {fileID: 3680489612972824275}
+  - component: {fileID: 925781459}
   m_Layer: 0
   m_Name: Worker
   m_TagString: worker
@@ -172,3 +173,16 @@ MonoBehaviour:
   sleepNeed: 0
   eatNeed: 0
   knowledge: 0
+  accurcy: 0
+--- !u!114 &925781459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5074947116093081792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d45344df4f553034c91c5168a3a880e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
