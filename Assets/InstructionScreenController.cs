@@ -5,6 +5,7 @@ using UnityEngine;
 public class InstructionScreenController : MonoBehaviour
 {
     // Start is called before the first frame update
+
     void Start()
     {
         Time.timeScale = 0;
@@ -19,5 +20,10 @@ public class InstructionScreenController : MonoBehaviour
     public void startGame(){
         this.gameObject.SetActive(false);
         Time.timeScale = 1;
+    }
+
+    public  void OpenScreen(){
+        this.gameObject.SetActive(true);
+        Time.timeScale = 0;
     }
 }
