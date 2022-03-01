@@ -23,7 +23,8 @@ public class MultScoreController : MonoBehaviour
 
 
 
-    TextMeshProUGUI timerTxt;
+    public TextMeshProUGUI timerTxtP2;
+    public TextMeshProUGUI timerTxtP1;
     float mainTimer = 10f;
     int materGoal = 20;
     GameObject scorePanel;
@@ -34,7 +35,8 @@ public class MultScoreController : MonoBehaviour
         scorePanel = GameObject.Find("Score Panel");
         scorePanel.SetActive(false);
 
-        timerTxt = GameObject.Find("TimerText").GetComponent<TextMeshProUGUI>();
+        timerTxtP2 = GameObject.Find("P2TimerText").GetComponent<TextMeshProUGUI>();
+        timerTxtP1 = GameObject.Find("P1TimerText").GetComponent<TextMeshProUGUI>();
 
         countTextP1.text = "Material Count " + materCountP1.ToString() + "/" + materGoal.ToString();
         countTextP2.text= "Material Count " + materCountP2.ToString() + "/" + materGoal.ToString();
@@ -47,7 +49,8 @@ public class MultScoreController : MonoBehaviour
         if(mainTimer<=0){
             gameOverScreen();
         } else {
-            timerTxt.text =  "Timer Remaining : " + Mathf.FloorToInt(mainTimer % 60);
+            timerTxtP1.text =  "Timer Remaining : " + Mathf.FloorToInt(mainTimer % 60);
+            timerTxtP2.text = "Timer Remaining : " + Mathf.FloorToInt(mainTimer % 60);
             countTextP1.text = "Material Count " + materCountP1.ToString() + "/" + materGoal.ToString();
             countTextP2.text = "Material Count " + materCountP2.ToString() + "/" + materGoal.ToString();
         }
