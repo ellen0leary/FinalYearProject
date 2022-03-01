@@ -30,7 +30,7 @@ public class WorkerMovement : MonoBehaviour
     bool isFirstPos;
     Vector3 startPos;
     Vector3 endPos;
-
+    GameObject child;
     void Start()
     {
         isBusy = false;
@@ -205,33 +205,39 @@ public class WorkerMovement : MonoBehaviour
         GoGetKnowledge();
     }
 
-    public void sendToWork(Vector3 start, Vector3 end){
+    public void sendToWork(Vector3 start, Vector3 end, GameObject material){
         print("sending to work");
         startPos = start;
         endPos = end;
+        walkPoint = start;
         isWorking = true;
         isFirstPos = true;
-        nav.SetDestination(startPos);
+        nav.SetDestination(walkPoint);
+        child = material;
     }
     void checkWorking(){
         if(isFirstPos){
             Vector3 distaneToPoint = transform.position - walkPoint;
             print(Vector3.Distance(transform.position, walkPoint));
-            if (Vector3.Distance(transform.position, walkPoint) < 3.5f)
+            if (Vector3.Distance(transform.position, walkPoint) < 0.25f)
             {
+                print(Vector3.Distance(transform.position, walkPoint));
                 print("point 1");
                 isFirstPos = false;
                 walkPoint = endPos;
                 nav.SetDestination(endPos);
+                child.transform.parent = this.gameObject.transform;
             }
         }else {
             Vector3 distaneToPoint = transform.position - walkPoint;
+            print(Vector3.Distance(transform.position, walkPoint));
             if (distaneToPoint.magnitude < 0.25f)
             {
                 print("done");
                 isFirstPos = true;
                 isWorking = false;
                 walkPointSet = false;
+                transform.DetachChildren();
             }
         }
     }

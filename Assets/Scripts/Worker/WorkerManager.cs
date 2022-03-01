@@ -23,8 +23,8 @@ public class WorkerManager : MonoBehaviour
         
     }
 
-    public void sendWorker(Vector3 startPos, Vector3 endPos){
-        GameObject g = new GameObject();
+    public void sendWorker(Vector3 startPos, Vector3 endPos, GameObject material){
+        GameObject g = workers[0].gameObject;
         float shortestPos =200000000f;
         foreach(WorkerMovement i in workers){
             if(Vector3.Distance(startPos,i.gameObject.transform.position)<shortestPos){
@@ -33,7 +33,7 @@ public class WorkerManager : MonoBehaviour
             }
         }
         print(g.name);
-        g.GetComponent<WorkerMovement>().sendToWork(startPos, endPos);
+        g.GetComponent<WorkerMovement>().sendToWork(startPos, endPos, material);
     }
 
     public void addWorker(){
