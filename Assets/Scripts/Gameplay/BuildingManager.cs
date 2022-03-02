@@ -15,6 +15,7 @@ public class BuildingManager : MonoBehaviour
     }
 
     public void createBuilding(){
+        print("not calling");
         if(sc.setScore(-1000, false)){
             int index = Random.Range(0, allBuildings.Length - 1);
             float xValiue = Random.Range(-5,5);
@@ -27,13 +28,15 @@ public class BuildingManager : MonoBehaviour
 
     public void createBuilding(Vector3 pos)
     {
-        if (sc.setScore(-1000, false))
-        {
+        // if (sc.setScore(-1000, false))
+        // {
+            print("calling");
             int index = Random.Range(0, allBuildings.Length - 1);
             float xValiue = Random.Range(-5, 5);
             float yValiue = Random.Range(-5, 5);
-            GameObject gOb = Instantiate(allBuildings[index], new Vector3(-0.0384554863f + xValiue, 0.109999992f, -0.737234116f - yValiue), allBuildings[index].transform.rotation);
-        }
+            Vector3 newPos = pos - new Vector3(xValiue, 0 , yValiue);
+            GameObject gOb = Instantiate(allBuildings[index], newPos, allBuildings[index].transform.rotation);
+        // }
 
     }
 }

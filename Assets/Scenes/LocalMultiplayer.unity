@@ -988,7 +988,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 55.980713, y: 854.3251}
+  m_AnchoredPosition: {x: 11, y: 854.3251}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &199430008
@@ -6081,9 +6081,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: ShoppingManager, Assembly-CSharp
-        m_MethodName: addBuilding
+      - m_Target: {fileID: 1367007879}
+        m_TargetAssemblyTypeName: MultShoppingController, Assembly-CSharp
+        m_MethodName: addBuildingP2
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7244,7 +7244,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1448059642}
   m_LocalRotation: {x: 0.5, y: 0.5, z: -0.5, w: 0.5}
-  m_LocalPosition: {x: -6.0687513, y: 17.86466, z: 5.4236784}
+  m_LocalPosition: {x: -5.37, y: 19.5, z: -17.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 531469333}
@@ -9518,7 +9518,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1907735686}
-  - component: {fileID: 1907735687}
   m_Layer: 0
   m_Name: Buildings (1)
   m_TagString: Untagged
@@ -9543,22 +9542,6 @@ Transform:
   m_Father: {fileID: 531469333}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1907735687
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1907735685}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 532837052af874046b0fe2a318e802a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  allBuildings:
-  - {fileID: 1162181835813610993, guid: 00485b54b21f932469b1bdd5f73217c1, type: 3}
-  - {fileID: 4116139094481641446, guid: c97c242854473604e9c97a26301f17c8, type: 3}
-  - {fileID: 6968041257288660790, guid: f48d2ec99f42ca543be554317d6cfe5b, type: 3}
 --- !u!1 &1911267796
 GameObject:
   m_ObjectHideFlags: 0
@@ -10103,6 +10086,36 @@ MonoBehaviour:
   countTextP2: {fileID: 1841704758}
   timerTxtP2: {fileID: 852603995}
   timerTxtP1: {fileID: 1406623269}
+--- !u!1 &1948678196
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1948678197}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1948678197
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1948678196}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2, y: 0.12, z: 0.13}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 20
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1954936379
 GameObject:
   m_ObjectHideFlags: 0
@@ -10629,7 +10642,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 21.401184, y: 855.9}
+  m_AnchoredPosition: {x: 46, y: 855.9}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &2077317778
@@ -10676,9 +10689,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: ShoppingManager, Assembly-CSharp
-        m_MethodName: addBuilding
+      - m_Target: {fileID: 1367007879}
+        m_TargetAssemblyTypeName: MultShoppingController, Assembly-CSharp
+        m_MethodName: addBuildingP1
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -36,18 +36,18 @@ public class WorkerManager : MonoBehaviour
         g.GetComponent<WorkerMovement>().sendToWork(startPos, endPos, material);
     }
 
-    public void addWorker(){
-        if(sc.setScore(-500, false)){
-        //create temp array
-        int lastIndex = workers.Length;
-        WorkerMovement[] temp = new WorkerMovement[lastIndex + 1];
-        //replace current array
-        workers = temp;
-        //add worker
-        GameObject newWorker = Instantiate(woker, new Vector3(-0.0384554863f, 0.109999992f, -0.737234116f),woker.transform.rotation);
-        workers[lastIndex] = newWorker.GetComponent<WorkerMovement>();
-        }
-    }
+    // public void addWorker(){
+    //     if(sc.setScore(-500, false)){
+    //     //create temp array
+    //     int lastIndex = workers.Length;
+    //     WorkerMovement[] temp = new WorkerMovement[lastIndex + 1];
+    //     //replace current array
+    //     workers = temp;
+    //     //add worker
+    //     GameObject newWorker = Instantiate(woker, new Vector3(-0.0384554863f, 0.109999992f, -0.737234116f),woker.transform.rotation);
+    //     workers[lastIndex] = newWorker.GetComponent<WorkerMovement>();
+    //     }
+    // }
 
     public void IncreaseEat(){
         int num = 4;
@@ -86,6 +86,7 @@ public class WorkerManager : MonoBehaviour
     public void addWorker(Vector3 pos){
         // if(sc.setScore(-500, false)){
         //create temp array
+        print(pos.ToString());
         int lastIndex = workers.Length;
         WorkerMovement[] temp = new WorkerMovement[lastIndex + 1];
         //replace current array
