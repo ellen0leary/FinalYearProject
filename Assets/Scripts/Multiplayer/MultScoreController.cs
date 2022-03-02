@@ -25,7 +25,7 @@ public class MultScoreController : MonoBehaviour
 
     public TextMeshProUGUI timerTxtP2;
     public TextMeshProUGUI timerTxtP1;
-    float mainTimer = 10f;
+    float mainTimer = 1000f;
     int materGoal = 20;
     GameObject scorePanel;
     void Start()

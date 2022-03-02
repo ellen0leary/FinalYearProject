@@ -82,4 +82,17 @@ public class WorkerManager : MonoBehaviour
             num--;
         }
     }
+
+    public void addWorker(Vector3 pos){
+        // if(sc.setScore(-500, false)){
+        //create temp array
+        int lastIndex = workers.Length;
+        WorkerMovement[] temp = new WorkerMovement[lastIndex + 1];
+        //replace current array
+        workers = temp;
+        //add worker
+        GameObject newWorker = Instantiate(woker, pos,woker.transform.rotation);
+        workers[lastIndex] = newWorker.GetComponent<WorkerMovement>();
+        // }
+    }
 }
