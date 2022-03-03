@@ -28,7 +28,7 @@ public class Drag : MonoBehaviour
     }
 
     void OnMouseExit(){
-        if(ifMoved){
+        if(ifMoved && gameObject.tag=="material"){
         // endingPos = transform.position;
             man.sendWorker(startingPos, endingPos, this.gameObject);
             this.gameObject.transform.position = startingPos;
