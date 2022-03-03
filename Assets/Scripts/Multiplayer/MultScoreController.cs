@@ -32,14 +32,19 @@ public class MultScoreController : MonoBehaviour
     {
         scoreP1 = startingScore;
         scoreP2 = startingScore;
+        print(scoreP1.ToString());
         scorePanel = GameObject.Find("Score Panel");
         scorePanel.SetActive(false);
 
         timerTxtP2 = GameObject.Find("P2TimerText").GetComponent<TextMeshProUGUI>();
         timerTxtP1 = GameObject.Find("P1TimerText").GetComponent<TextMeshProUGUI>();
 
+        setScoreText();
         countTextP1.text = "Material Count " + materCountP1.ToString() + "/" + materGoal.ToString();
         countTextP2.text= "Material Count " + materCountP2.ToString() + "/" + materGoal.ToString();
+        
+        // scoreTextP1.text = "Money - €" + scoreP1.ToString();/
+        // scoreTextP2.text = "Money - €" + scoreP2.ToString();
     }
 
     // Update is called once per frame
@@ -77,6 +82,7 @@ public class MultScoreController : MonoBehaviour
         return false;
     }
     void setScoreText(){
+        print("set score");
         scoreTextP1.text = "Money - €" + scoreP1.ToString();
         scoreTextP2.text = "Money - €" + scoreP2.ToString();
     }

@@ -303,7 +303,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &58031960
 RectTransform:
   m_ObjectHideFlags: 0
@@ -735,7 +735,7 @@ GameObject:
   - component: {fileID: 163957963}
   - component: {fileID: 163957962}
   m_Layer: 5
-  m_Name: P2Text (TMP)
+  m_Name: P2ScoreText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3715,7 +3715,7 @@ GameObject:
   - component: {fileID: 700772793}
   - component: {fileID: 700772792}
   m_Layer: 5
-  m_Name: P1Text (TMP)
+  m_Name: P1ScoreText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5385,7 +5385,7 @@ GameObject:
   - component: {fileID: 1028858814}
   - component: {fileID: 1028858813}
   m_Layer: 5
-  m_Name: P1Text (TMP)
+  m_Name: P1CountText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10080,10 +10080,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1127c6206be12d548b8e09f1d704a8aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreTextP1: {fileID: 1574427392}
-  countTextP1: {fileID: 2075482158}
-  scoreTextP2: {fileID: 1611210022}
-  countTextP2: {fileID: 1841704758}
+  scoreTextP1: {fileID: 700772792}
+  countTextP1: {fileID: 1028858813}
+  scoreTextP2: {fileID: 163957962}
+  countTextP2: {fileID: 1954936381}
   timerTxtP2: {fileID: 852603995}
   timerTxtP1: {fileID: 1406623269}
 --- !u!1 &1948678196
@@ -10128,7 +10128,7 @@ GameObject:
   - component: {fileID: 1954936382}
   - component: {fileID: 1954936381}
   m_Layer: 5
-  m_Name: P2Text (TMP) (1)
+  m_Name: P2CountText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
