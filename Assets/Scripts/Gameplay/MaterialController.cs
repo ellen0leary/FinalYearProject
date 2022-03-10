@@ -5,7 +5,7 @@ using UnityEngine;
 public class MaterialController : MonoBehaviour
 {
     int currentScore = 100;
-    int[] material = {0,1,2};
+    int[] material = {9,10,11};
     int value = 1000;
     int curentIndex = 0;
     int[] currentProcess = {-1-1,-1};
@@ -25,10 +25,16 @@ public class MaterialController : MonoBehaviour
         
     }
 
-    public void materialFinished(int layer){
+    public bool materialFinished(int layer){
         //add to []
         // Debug.Log(layer);
-        currentScore += 1000;
+        for (int x = 0; x<material.Length; x++){
+            if (material[x] == layer){
+                material[x] = -1;
+                return true;
+            }
+        }
+        return false;
     }
 
     public void sell(){
@@ -46,27 +52,10 @@ public class MaterialController : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
-
-    /** 
-    base class for materials - idk if i will use this
-    **/
-    public class Material {
-        enum Order {
-            NEW = 8,
-            WASH,
-            SORT,
-            SHREAD,
-            DONE
-        }
-
-        Order loc;
-        int error;
-
-        public Material(){
-            error = 0;
-            loc = Order.NEW;
-        }
+    public void upScore(){
+        currentScore += 1000;
     }
+
 }
 
 //create base class with enum to track 

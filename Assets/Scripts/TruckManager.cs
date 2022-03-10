@@ -27,7 +27,6 @@ public class TruckManager : MonoBehaviour
          if(timerActivate){
             timeLeft--;
             if(timeLeft<=0){
-                // print("rest")
                 Instantiate(truck, truck.transform.position, truck.transform.rotation);
                 timerActivate= false;
             }

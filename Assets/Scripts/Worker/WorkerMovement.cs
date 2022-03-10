@@ -218,7 +218,6 @@ public class WorkerMovement : MonoBehaviour
     void checkWorking(){
         if(isFirstPos){
             Vector3 distaneToPoint = transform.position - walkPoint;
-            print(Vector3.Distance(transform.position, walkPoint));
             if (Vector3.Distance(transform.position, walkPoint) < 0.25f)
             {
                 print(Vector3.Distance(transform.position, walkPoint));
