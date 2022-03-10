@@ -38,20 +38,17 @@ public class UiManager : MonoBehaviour
         // GameObject truck = GameObject.Find("Truck");
         // script = truck.GetComponent<TruckMovement>();
         script = GameObject.FindObjectOfType<TruckMovement>();
-        print("Sending worker to get ......");
         script.closeScreen();
         
     }
 
     public void sendWorkerCardboard()
     {
-        print("Sending worker to get cardboard");
         script.closeScreen();
     }
 
     public void sendWorkerTin()
     {
-        print("Sending worker to get tin");
         script.closeScreen();
     }
 

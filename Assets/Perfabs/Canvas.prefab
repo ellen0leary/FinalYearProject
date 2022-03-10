@@ -1474,7 +1474,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df768a3609104a240ad06b802e5eef43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  truck: {fileID: 0}
   helpScreen: {fileID: 1773250911}
   material1Heading: {fileID: 416457914825970987}
   material2Heading: {fileID: 6665951878544413354}

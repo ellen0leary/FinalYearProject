@@ -23,8 +23,8 @@ public class WorkerManager : MonoBehaviour
         
     }
 
-    public void sendWorker(Vector3 startPos, Vector3 endPos){
-        GameObject g = new GameObject();
+    public void sendWorker(Vector3 startPos, Vector3 endPos, GameObject material){
+        GameObject g = workers[0].gameObject;
         float shortestPos =200000000f;
         foreach(WorkerMovement i in workers){
             if(Vector3.Distance(startPos,i.gameObject.transform.position)<shortestPos){
@@ -33,21 +33,21 @@ public class WorkerManager : MonoBehaviour
             }
         }
         print(g.name);
-        g.GetComponent<WorkerMovement>().sendToWork(startPos, endPos);
+        g.GetComponent<WorkerMovement>().sendToWork(startPos, endPos, material);
     }
 
-    public void addWorker(){
-        if(sc.setScore(-500, false)){
-        //create temp array
-        int lastIndex = workers.Length;
-        WorkerMovement[] temp = new WorkerMovement[lastIndex + 1];
-        //replace current array
-        workers = temp;
-        //add worker
-        GameObject newWorker = Instantiate(woker, new Vector3(-0.0384554863f, 0.109999992f, -0.737234116f),woker.transform.rotation);
-        workers[lastIndex] = newWorker.GetComponent<WorkerMovement>();
-        }
-    }
+    // public void addWorker(){
+    //     if(sc.setScore(-500, false)){
+    //     //create temp array
+    //     int lastIndex = workers.Length;
+    //     WorkerMovement[] temp = new WorkerMovement[lastIndex + 1];
+    //     //replace current array
+    //     workers = temp;
+    //     //add worker
+    //     GameObject newWorker = Instantiate(woker, new Vector3(-0.0384554863f, 0.109999992f, -0.737234116f),woker.transform.rotation);
+    //     workers[lastIndex] = newWorker.GetComponent<WorkerMovement>();
+    //     }
+    // }
 
     public void IncreaseEat(){
         int num = 4;
@@ -81,5 +81,19 @@ public class WorkerManager : MonoBehaviour
             workers[index].gameObject.GetComponent<WorkerMovement>().sendWorkerToKnowelge();
             num--;
         }
+    }
+
+    public void addWorker(Vector3 pos){
+        // if(sc.setScore(-500, false)){
+        //create temp array
+        print(pos.ToString());
+        int lastIndex = workers.Length;
+        WorkerMovement[] temp = new WorkerMovement[lastIndex + 1];
+        //replace current array
+        workers = temp;
+        //add worker
+        GameObject newWorker = Instantiate(woker, pos,woker.transform.rotation);
+        workers[lastIndex] = newWorker.GetComponent<WorkerMovement>();
+        // }
     }
 }

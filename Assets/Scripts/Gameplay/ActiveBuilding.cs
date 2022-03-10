@@ -43,7 +43,7 @@ public class ActiveBuilding : MonoBehaviour
                     material.transform.position =  new Vector3(transform.position.x + 1, transform.position.y, transform.position.z + 1);
                     ifActive = false;
                     int thisLayer = (int) this.gameObject.layer;
-                    material.GetComponent<MaterialController>().materialFinished(this.gameObject.layer);
+                    material.GetComponent<MaterialController>().upScore();
                     // Debug.Log((int)this.gameObject.layer);
                 }
                 timer = maxTime;
@@ -58,9 +58,17 @@ public class ActiveBuilding : MonoBehaviour
     {
         if (other.gameObject.CompareTag("material") && !ifActive)
         {
-            ifActive = true;
-            other.gameObject.SetActive(false);
-            material = other.gameObject;
+            if(other.gameObject.GetComponent<MaterialController>().materialFinished(this.gameObject.layer)){
+                print("here");
+                ifActive = true;
+                timer = maxTime;
+                materialTimer = maxMaterialTimer;
+                other.gameObject.SetActive(false);
+                material = other.gameObject;
+            } else {
+                print("no we are here");
+                other.gameObject.transform.position = new Vector3(transform.position.x + 1, transform.position.y+0.5f, transform.position.z + 1);
+            }
         }
     }
 }

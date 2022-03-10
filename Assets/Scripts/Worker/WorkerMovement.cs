@@ -30,7 +30,7 @@ public class WorkerMovement : MonoBehaviour
     bool isFirstPos;
     Vector3 startPos;
     Vector3 endPos;
-
+    GameObject child;
     void Start()
     {
         isBusy = false;
@@ -46,31 +46,31 @@ public class WorkerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // if(!noFeelings){
-        //     // nav.SetDestination(this.gameObject.transform.position);
-        //     nav.ResetPath();
-        //     return;
-        // }
+        if(!noFeelings){
+            // nav.SetDestination(this.gameObject.transform.position);
+            nav.ResetPath();
+            return;
+        }
         if(isWorking){
             checkWorking();
             return;
         }
-        // if (!isBusy)
-        // {
-        //     randomInt = (int)Random.Range(0, 5);
-        //     isBusy = true;
-        // }
-        // if (randomInt == 0f || randomInt == 4f)
-        // {
-        //     Patrolling();
-        // }
-        // else if (randomInt == 3f || randomInt == 1f)
-        // {
-        //     GoToEat();
-        // }
-        // else if(randomInt == 2){
-        //     GoToWork();
-        // }
+        if (!isBusy)
+        {
+            randomInt = (int)Random.Range(0, 5);
+            isBusy = true;
+        }
+        if (randomInt == 0f || randomInt == 4f)
+        {
+            Patrolling();
+        }
+        else if (randomInt == 3f || randomInt == 1f)
+        {
+            GoToEat();
+        }
+        else if(randomInt == 2){
+            GoToWork();
+        }
     }
 
     void Patrolling()
@@ -205,33 +205,38 @@ public class WorkerMovement : MonoBehaviour
         GoGetKnowledge();
     }
 
-    public void sendToWork(Vector3 start, Vector3 end){
+    public void sendToWork(Vector3 start, Vector3 end, GameObject material){
         print("sending to work");
         startPos = start;
         endPos = end;
+        walkPoint = start;
         isWorking = true;
         isFirstPos = true;
-        nav.SetDestination(startPos);
+        nav.SetDestination(walkPoint);
+        child = material;
     }
     void checkWorking(){
         if(isFirstPos){
             Vector3 distaneToPoint = transform.position - walkPoint;
-            print(Vector3.Distance(transform.position, walkPoint));
-            if (Vector3.Distance(transform.position, walkPoint) < 3.5f)
+            if (Vector3.Distance(transform.position, walkPoint) < 0.25f)
             {
+                print(Vector3.Distance(transform.position, walkPoint));
                 print("point 1");
                 isFirstPos = false;
                 walkPoint = endPos;
                 nav.SetDestination(endPos);
+                child.transform.parent = this.gameObject.transform;
             }
         }else {
             Vector3 distaneToPoint = transform.position - walkPoint;
+            print(Vector3.Distance(transform.position, walkPoint));
             if (distaneToPoint.magnitude < 0.25f)
             {
                 print("done");
                 isFirstPos = true;
                 isWorking = false;
                 walkPointSet = false;
+                transform.DetachChildren();
             }
         }
     }

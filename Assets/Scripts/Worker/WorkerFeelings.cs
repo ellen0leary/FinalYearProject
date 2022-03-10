@@ -7,6 +7,7 @@ public class WorkerFeelings : MonoBehaviour
     public float sleepNeed;
     public float eatNeed;
     public float knowledge;
+    public float accurcy;
 
     float max = 100f;
     // Start is called before the first frame update
@@ -15,6 +16,7 @@ public class WorkerFeelings : MonoBehaviour
         sleepNeed = max;
         eatNeed = max;
         knowledge = max;
+        accurcy = max;
     }
 
     // Update is called once per frame
@@ -23,6 +25,7 @@ public class WorkerFeelings : MonoBehaviour
         sleepNeed -= 2 * Time.deltaTime;
         eatNeed -= 4 * Time.deltaTime;
         knowledge -= 1 * Time.deltaTime;
+        accurcy = sleepNeed/3+ eatNeed/3+ knowledge/2;
         if (sleepNeed < 10 || eatNeed <= 15)
         {
             this.gameObject.GetComponent<WorkerMovement>().setSpeed(false);
