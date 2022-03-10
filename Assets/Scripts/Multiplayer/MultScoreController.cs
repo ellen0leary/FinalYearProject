@@ -32,7 +32,6 @@ public class MultScoreController : MonoBehaviour
     {
         scoreP1 = startingScore;
         scoreP2 = startingScore;
-        print(scoreP1.ToString());
         scorePanel = GameObject.Find("Score Panel");
         scorePanel.SetActive(false);
 
@@ -82,7 +81,6 @@ public class MultScoreController : MonoBehaviour
         return false;
     }
     void setScoreText(){
-        print("set score");
         scoreTextP1.text = "Money - €" + scoreP1.ToString();
         scoreTextP2.text = "Money - €" + scoreP2.ToString();
     }

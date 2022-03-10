@@ -14,16 +14,17 @@ public class TruckManager : MonoBehaviour
     {
         timerActivate = false;
         timeLeft = 0;
-        numOfTrucks =2+ Random.Range(0, 6);
+        numOfTrucks =2+ Random.Range(4, 7);
         Debug.Log(numOfTrucks.ToString());
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(numOfTrucks<0){
-            SceneManager.LoadScene(2);
-        }else if(timerActivate){
+        // if(numOfTrucks<0){
+        //     // SceneManager.LoadScene(2);
+        // }else
+         if(timerActivate){
             timeLeft--;
             if(timeLeft<=0){
                 // print("rest")
@@ -34,7 +35,7 @@ public class TruckManager : MonoBehaviour
     }
 
     public void startTimer(){
-        timeLeft = Random.Range(10,200);
+        timeLeft = Random.Range(10,50);
         timerActivate = true;
         numOfTrucks--;
     }

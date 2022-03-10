@@ -24,13 +24,10 @@ public class CreateEnv : MonoBehaviour
             float z = Random.Range(-5,5);
             float y = 0f;
             float x = Random.Range(-3,10);
-            print("getting enviroment");
             //get random int for tree
             int treeIndex = Random.Range(0, trees.Length);
-            print(treeIndex);
             //get tree from array
             GameObject tree = trees[treeIndex];
-            print(tree);
             //put in position and scale
             tree.transform.position = new Vector3(x, y, z);
             tree.transform.localScale = new Vector3(0.25f, 0.25f,0.25f);

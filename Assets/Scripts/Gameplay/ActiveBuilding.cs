@@ -59,6 +59,8 @@ public class ActiveBuilding : MonoBehaviour
         if (other.gameObject.CompareTag("material") && !ifActive)
         {
             ifActive = true;
+            timer = maxTime;
+            materialTimer = maxMaterialTimer;
             other.gameObject.SetActive(false);
             material = other.gameObject;
         }

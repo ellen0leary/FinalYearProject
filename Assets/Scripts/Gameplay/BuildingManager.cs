@@ -15,7 +15,6 @@ public class BuildingManager : MonoBehaviour
     }
 
     public void createBuilding(){
-        print("not calling");
         if(sc.setScore(-1000, false)){
             int index = Random.Range(0, allBuildings.Length - 1);
             float xValiue = Random.Range(-5,5);
@@ -30,7 +29,6 @@ public class BuildingManager : MonoBehaviour
     {
         // if (sc.setScore(-1000, false))
         // {
-            print("calling");
             int index = Random.Range(0, allBuildings.Length - 1);
             float xValiue = Random.Range(-5, 5);
             float yValiue = Random.Range(-5, 5);
