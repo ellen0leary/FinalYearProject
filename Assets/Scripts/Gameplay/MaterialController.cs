@@ -40,6 +40,13 @@ public class MaterialController : MonoBehaviour
     public void sell(){
         //calculate
         Debug.Log("selling for " + currentScore);
+        foreach (int i in material) {
+            if( i !=-1){
+                break;
+            } else {
+                break;
+            }
+         }
         sc.setScore(currentScore, true);
     }
 
@@ -47,6 +54,7 @@ public class MaterialController : MonoBehaviour
     private void OnCollisionEnter(Collision other) {
         if(other.gameObject.CompareTag("selling"))
         {
+            foreach(int i in material){}
             Debug.Log(other.gameObject.tag);
             sell();
             Destroy(this.gameObject);
@@ -56,6 +64,7 @@ public class MaterialController : MonoBehaviour
         currentScore += 1000;
     }
 
+    
 }
 
 //create base class with enum to track 

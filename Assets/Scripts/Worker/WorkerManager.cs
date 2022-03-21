@@ -24,18 +24,25 @@ public class WorkerManager : MonoBehaviour
     }
 
     public void sendWorker(Vector3 startPos, Vector3 endPos, GameObject material){
-        GameObject g = workers[0].gameObject;
-        float shortestPos =200000000f;
-        foreach(WorkerMovement i in workers){
-            if(Vector3.Distance(startPos,i.gameObject.transform.position)<shortestPos){
-                shortestPos = Vector3.Distance(startPos,i.gameObject.transform.position);
-                g =i.gameObject;
-            }
-        }
+        GameObject g = getCloest(startPos);
         print(g.name);
         g.GetComponent<WorkerMovement>().sendToWork(startPos, endPos, material);
     }
 
+    public GameObject getCloest(Vector3 startPos){
+        print("getting cloests");
+        GameObject g = workers[0].gameObject;
+        float shortestPos = 200000000f;
+        foreach (WorkerMovement i in workers)
+        {
+            if (Vector3.Distance(startPos, i.gameObject.transform.position) < shortestPos)
+            {
+                shortestPos = Vector3.Distance(startPos, i.gameObject.transform.position);
+                g = i.gameObject;
+            }
+        }
+        return g;
+    }
     // public void addWorker(){
     //     if(sc.setScore(-500, false)){
     //     //create temp array
