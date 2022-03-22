@@ -12,8 +12,11 @@ public class MaterialController : MonoBehaviour
     int extraActons = 0;
     // Start is called before the first frame update
     ScoreController sc;
+    WorkerManager wm;
     void Start()
     {
+        wm = GameObject.Find("Workers").GetComponent<WorkerManager>();
+        print("sending workers" + wm.gameObject.name);
         GameObject gb = GameObject.FindGameObjectWithTag("score");
         sc = gb.GetComponent<ScoreController>();
     }
@@ -64,7 +67,16 @@ public class MaterialController : MonoBehaviour
         currentScore += 1000;
     }
 
-    
+
+    public void sendWorker(Vector3 startPos, Vector3 endPos)
+    {
+        // int index = wm.workers.Length;
+        //get cloest worker thats workug
+        wm = GameObject.Find("Workers").GetComponent<WorkerManager>();
+        print("sending workers" + wm.gameObject.name);
+        GameObject g = wm.getCloest(startPos);
+        g.GetComponent<WorkerMovement>().sendToWork(startPos, endPos, this.gameObject);
+    }
 }
 
 //create base class with enum to track 
