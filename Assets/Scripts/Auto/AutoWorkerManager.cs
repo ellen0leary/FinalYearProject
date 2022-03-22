@@ -24,10 +24,10 @@ public class AutoWorkerManager : MonoBehaviour
         
     }
 
-    public void sendWorker(Vector3 startPos, Vector3 endPos, GameObject material){
-        // int index = wm.workers.Length;
-        //get cloest worker thats workug
-        GameObject g = wm.getCloest(startPos);
-        g.GetComponent<WorkerMovement>().sendToWork(startPos, endPos, material);
-    }
+    // public void sendWorker(Vector3 startPos, Vector3 endPos, GameObject material){
+    //     // int index = wm.workers.Length;
+    //     //get cloest worker thats workug
+    //     GameObject g = wm.getCloest(startPos);
+    //     g.GetComponent<WorkerMovement>().sendToWork(startPos, endPos, material);
+    // }
 }

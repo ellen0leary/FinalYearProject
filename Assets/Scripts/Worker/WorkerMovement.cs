@@ -224,25 +224,19 @@ public class WorkerMovement : MonoBehaviour
     void checkWorking(){
         if(isFirstPos){
             Vector3 distaneToPoint = transform.position - walkPoint;
-            print("Here : " + Vector3.Distance(transform.position, walkPoint)+ "- "+ walkPoint);
             if (Vector3.Distance(transform.position, walkPoint) < 1.2f)
             {
-                print("Leaving");
                 print(Vector3.Distance(transform.position, walkPoint));
-                print("point 1");
                 isFirstPos = false;
                 walkPoint = endPos;
                 nav.SetDestination(endPos);
                 child.transform.parent = this.gameObject.transform;
             }
         }else {
-            print("Now Here");
             Vector3 distaneToPoint = transform.position - walkPoint;
             print( walkPoint + " " + transform.position);
-            if (Vector3.Distance(transform.position, walkPoint) < 0.75f)
+            if (Vector3.Distance(transform.position, walkPoint) < 0.6f)
             {
-                print("Leaving pt2");
-                print("done");
                 isFirstPos = true;
                 isWorking = false;
                 walkPointSet = false;

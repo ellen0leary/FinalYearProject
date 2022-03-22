@@ -97,12 +97,14 @@ public class AutoMaterialController : MonoBehaviour
         GameObject build = findBuilding();
         g.GetComponent<WorkerMovement>().sendToWork(startPos, endPos, this.gameObject);
         //find cloest unactive one
-        if(build== null){
-            print("cant find building");
+        if(build!= null){
+            print("going to building");
+             g.GetComponent<WorkerMovement>().sendToWork(startPos, build.transform.position, this.gameObject);
         }
     }
 
     GameObject findBuilding(){
+        print("finding building");
         GameObject[] buildings = GameObject.FindGameObjectsWithTag("building");
         foreach (GameObject x in buildings)
         {

@@ -58,7 +58,7 @@ public class ActiveBuilding : MonoBehaviour
     {
         if (other.gameObject.CompareTag("material") && !ifActive)
         {
-            if(other.gameObject.GetComponent<MaterialController>().materialFinished(this.gameObject.layer)){
+            if(other.gameObject.GetComponent<AutoMaterialController>().materialFinished(this.gameObject.layer)){
                 print("here");
                 ifActive = true;
                 timer = maxTime;
