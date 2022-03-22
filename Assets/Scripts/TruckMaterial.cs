@@ -45,7 +45,6 @@ public class TruckMaterial : MonoBehaviour
         go.tag = "material";
         Vector3 pos = new Vector3(transform.position.x + 1, transform.position.y + 1, transform.position.z);
         GameObject g =Instantiate(go,pos, go.transform.rotation);
-        g.GetComponent<MaterialController>().sendWorker(pos, new Vector3(6.42000008f, -0.160999998f, 5.10999966f));
         // GameObject.Find("Workers").GetComponent<AutoWorkerManager>().sendWorker(this.transform.position,new Vector3(6.42000008f, -0.160999998f, 5.10999966f), this.gameObject );
         // TextMeshPro buttonText = uiElement.GetComponentInChildren<Button>().GetComponentInChildren<TextMeshPro>();
 

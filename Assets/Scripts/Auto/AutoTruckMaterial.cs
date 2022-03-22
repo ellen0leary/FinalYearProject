@@ -37,8 +37,12 @@ public class AutoTruckMaterial : MonoBehaviour
         int randInt1 = Random.Range(0, mats.Length);
         int randInt2 = Random.Range(0, materials.Length);
         GameObject go = mats[randInt1];
+        print(go.name);
         go.tag = "material";
-        Instantiate(go, new Vector3(transform.position.x + 1, transform.position.y + 1, transform.position.z), go.transform.rotation);
+        print("creating material");    
+        Vector3 pos = new Vector3(transform.position.x + 1, transform.position.y + 1, transform.position.z);
+        GameObject g = Instantiate(go, pos, go.transform.rotation);
+        g.GetComponent<AutoMaterialController>().sendWorker(pos, new Vector3(6.42000008f, -0.160999998f, 5.10999966f));
         // TextMeshPro buttonText = uiElement.GetComponentInChildren<Button>().GetComponentInChildren<TextMeshPro>();
 
     }

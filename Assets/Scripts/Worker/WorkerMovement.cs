@@ -31,8 +31,10 @@ public class WorkerMovement : MonoBehaviour
     Vector3 startPos;
     Vector3 endPos;
     GameObject child;
+    bool isReady;
     void Start()
     {
+        isReady = false;
         isBusy = false;
         isWorking = false;
         eatPoint = GameObject.FindGameObjectWithTag("cantain").transform.position;
@@ -63,13 +65,16 @@ public class WorkerMovement : MonoBehaviour
         if (randomInt == 0f || randomInt == 4f)
         {
             Patrolling();
+            isReady = true;
         }
         else if (randomInt == 3f || randomInt == 1f)
         {
             GoToEat();
+            isReady = false;
         }
         else if(randomInt == 2){
             GoToWork();
+            isReady = false;
         }
     }
 
@@ -214,6 +219,7 @@ public class WorkerMovement : MonoBehaviour
         isFirstPos = true;
         nav.SetDestination(walkPoint);
         child = material;
+        isReady = false;
     }
     void checkWorking(){
         if(isFirstPos){
@@ -243,5 +249,9 @@ public class WorkerMovement : MonoBehaviour
                 transform.DetachChildren();
             }
         }
+    }
+
+    public bool isWorkerReady(){
+        return isReady;
     }
 }

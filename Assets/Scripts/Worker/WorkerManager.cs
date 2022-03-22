@@ -35,7 +35,7 @@ public class WorkerManager : MonoBehaviour
         float shortestPos = 200000000f;
         foreach (WorkerMovement i in workers)
         {
-            if (Vector3.Distance(startPos, i.gameObject.transform.position) < shortestPos)
+            if (Vector3.Distance(startPos, i.gameObject.transform.position) < shortestPos && i.isWorkerReady())
             {
                 shortestPos = Vector3.Distance(startPos, i.gameObject.transform.position);
                 g = i.gameObject;

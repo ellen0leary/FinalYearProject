@@ -71,6 +71,10 @@ public class ActiveBuilding : MonoBehaviour
             }
         }
     }
+
+    public bool isActive(){
+        return ifActive;
+    }
 }
 
 
