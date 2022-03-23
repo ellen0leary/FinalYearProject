@@ -10,7 +10,7 @@ public class WorkerMovement : MonoBehaviour
     public float walkPointRange;
     public GameObject brick;
     public LayerMask whatIsGround;
-    bool isBusy;
+    public bool isBusy;
     bool walkPointSet;
     float randomInt = -1;
     bool noFeelings=true;
@@ -247,5 +247,11 @@ public class WorkerMovement : MonoBehaviour
 
     public bool isWorkerReady(){
         return isReady;
+    }
+
+    public void setIsBusy(bool ifbusy){
+        print("changing");
+        walkPointSet = false;
+        isBusy = false;
     }
 }

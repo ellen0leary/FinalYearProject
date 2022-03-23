@@ -79,7 +79,7 @@ public class AutoMaterialController : MonoBehaviour
             //sell obj
         }
     }
-    public void upScore()
+    void upScore()
     {
         currentScore += 1000;
     }
@@ -95,7 +95,7 @@ public class AutoMaterialController : MonoBehaviour
         GameObject g = wm.getCloest(startPos);
         //get next building
         GameObject build = findBuilding();
-        g.GetComponent<WorkerMovement>().sendToWork(startPos, endPos, this.gameObject);
+        // g.GetComponent<WorkerMovement>().sendToWork(startPos, endPos, this.gameObject);
         //find cloest unactive one
         if(build!= null){
             print("going to building");
@@ -108,12 +108,18 @@ public class AutoMaterialController : MonoBehaviour
         GameObject[] buildings = GameObject.FindGameObjectsWithTag("building");
         foreach (GameObject x in buildings)
         {
-            if (x.layer == material[curentIndex] && !x.GetComponent<ActiveBuilding>().isActive())
+            if (x.layer == material[curentIndex] && !x.GetComponent<AutoActiveBuilding>().isActive())
             {
                 print("found building");
                 return x;
             }
         }
         return null;
+    }
+
+    public void next(){
+        upScore();
+        curentIndex++;
+        sendWorker(this.transform.position, new Vector3(0f,0f,0f));
     }
 }
