@@ -22,9 +22,9 @@ public class WorkerFeelings : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        sleepNeed -= 2 * Time.deltaTime;
-        eatNeed -= 4 * Time.deltaTime;
-        knowledge -= 1 * Time.deltaTime;
+        // sleepNeed -= 2 * Time.deltaTime;
+        // eatNeed -= 4 * Time.deltaTime;
+        // knowledge -= 1 * Time.deltaTime;
         accurcy = sleepNeed/3+ eatNeed/3+ knowledge/2;
         if (sleepNeed < 10 || eatNeed <= 15)
         {

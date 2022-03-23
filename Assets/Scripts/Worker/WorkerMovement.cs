@@ -221,6 +221,15 @@ public class WorkerMovement : MonoBehaviour
         child = material;
         isReady = false;
     }
+
+    public void sendToWork(GameObject material){
+        walkPoint = material.transform.position;
+        isWorking = true;
+        isFirstPos = true;
+        nav.SetDestination(walkPoint);
+        child = material;
+        isReady = false;
+    }
     void checkWorking(){
         if(isFirstPos){
             Vector3 distaneToPoint = transform.position - walkPoint;
@@ -240,18 +249,37 @@ public class WorkerMovement : MonoBehaviour
                 isFirstPos = true;
                 isWorking = false;
                 walkPointSet = false;
-                transform.DetachChildren();
+                // transform.DetachChildren();
             }
         }
     }
+
+
+    // void checkWorking()
+    // {
+    //         Vector3 distaneToPoint = transform.position - walkPoint;
+    //         print(Vector3.Distance(transform.position, walkPoint));
+    //         if (Vector3.Distance(transform.position, walkPoint) < 1.2f)
+    //         {
+    //             isFirstPos = false;
+    //             walkPoint = endPos;
+    //             nav.SetDestination(endPos);
+    //             child.transform.parent = this.gameObject.transform;
+    //             GameObject chil = gameObject.transform.GetChild(0).gameObject;
+    //             child.GetComponent<AutoMaterialController>().getNextLocation();
+
+    //         }
+    // }
+
 
     public bool isWorkerReady(){
         return isReady;
     }
 
-    public void setIsBusy(bool ifbusy){
+    public void setIsBusy(){
         print("changing");
         walkPointSet = false;
+        isWorking = false;
         isBusy = false;
     }
 }

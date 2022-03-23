@@ -14,12 +14,15 @@ public class AutoMaterialController : MonoBehaviour
     // Start is called before the first frame update
     ScoreController sc;
     WorkerManager wm;
+    Queue<Vector3> locations;
     void Start()
     {
         wm = GameObject.Find("Workers").GetComponent<WorkerManager>();
         print("sending workers" + wm.gameObject.name);
         GameObject gb = GameObject.FindGameObjectWithTag("score");
         sc = gb.GetComponent<ScoreController>();
+        locations = new Queue<Vector3>();
+        locations.Enqueue(this.transform.position);
     }
     // makegamegud plz()
 
@@ -121,5 +124,9 @@ public class AutoMaterialController : MonoBehaviour
         upScore();
         curentIndex++;
         sendWorker(this.transform.position, new Vector3(0f,0f,0f));
+    }
+
+    public void getNextLocation(){
+        //get next in queue
     }
 }
