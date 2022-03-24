@@ -226,7 +226,7 @@ public class WorkerMovement : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        if(other.gameObject.tag=="material" && transform.childCount==0 && other.gameObject.transform.parent== null && isWorking){
+        if(other.gameObject.tag=="material" /**&& transform.childCount==0 **/&& other.gameObject.transform.parent== null && isWorking){
             other.gameObject.transform.parent = this.gameObject.transform;
             isFirstPos = false;
             walkPoint = endPos;
