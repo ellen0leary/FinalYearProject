@@ -80,10 +80,14 @@ public class AutoMaterialController : MonoBehaviour
             //check layer
             //report back
             //start building
-        } else if (other.gameObject.CompareTag("selling")){
-            //sell obj
-        }
+        } 
+        // else if (other.gameObject.CompareTag("worker") && transform.parent == null){
+        //     //sell obj
+        //     this.gameObject.transform.parent = other.gameObject.transform;
+        // }
     }
+
+    
     void upScore()
     {
         currentScore += 1000;
@@ -135,4 +139,6 @@ public class AutoMaterialController : MonoBehaviour
     public void getNextLocation(){
         //get next in queue
     }
+
+    
 }

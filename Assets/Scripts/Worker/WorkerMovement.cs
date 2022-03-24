@@ -56,6 +56,8 @@ public class WorkerMovement : MonoBehaviour
         if(isWorking){
             checkWorking();
             return;
+        } else {
+        Patrolling();
         }
         // if (!isBusy)
         // {
@@ -224,7 +226,7 @@ public class WorkerMovement : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        if(other.gameObject.tag=="material" && transform.childCount==0){
+        if(other.gameObject.tag=="material" && transform.childCount==0 && other.gameObject.transform.parent== null){
             other.gameObject.transform.parent = this.gameObject.transform;
             isFirstPos = false;
             walkPoint = endPos;
