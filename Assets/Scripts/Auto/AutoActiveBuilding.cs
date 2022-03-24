@@ -77,7 +77,6 @@ public class AutoActiveBuilding : MonoBehaviour
             }
             else
             {
-                print("no we are here");
                 other.gameObject.transform.position = new Vector3(transform.position.x + 1, transform.position.y + 0.5f, transform.position.z + 1);
             }
         }

@@ -72,7 +72,7 @@ public class AutoMaterialController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("selling"))
         {
-            foreach (int i in material) { }
+            // foreach (int i in material) { }
             Debug.Log(other.gameObject.tag);
             sell();
             Destroy(this.gameObject);
@@ -103,10 +103,12 @@ public class AutoMaterialController : MonoBehaviour
         //find cloest unactive one
         if(build!= null){
             print("going to building");
-             g.GetComponent<WorkerMovement>().sendToWork(this.transform.position, build.transform.position, this.gameObject);
+            //  g.GetComponent<WorkerMovement>().sendToWork(this.transform.position, build.transform.position, this.gameObject);
+            endPos = build.transform.position;
         }else {
             // locations.Enqueue(startPos);
         }
+        g.GetComponent<WorkerMovement>().sendToWork(this.transform.position, endPos, this.gameObject);
     }
 
     GameObject findBuilding(){
@@ -114,7 +116,7 @@ public class AutoMaterialController : MonoBehaviour
         GameObject[] buildings = GameObject.FindGameObjectsWithTag("building");
         foreach (GameObject x in buildings)
         {
-            if (x.layer == material[curentIndex] && !x.GetComponent<AutoActiveBuilding>().isActive())
+            if (curentIndex < material.Length &&x.layer == material[curentIndex] && !x.GetComponent<AutoActiveBuilding>().isActive())
             {
                 print("found building");
                 return x;
@@ -127,7 +129,7 @@ public class AutoMaterialController : MonoBehaviour
         upScore();
         curentIndex++;
         //add next location
-        sendWorker(this.transform.position, new Vector3(0f,0f,0f));
+        sendWorker(this.transform.position, new Vector3(-1.02999997f, 0.589999974f, -4.63999987f));
     }
 
     public void getNextLocation(){

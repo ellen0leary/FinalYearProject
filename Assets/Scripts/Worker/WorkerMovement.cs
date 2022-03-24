@@ -239,6 +239,7 @@ public class WorkerMovement : MonoBehaviour
         child = material;
         isReady = false;
     }
+
     void checkWorking(){
         if(isFirstPos){
             Vector3 distaneToPoint = transform.position - walkPoint;
