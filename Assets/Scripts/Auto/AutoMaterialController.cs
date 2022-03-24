@@ -15,6 +15,7 @@ public class AutoMaterialController : MonoBehaviour
     ScoreController sc;
     WorkerManager wm;
     Queue<Vector3> locations;
+
     void Start()
     {
         wm = GameObject.Find("Workers").GetComponent<WorkerManager>();
@@ -23,13 +24,14 @@ public class AutoMaterialController : MonoBehaviour
         sc = gb.GetComponent<ScoreController>();
         locations = new Queue<Vector3>();
         locations.Enqueue(this.transform.position);
+        locations.Enqueue(findBuilding().transform.position);
     }
     // makegamegud plz()
 
     // Update is called once per frame
     void Update()
     {
-
+        
     }
 
     public bool materialFinished(int layer)
@@ -88,21 +90,22 @@ public class AutoMaterialController : MonoBehaviour
     }
 
 
+
     public void sendWorker(Vector3 startPos, Vector3 endPos)
     {
         print("sending worker");
-        // int index = wm.workers.Length;
         //get cloest worker thats workug
         wm = GameObject.Find("Workers").GetComponent<WorkerManager>();
-        print("sending workers" + wm.gameObject.name);
-        GameObject g = wm.getCloest(startPos);
+        GameObject g = wm.getCloest(this.transform.position);
         //get next building
         GameObject build = findBuilding();
         // g.GetComponent<WorkerMovement>().sendToWork(startPos, endPos, this.gameObject);
         //find cloest unactive one
         if(build!= null){
             print("going to building");
-             g.GetComponent<WorkerMovement>().sendToWork(startPos, build.transform.position, this.gameObject);
+             g.GetComponent<WorkerMovement>().sendToWork(this.transform.position, build.transform.position, this.gameObject);
+        }else {
+            // locations.Enqueue(startPos);
         }
     }
 
@@ -123,6 +126,7 @@ public class AutoMaterialController : MonoBehaviour
     public void next(){
         upScore();
         curentIndex++;
+        //add next location
         sendWorker(this.transform.position, new Vector3(0f,0f,0f));
     }
 

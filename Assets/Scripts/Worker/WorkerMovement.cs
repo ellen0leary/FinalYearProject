@@ -34,7 +34,7 @@ public class WorkerMovement : MonoBehaviour
     bool isReady;
     void Start()
     {
-        isReady = false;
+        isReady = true;
         isBusy = false;
         isWorking = false;
         eatPoint = GameObject.FindGameObjectWithTag("cantain").transform.position;
@@ -48,34 +48,34 @@ public class WorkerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!noFeelings){
-            // nav.SetDestination(this.gameObject.transform.position);
-            nav.ResetPath();
-            return;
-        }
+        // if(!noFeelings){
+        //     // nav.SetDestination(this.gameObject.transform.position);
+        //     nav.ResetPath();
+        //     return;
+        // }
         if(isWorking){
             checkWorking();
             return;
         }
-        if (!isBusy)
-        {
-            randomInt = (int)Random.Range(0, 5);
-            isBusy = true;
-        }
-        if (randomInt == 0f || randomInt == 4f)
-        {
-            Patrolling();
-            isReady = true;
-        }
-        else if (randomInt == 3f || randomInt == 1f)
-        {
-            GoToEat();
-            isReady = false;
-        }
-        else if(randomInt == 2){
-            GoToWork();
-            isReady = false;
-        }
+        // if (!isBusy)
+        // {
+        //     randomInt = (int)Random.Range(0, 5);
+        //     isBusy = true;
+        // }
+        // if (randomInt == 0f || randomInt == 4f)
+        // {
+        //     Patrolling();
+        //     isReady = true;
+        // }
+        // else if (randomInt == 3f || randomInt == 1f)
+        // {
+        //     GoToEat();
+        //     isReady = false;
+        // }
+        // else if(randomInt == 2){
+        //     GoToWork();
+        //     isReady = false;
+        // }
     }
 
     void Patrolling()
@@ -222,6 +222,15 @@ public class WorkerMovement : MonoBehaviour
         isReady = false;
     }
 
+    private void OnCollisionEnter(Collision other)
+    {
+        if(other.gameObject.tag=="material" && transform.childCount==0){
+            other.gameObject.transform.parent = this.gameObject.transform;
+            isFirstPos = false;
+            walkPoint = endPos;
+            nav.SetDestination(endPos);
+        }
+    }
     public void sendToWork(GameObject material){
         walkPoint = material.transform.position;
         isWorking = true;
@@ -233,13 +242,13 @@ public class WorkerMovement : MonoBehaviour
     void checkWorking(){
         if(isFirstPos){
             Vector3 distaneToPoint = transform.position - walkPoint;
-            if (Vector3.Distance(transform.position, walkPoint) < 1.2f)
+            if (Vector3.Distance(transform.position, walkPoint) < 0.25f)
             {
                 print(Vector3.Distance(transform.position, walkPoint));
                 isFirstPos = false;
                 walkPoint = endPos;
                 nav.SetDestination(endPos);
-                child.transform.parent = this.gameObject.transform;
+                // child.transform.parent = this.gameObject.transform;
             }
         }else {
             Vector3 distaneToPoint = transform.position - walkPoint;
@@ -249,6 +258,8 @@ public class WorkerMovement : MonoBehaviour
                 isFirstPos = true;
                 isWorking = false;
                 walkPointSet = false;
+                isReady = true;
+                nav.SetDestination(new Vector3(0,0,0));
                 // transform.DetachChildren();
             }
         }
@@ -273,6 +284,7 @@ public class WorkerMovement : MonoBehaviour
 
 
     public bool isWorkerReady(){
+        print(isReady);
         return isReady;
     }
 

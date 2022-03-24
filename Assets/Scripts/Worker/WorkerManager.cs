@@ -14,7 +14,6 @@ public class WorkerManager : MonoBehaviour
     {
         GameObject go = GameObject.Find("ScoreController");
         sc = go.GetComponent<ScoreController>();
-
     }
 
     // Update is called once per frame
