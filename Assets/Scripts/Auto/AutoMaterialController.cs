@@ -109,7 +109,7 @@ public class AutoMaterialController : MonoBehaviour
         }else {
             // locations.Enqueue(startPos);
         }
-        g.GetComponent<WorkerMovement>().sendToWork(this.transform.position, build.transform.position, this.gameObject);
+        g.GetComponent<WorkerMovement>().sendToWork(this.transform.position, endPos, this.gameObject);
     }
 
     GameObject findBuilding(){

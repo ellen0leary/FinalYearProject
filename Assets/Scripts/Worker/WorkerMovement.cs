@@ -55,7 +55,7 @@ public class WorkerMovement : MonoBehaviour
         //     return;
         // }
         if(isWorking){
-            checkWorking();
+            // checkWorking();
             return;
         } else {
             // Patrolling();
@@ -299,6 +299,7 @@ public class WorkerMovement : MonoBehaviour
         print("changing");
         walkPointSet = false;
         isWorking = false;
+        isReady = true;
         isBusy = false;
         Patrolling();
     }
