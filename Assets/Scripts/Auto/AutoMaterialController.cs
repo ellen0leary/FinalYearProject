@@ -97,8 +97,6 @@ public class AutoMaterialController : MonoBehaviour
 
     public void sendWorker(Vector3 startPos, Vector3 endPos)
     {
-        print("sending worker");
-        //get cloest worker thats workug
         wm = GameObject.Find("Workers").GetComponent<WorkerManager>();
         GameObject g = wm.getCloest(this.transform.position);
         //get next building
@@ -106,13 +104,12 @@ public class AutoMaterialController : MonoBehaviour
         // g.GetComponent<WorkerMovement>().sendToWork(startPos, endPos, this.gameObject);
         //find cloest unactive one
         if(build!= null){
-            print("going to building");
             //  g.GetComponent<WorkerMovement>().sendToWork(this.transform.position, build.transform.position, this.gameObject);
             endPos = build.transform.position;
         }else {
             // locations.Enqueue(startPos);
         }
-        g.GetComponent<WorkerMovement>().sendToWork(this.transform.position, endPos, this.gameObject);
+        g.GetComponent<WorkerMovement>().sendToWork(this.transform.position, build.transform.position, this.gameObject);
     }
 
     GameObject findBuilding(){

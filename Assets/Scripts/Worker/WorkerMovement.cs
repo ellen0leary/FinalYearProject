@@ -42,6 +42,7 @@ public class WorkerMovement : MonoBehaviour
         knowedgePoint = GameObject.FindGameObjectWithTag("knowledge").transform.position;
         stopingArea = GameObject.FindGameObjectWithTag("Stopping Area").transform.position;
         feel = GetComponent<WorkerFeelings>();
+        nav  =GetComponent<NavMeshAgent>(); 
         GetComponent<NavMeshAgent>().speed = 0.7f;
     }
 
@@ -57,7 +58,7 @@ public class WorkerMovement : MonoBehaviour
             checkWorking();
             return;
         } else {
-        Patrolling();
+            // Patrolling();
         }
         // if (!isBusy)
         // {
@@ -244,8 +245,10 @@ public class WorkerMovement : MonoBehaviour
 
     void checkWorking(){
         if(isFirstPos){
+            print("going to material "+ walkPoint + " "+ nav.destination);
             Vector3 distaneToPoint = transform.position - walkPoint;
-            if (Vector3.Distance(transform.position, walkPoint) < 0.25f)
+            // print(Vector3.Distance(transform.position, walkPoint));
+            if (Vector3.Distance(transform.position, walkPoint) < 1f)
             {
                 print(Vector3.Distance(transform.position, walkPoint));
                 isFirstPos = false;
@@ -255,7 +258,8 @@ public class WorkerMovement : MonoBehaviour
             }
         }else {
             Vector3 distaneToPoint = transform.position - walkPoint;
-            print( walkPoint + " " + transform.position);
+            // print( walkPoint + " " + transform.position);
+            print("going to pt2 " );
             if (Vector3.Distance(transform.position, walkPoint) < 0.6f)
             {
                 isFirstPos = true;
@@ -296,5 +300,6 @@ public class WorkerMovement : MonoBehaviour
         walkPointSet = false;
         isWorking = false;
         isBusy = false;
+        Patrolling();
     }
 }
