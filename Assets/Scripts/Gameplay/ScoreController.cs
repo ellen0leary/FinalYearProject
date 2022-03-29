@@ -29,7 +29,7 @@ public class ScoreController : MonoBehaviour
 
     void Update(){
         mainTimer-= 1*Time.deltaTime;
-        if(mainTimer<= 0 || materCount == materGoal){
+        if(mainTimer<= 0 || materCount >= materGoal){
             gameOverScreen();
             Time.timeScale = 0; 
         } else{ 

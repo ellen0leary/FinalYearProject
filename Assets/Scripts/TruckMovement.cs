@@ -16,7 +16,7 @@ public class TruckMovement : MonoBehaviour
         manager = FindObjectOfType<TruckManager>();
         // uiScreen = GameObject.Find("Canvas").transform.Find("Sorting Panel").gameObject;
         // uiScreen = mainUIScreen.Find;
-        uiScreen.SetActive(false);
+        // uiScreen.SetActive(false);
     }
 
     // Update is called once per frame
