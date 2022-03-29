@@ -52,7 +52,7 @@ public class ScoreController : MonoBehaviour
 
 
     void setScoreText(){
-        scoreText.text = "Money - €" + currentScore.ToString();
+        scoreText.text = "€" + currentScore.ToString();
     }
     void gameOverScreen(){
         string text = "";
