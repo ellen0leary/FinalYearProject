@@ -6,6 +6,8 @@ public class ShoppingManager : MonoBehaviour
 {
     WorkerManager wk;
     BuildingManager bld;
+    GameObject buildingScreen;
+    bool isActive = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -13,6 +15,8 @@ public class ShoppingManager : MonoBehaviour
         wk = workers.GetComponent<WorkerManager>();
         GameObject buildings = GameObject.Find("Buildings");
         bld = buildings.GetComponent<BuildingManager>();
+        buildingScreen = GameObject.Find("BuildingPanel");
+        buildingScreen.SetActive(false);
     }
 
     // Update is called once per frame
@@ -26,6 +30,21 @@ public class ShoppingManager : MonoBehaviour
     }
 
     public void addBuilding(){
-        bld.createBuilding();
+        // bld.createBuilding();
+        buildingScreen.SetActive(isActive);
+        isActive = !isActive;
+    }
+
+    public void buyShredder(){
+        print("buying shredder");
+        bld.createBuild(2);
+    }
+
+    public void buySorter(){
+        bld.createBuild(1);
+    }
+
+    public void buyWasher(){
+        bld.createBuild(0);
     }
 }

@@ -27,7 +27,6 @@ public class ScoreController : MonoBehaviour
         scorePanel.SetActive(false);
         // timerTxt = GameObject.Find("Timer Text").GetComponent<TextMeshProUGUI>();
         // fillCircle = GameObject.Find("timer fill");
-        print(fillCircle.name);
         countText.text = "Material Count " + materCount.ToString() + "/" + materGoal.ToString();
     }
 
@@ -37,7 +36,6 @@ public class ScoreController : MonoBehaviour
             gameOverScreen();
             Time.timeScale = 0; 
         } else{ 
-            print(fillCircle.name);
             // fillCircle.fillAmount1 = 1 -( mainTimer/120);
             fillCircle.GetComponent<Image>().fillAmount =1 -( mainTimer/120);
             // timerTxt.text = "Time Remaining : " + Mathf.FloorToInt(mainTimer);
