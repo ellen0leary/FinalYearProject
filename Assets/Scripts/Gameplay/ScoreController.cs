@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class ScoreController : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class ScoreController : MonoBehaviour
     public TextMeshProUGUI countText;
     GameObject scorePanel;
     TextMeshProUGUI timerTxt;
+    public GameObject fillCircle;
 
     float mainTimer = 120f;
     int materCount = 0;
@@ -23,17 +25,22 @@ public class ScoreController : MonoBehaviour
         setScoreText();
         scorePanel = GameObject.Find("Score Panel");
         scorePanel.SetActive(false);
-        timerTxt = GameObject.Find("Timer Text").GetComponent<TextMeshProUGUI>();
+        // timerTxt = GameObject.Find("Timer Text").GetComponent<TextMeshProUGUI>();
+        // fillCircle = GameObject.Find("timer fill");
+        print(fillCircle.name);
         countText.text = "Material Count " + materCount.ToString() + "/" + materGoal.ToString();
     }
 
     void Update(){
         mainTimer-= 1*Time.deltaTime;
-        if(mainTimer<= 0 || materCount >= materGoal){
+        if(mainTimer< 0 || materCount >= materGoal){
             gameOverScreen();
             Time.timeScale = 0; 
         } else{ 
-            timerTxt.text = "Time Remaining : " + Mathf.FloorToInt(mainTimer);
+            print(fillCircle.name);
+            // fillCircle.fillAmount1 = 1 -( mainTimer/120);
+            fillCircle.GetComponent<Image>().fillAmount =1 -( mainTimer/120);
+            // timerTxt.text = "Time Remaining : " + Mathf.FloorToInt(mainTimer);
             countText.text = "Material Count " + materCount.ToString() + "/"+materGoal.ToString();
         }
     }
