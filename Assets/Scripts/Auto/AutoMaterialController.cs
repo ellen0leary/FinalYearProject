@@ -15,6 +15,7 @@ public class AutoMaterialController : MonoBehaviour
     ScoreController sc;
     WorkerManager wm;
     Queue<Vector3> locations;
+    TheQueue queueCon;
 
     void Start()
     {
@@ -25,6 +26,8 @@ public class AutoMaterialController : MonoBehaviour
         locations = new Queue<Vector3>();
         locations.Enqueue(this.transform.position);
         locations.Enqueue(findBuilding().transform.position);
+        queueCon = GameObject.Find("Workers").GetComponent<TheQueue>();
+        queueCon.addToQueue(this.gameObject);
     }
     // makegamegud plz()
 
@@ -129,13 +132,8 @@ public class AutoMaterialController : MonoBehaviour
     public void next(){
         upScore();
         curentIndex++;
+        queueCon.addToQueue(this.gameObject);
         //add next location
-        sendWorker(this.transform.position, new Vector3(-1.02999997f, 0.589999974f, -4.63999987f));
+        // sendWorker(this.transform.position, new Vector3(-1.02999997f, 0.589999974f, -4.63999987f));
     }
-
-    public void getNextLocation(){
-        //get next in queue
-    }
-
-    
 }
