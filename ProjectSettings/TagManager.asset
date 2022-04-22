@@ -16,6 +16,8 @@ TagManager:
   - dormitory
   - worker
   - blanket
+  - food
+  - book
   layers:
   - Default
   - TransparentFX

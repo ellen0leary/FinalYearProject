@@ -211,6 +211,7 @@ GameObject:
   - component: {fileID: 477782315}
   - component: {fileID: 477782316}
   - component: {fileID: 477782317}
+  - component: {fileID: 1028217257}
   m_Layer: 0
   m_Name: Builder Stop
   m_TagString: worker
@@ -299,7 +300,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 474023254195062085}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9a4b5cb2bebeb534abb5f8659e86dae3, type: 3}
   m_Name: 
@@ -420,6 +421,31 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &1028217257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 474023254195062085}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1466301e4e72c041883f0a53d2a383a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isBusy: 0
+  isWandering: 0
+  walkPointSet: 0
+  isLowSleep: 0
+  isLowEat: 0
+  isLowTrain: 0
+  walkPointRange: 10
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 64
+  blanket: {fileID: 2305266886154357041, guid: 585455a11281e4f42a1aa0d586647761, type: 3}
+  food: {fileID: 9160058180266898530, guid: e4a841f3c6a436346bc4e6f76460d2d9, type: 3}
+  book: {fileID: 5572377743360988013, guid: c24d538efd45ff448af3f5436bb4f25f, type: 3}
 --- !u!1 &542680211233429079
 GameObject:
   m_ObjectHideFlags: 0

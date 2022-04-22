@@ -7,13 +7,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 870273619, guid: 77ade9ad62491b041a8b96319e2a6d3f, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 474023254195062085, guid: 77ade9ad62491b041a8b96319e2a6d3f, type: 3}
       propertyPath: m_Name
-      value: Builder Stop
+      value: Builder Stop Variant
       objectReference: {fileID: 0}
     - target: {fileID: 999729916681527295, guid: 77ade9ad62491b041a8b96319e2a6d3f, type: 3}
       propertyPath: m_RootOrder
@@ -59,31 +55,5 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6575235507958039941, guid: 77ade9ad62491b041a8b96319e2a6d3f, type: 3}
-      propertyPath: m_WarningMessage
-      value: 
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 477782321, guid: 77ade9ad62491b041a8b96319e2a6d3f, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 77ade9ad62491b041a8b96319e2a6d3f, type: 3}
---- !u!1 &9218540685255899505 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 474023254195062085, guid: 77ade9ad62491b041a8b96319e2a6d3f, type: 3}
-  m_PrefabInstance: {fileID: 8753524648621882420}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1028217257
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9218540685255899505}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d1466301e4e72c041883f0a53d2a383a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  walkPointRange: 10
-  whatIsGround:
-    serializedVersion: 2
-    m_Bits: 64

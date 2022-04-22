@@ -189,7 +189,7 @@ public class GOAP : MonoBehaviour
                     isFoodOrdered = false;
                     hasBook = false;
                     isBusy = false;
-                    anim.SetBool("StartEat",isLowEat );
+                    anim.SetBool("StartTrain",isLowEat );
                 }
             }
         }
