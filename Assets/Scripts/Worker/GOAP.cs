@@ -15,7 +15,7 @@ public class GOAP : MonoBehaviour
     //for sleep
     bool hasBlanket, isBlanketOrdered;
     //for eat
-
+    bool hasFood, isFoodOrdered;
     //for train
     bool hasBook, isBookOrdered;
 
@@ -23,10 +23,10 @@ public class GOAP : MonoBehaviour
     public float walkPointRange;
     public LayerMask whatIsGround;
     GameObject dorm;
-    public GameObject blanket;
+    public GameObject blanket, food, book;
     TruckManager tm;
 
-    Vector3 target, dormPt;
+    Vector3 target, dormPt, canteinPt, trainingPt;
     GameObject targetItem;
     // Start is called before the first frame update
     void Start()
@@ -38,11 +38,9 @@ public class GOAP : MonoBehaviour
         isBusy = false;
         isWandering = false;
         walkPointSet = false;
-        isLowSleep = false;
-        isLowEat = false;
-        isLowTrain = false;
-        hasBlanket = false;
-        isBlanketOrdered = false;
+        isLowSleep = false; hasBlanket = false;   isBlanketOrdered = false;
+        isLowEat = false; hasFood = false;  isFoodOrdered = false;
+        isLowTrain = false; hasBook = false;  isBookOrdered = false;
         dorm = GameObject.Find("dormitory");
         tm = GameObject.Find("Truck Manager").GetComponent<TruckManager>();
         dormPt = GameObject.Find("dormPt").transform.position;
@@ -59,7 +57,7 @@ public class GOAP : MonoBehaviour
             if(isWandering){
                     //look for point
                     Patrolling();
-                }
+            }
             else if(!isBusy){
                 GameObject g = queueCon.getJob();
                 //if queue has item
@@ -77,20 +75,44 @@ public class GOAP : MonoBehaviour
                 //mabe feed other needs
         
         } else if (info.IsName("Eat")){
-            // print("needs to eat");
-            // if(!hasBlanket){
-            //     //wait for bed to arrive
-            //     if(isBookOrdered){
-            //         //order (from truck)
-            //     }
-            //     GameObject g = GameObject.FindGameObjectWithTag("blanket");
-            //     if(g!= null){
-            //         //set Destination
-            //     }
-            // } else {
-            //     //check loc to pos
-            //     //wait X secs
-            // }
+            print("needs to eat");
+            if(!hasFood){
+                //wait for bed to arrive
+                if(!isFoodOrdered){
+                    //order (from truck)
+                    tm.spawnInGOAP(food);
+                    isFoodOrdered = true;
+                    isBusy = true;
+                }
+                GameObject g = GameObject.FindGameObjectWithTag("food");
+                if(g!= null){
+                    //set Destination
+                    nav.SetDestination(g.transform.position);
+                    target = g.transform.position;
+                    targetItem = g;
+                    if((transform.position - target).magnitude< 1f){
+                        hasFood = true;
+                        targetItem.transform.parent = this.gameObject.transform;
+                    }
+                    
+                }
+            } else {
+                //check loc to pos
+                target = canteinPt;
+                nav.SetDestination(target);
+                //wait X secs
+                if((transform.position - target).magnitude< 1f){
+                    //wait
+                    targetItem.transform.parent = null;
+                    Destroy(targetItem);
+                    targetItem = null;
+                    isLowEat = false;
+                    isFoodOrdered = false;
+                    hasFood = false;
+                    isBusy = false;
+                    anim.SetBool("StartFood",isLowEat );
+                }
+            }
         } else if( info.IsName("Sleep")){
             // go to sleep
             print("needs to sleep");
@@ -100,6 +122,7 @@ public class GOAP : MonoBehaviour
                     //order (from truck)
                     tm.spawnInGOAP(blanket);
                     isBlanketOrdered = true;
+                    isBusy = true;
                 }
                 GameObject g = GameObject.FindGameObjectWithTag("blanket");
                 if(g!= null){
@@ -108,10 +131,9 @@ public class GOAP : MonoBehaviour
                     target = g.transform.position;
                     targetItem = g;
                     if((transform.position - target).magnitude< 1f){
-                    hasBlanket = true;
-                    targetItem.transform.parent = this.gameObject.transform;
-                }
-                    
+                        hasBlanket = true;
+                        targetItem.transform.parent = this.gameObject.transform;
+                    } 
                 }
             } else {
                 //check loc to pos
@@ -124,6 +146,9 @@ public class GOAP : MonoBehaviour
                     Destroy(targetItem);
                     targetItem = null;
                     isLowSleep = false;
+                    hasBlanket = false;
+                    isBlanketOrdered = false;
+                    isBusy = false;
                     anim.SetBool("StartSleep", isLowSleep);
                 }
             }
@@ -131,14 +156,43 @@ public class GOAP : MonoBehaviour
             print("needs training");
             // go to train
             
-            //find point 
-            //send
-
-            //if train is high again move back
+            if(!hasBook){
+                //wait for bed to arrive
+                if(!isBookOrdered){
+                    //order (from truck)
+                    tm.spawnInGOAP(book);
+                    isBookOrdered = true;
+                    isBusy = true;
+                }
+                GameObject g = GameObject.FindGameObjectWithTag("book");
+                if(g!= null){
+                    //set Destination
+                    nav.SetDestination(g.transform.position);
+                    target = g.transform.position;
+                    targetItem = g;
+                    if((transform.position - target).magnitude< 1f){
+                        hasBook = true;
+                        targetItem.transform.parent = this.gameObject.transform;
+                    }
+                }
+            }else {
+                //check loc to pos
+                target = trainingPt;
+                nav.SetDestination(target);
+                //wait X secs
+                if((transform.position - target).magnitude< 1f){
+                    //wait
+                    targetItem.transform.parent = null;
+                    Destroy(targetItem);
+                    targetItem = null;
+                    isLowTrain = false;
+                    isFoodOrdered = false;
+                    hasBook = false;
+                    isBusy = false;
+                    anim.SetBool("StartEat",isLowEat );
+                }
+            }
         }
-
-
-
     }
 
     void Patrolling()
@@ -177,18 +231,17 @@ public class GOAP : MonoBehaviour
     public void ifLowSleep(bool ifLow){
         isLowSleep = ifLow;
         if(!isBusy)anim.SetBool("StartSleep", isLowSleep);
-        else {
-            //set to be done next
-        }
     }
 
 
     public void ifLowEat(bool ifLow){
-
+        isLowEat = ifLow;
+        if(!isBusy)anim.SetBool("StartEat", isLowEat);
     }
 
     public void ifLowTrain(bool ifLow){
-
+        isLowTrain = ifLow;
+        if(!isBusy)anim.SetBool("StartTrain", isLowTrain);
     }
 
     public void haveMaterial(Vector3 nextPos){
@@ -205,3 +258,6 @@ public class GOAP : MonoBehaviour
         return isBusy;
     }
 }
+
+
+// ToDo add wait time
