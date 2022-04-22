@@ -84,10 +84,18 @@ public class AutoMaterialController : MonoBehaviour
             //report back
             //start building
         } 
-        // else if (other.gameObject.CompareTag("worker") && transform.parent == null){
-        //     //sell obj
-        //     this.gameObject.transform.parent = other.gameObject.transform;
-        // }
+        else if(other.gameObject.tag=="worker" /**&& transform.childCount==0 **/&& this.gameObject.transform.parent== null){
+            GameObject g = findBuilding();
+            if(g!= null){
+                this.gameObject.transform.parent = other.gameObject.transform;
+                other.gameObject.GetComponent<GOAP>().haveMaterial(g.transform.position);
+            }
+
+            
+            // isFirstPos = false;
+            // walkPoint = endPos;
+            // nav.SetDestination(endPos);
+        }
     }
 
     
@@ -112,8 +120,23 @@ public class AutoMaterialController : MonoBehaviour
         }else {
             // locations.Enqueue(startPos);
         }
-        g.GetComponent<WorkerMovement>().sendToWork(this.transform.position, endPos, this.gameObject);
+        // g.GetComponent<WorkerMovement>().sendToWork(this.transform.position, endPos, this.gameObject);
     }
+    //descirbe each feacture and what you have created
+    // test and feedbaxcck even basic
+        //decribe what feedback - takl aloud or remote or querstion
+    //how stuff workers together
+
+        //user manual
+        //write section on how to use
+        //how people will learn fro m game
+
+    //reflective part
+
+    //what learnied tech, time mangent hard or soft
+    //what you found challenging and why
+    //if you could do again what would you chage
+    // i you had more timme, what would you add
 
     GameObject findBuilding(){
         print("finding building");

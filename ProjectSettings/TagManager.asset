@@ -15,6 +15,7 @@ TagManager:
   - knowledge
   - dormitory
   - worker
+  - blanket
   layers:
   - Default
   - TransparentFX

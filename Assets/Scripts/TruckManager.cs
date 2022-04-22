@@ -8,6 +8,8 @@ public class TruckManager : MonoBehaviour
     bool timerActivate;
     int timeLeft;
     public GameObject truck;
+    public GameObject GOAPTruck;
+
     int numOfTrucks;
     // Start is called before the first frame update
     void Start()
@@ -34,10 +36,13 @@ public class TruckManager : MonoBehaviour
     }
 
     public void startTimer(){
-        timeLeft = Random.Range(10,50);
+        timeLeft = Random.Range(10,20);
         timerActivate = true;
         numOfTrucks--;
     }
 
-    
+    public void spawnInGOAP(GameObject g){
+        GameObject truck = Instantiate(GOAPTruck, GOAPTruck.transform.position, GOAPTruck.transform.rotation);
+        truck.GetComponent<GOAPItem>().item = g;
+    }
 }

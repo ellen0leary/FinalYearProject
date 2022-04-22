@@ -6,6 +6,7 @@ public class WorkerClick : MonoBehaviour
 {
     // Start is called before the first frame update
     GameObject wdScreen;
+    GameObject buildingScreen;
     void Start()
     {
         wdScreen = GameObject.Find("worker details");

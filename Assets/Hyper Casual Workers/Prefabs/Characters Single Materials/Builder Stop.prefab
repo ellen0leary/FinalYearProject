@@ -211,7 +211,6 @@ GameObject:
   - component: {fileID: 477782315}
   - component: {fileID: 477782316}
   - component: {fileID: 477782317}
-  - component: {fileID: 477782321}
   m_Layer: 0
   m_Name: Builder Stop
   m_TagString: worker
@@ -275,13 +274,7 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
-  m_WarningMessage: "\nBinding warning: Some generic clip(s) animate transforms that
-    are already bound by a Humanoid avatar. These transforms can only be changed
-    by Humanoid clips.\n\tTransform 'Armature'\n\tTransform 'DEF.shoulder.L'\n\tTransform
-    'DEF.spine.02'\n\tTransform 'DEF.foot.L'\n\tTransform 'DEF.forarm.L'\n\tTransform
-    'DEF.fingers.02.L'\n\tTransform 'DEF.fingers.01.L'\n\tTransform 'DEF.leg.L'\n\tTransform
-    'DEF.chest'\n\tTransform 'DEF.fingers.01.R'\n\tand more ...\n\tFrom animation
-    clip 'Idle'\n\tFrom animation clip 'Walking'"
+  m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
@@ -427,26 +420,6 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &477782321
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 474023254195062085}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a4b5cb2bebeb534abb5f8659e86dae3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nav: {fileID: 477782317}
-  walkPoint: {x: 0, y: 0, z: 0}
-  walkPointRange: 10
-  brick: {fileID: 0}
-  whatIsGround:
-    serializedVersion: 2
-    m_Bits: 64
-  isBusy: 0
 --- !u!1 &542680211233429079
 GameObject:
   m_ObjectHideFlags: 0

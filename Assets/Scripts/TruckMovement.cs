@@ -10,10 +10,12 @@ public class TruckMovement : MonoBehaviour
     TruckManager manager;
     // Start is called before the first frame update
     private WorkerManager workerManager;
+    public bool ifGOAP;
     void Start()
     {
         workerManager = FindObjectOfType<WorkerManager>();
         manager = FindObjectOfType<TruckManager>();
+
         // uiScreen = GameObject.Find("Canvas").transform.Find("Sorting Panel").gameObject;
         // uiScreen = mainUIScreen.Find;
         // uiScreen.SetActive(false);
@@ -23,7 +25,7 @@ public class TruckMovement : MonoBehaviour
     void Update()
     {
         if(!stop){
-            this.transform.Translate (Vector3.forward * 1 * Time.deltaTime);
+            this.transform.Translate (Vector3.forward * 1.5f * Time.deltaTime);
         }
        
         if(transform.position.z >5){
@@ -38,7 +40,8 @@ public class TruckMovement : MonoBehaviour
         {
             stop = true;
             // uiScreen.SetActive(true);
-            gameObject.GetComponent<AutoTruckMaterial>().setMaterial();
+            if (!ifGOAP )gameObject.GetComponent<AutoTruckMaterial>().setMaterial();
+            else gameObject.GetComponent<GOAPItem>().spawnItem();
             // workerManager.sendWorker();
             stop = false;
         }

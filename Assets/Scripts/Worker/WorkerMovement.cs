@@ -54,12 +54,12 @@ public class WorkerMovement : MonoBehaviour
         //     nav.ResetPath();
         //     return;
         // }
-        if(isWorking){
-            // checkWorking();
-            return;
-        } else {
-            // Patrolling();
-        }
+        // if(isWorking){
+        //     // checkWorking();
+        //     return;
+        // } else {
+        //     // Patrolling();
+        // }
         // if (!isBusy)
         // {
         //     randomInt = (int)Random.Range(0, 5);
@@ -302,5 +302,9 @@ public class WorkerMovement : MonoBehaviour
         isReady = true;
         isBusy = false;
         Patrolling();
+    }
+
+    public void setPoint(Vector3 point){
+
     }
 }

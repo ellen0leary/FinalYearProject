@@ -66,7 +66,8 @@ public class AutoActiveBuilding : MonoBehaviour
         {
             if (other.gameObject.GetComponent<AutoMaterialController>().materialFinished(this.gameObject.layer))
             {
-                other.gameObject.transform.parent.gameObject.GetComponent<WorkerMovement>().setIsBusy();
+                // other.gameObject.transform.parent.gameObject.GetComponent<WorkerMovement>().setIsBusy();
+                other.gameObject.transform.parent.gameObject.GetComponent<GOAP>().finMaterial();
                 print("here");
                 ifActive = true;
                 timer = maxTime;

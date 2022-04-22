@@ -8,6 +8,7 @@ public class WorkerFeelings : MonoBehaviour
     public float eatNeed;
     public float knowledge;
     public float accurcy;
+    GOAP goap;
 
     float max = 100f;
     // Start is called before the first frame update
@@ -17,31 +18,38 @@ public class WorkerFeelings : MonoBehaviour
         eatNeed = max;
         knowledge = max;
         accurcy = max;
+        goap = gameObject.GetComponent<GOAP>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        // sleepNeed -= 2 * Time.deltaTime;
-        // eatNeed -= 4 * Time.deltaTime;
-        // knowledge -= 1 * Time.deltaTime;
+        sleepNeed -= 2 * Time.deltaTime;
+        eatNeed -= 4 * Time.deltaTime;
+        knowledge -= 1 * Time.deltaTime;
         accurcy = sleepNeed/3+ eatNeed/3+ knowledge/2;
-        if (sleepNeed < 10 || eatNeed <= 15)
-        {
-            this.gameObject.GetComponent<WorkerMovement>().setSpeed(false);
-        } else {
-            this.gameObject.GetComponent<WorkerMovement>().setSpeed(true);
+        if(sleepNeed<25){
+            goap.ifLowSleep(true);
         }
-        if(sleepNeed<=0 || eatNeed<=0 || knowledge<=0){
-            this.gameObject.GetComponent<WorkerMovement>().noFeels(false);
-        } else {
-            this.gameObject.GetComponent<WorkerMovement>().noFeels(true);
-        }
+        // if (sleepNeed < 10 || eatNeed <= 15)
+        // {
+        //     this.gameObject.GetComponent<WorkerMovement>().setSpeed(false);
+        //     this.gameObject.GetComponent<GOAP>().ifLowSleep(true);
+        // } else {
+        //     this.gameObject.GetComponent<WorkerMovement>().setSpeed(true);
+        //     this.gameObject.GetComponent<GOAP>().ifLowSleep(false);
+        // }
+        // if(sleepNeed<=0 || eatNeed<=0 || knowledge<=0){
+        //     this.gameObject.GetComponent<WorkerMovement>().noFeels(false);
+        // } else {
+        //     this.gameObject.GetComponent<WorkerMovement>().noFeels(true);
+        // }
     }
 
 
     public void IncreaseSleep(int value){
         sleepNeed += value;
+        goap.ifLowSleep(false);
     }
 
     public void IncreaseEat(int value)
