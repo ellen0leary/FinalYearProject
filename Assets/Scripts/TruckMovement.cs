@@ -10,7 +10,7 @@ public class TruckMovement : MonoBehaviour
     TruckManager manager;
     // Start is called before the first frame update
     private WorkerManager workerManager;
-    public bool ifGOAP;
+    public bool ifGOAP, ifAuto;
     void Start()
     {
         workerManager = FindObjectOfType<WorkerManager>();
@@ -40,7 +40,8 @@ public class TruckMovement : MonoBehaviour
         {
             stop = true;
             // uiScreen.SetActive(true);
-            if (!ifGOAP )gameObject.GetComponent<AutoTruckMaterial>().setMaterial();
+            if(ifAuto) gameObject.GetComponent<TruckMaterial>().setMaterial();
+            else if (!ifGOAP )gameObject.GetComponent<AutoTruckMaterial>().setMaterial();
             else gameObject.GetComponent<GOAPItem>().spawnItem();
             // workerManager.sendWorker();
             stop = false;

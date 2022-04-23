@@ -111,6 +111,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiScreen: {fileID: 0}
+  ifGOAP: 0
+  ifAuto: 1
 --- !u!54 &4739966651755348799
 Rigidbody:
   m_ObjectHideFlags: 0

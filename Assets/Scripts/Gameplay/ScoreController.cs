@@ -23,8 +23,7 @@ public class ScoreController : MonoBehaviour
     {
         currentScore = startingScore;
         setScoreText();
-        scorePanel = GameObject.Find("Score Panel");
-        scorePanel.SetActive(false);
+        
         // timerTxt = GameObject.Find("Timer Text").GetComponent<TextMeshProUGUI>();
         // fillCircle = GameObject.Find("timer fill");
         countText.text = "Material Count " + materCount.ToString() + "/" + materGoal.ToString();

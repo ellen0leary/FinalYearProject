@@ -8,6 +8,7 @@ public class WorkerFeelings : MonoBehaviour
     public float eatNeed;
     public float knowledge;
     public float accurcy;
+    public bool ifAuto;
     GOAP goap;
 
     float max = 100f;
@@ -28,8 +29,14 @@ public class WorkerFeelings : MonoBehaviour
         eatNeed -= 4 * Time.deltaTime;
         knowledge -= 1 * Time.deltaTime;
         accurcy = sleepNeed/3+ eatNeed/3+ knowledge/2;
-        if(sleepNeed<25){
+        if(sleepNeed<25 && !ifAuto){
             goap.ifLowSleep(true);
+        }
+        if(eatNeed<25 && !ifAuto){
+            goap.ifLowEat(true);
+        }
+        if(knowledge<25 && !ifAuto){
+            goap.ifLowTrain(true);
         }
         // if (sleepNeed < 10 || eatNeed <= 15)
         // {
@@ -54,11 +61,13 @@ public class WorkerFeelings : MonoBehaviour
 
     public void IncreaseEat(int value)
     {
+        goap.ifLowEat(false);
         eatNeed += value;
     }
 
     public void IncreaseKnowledge(int value)
     {
+        goap.ifLowTrain(false);
         knowledge += value;
     }
 
