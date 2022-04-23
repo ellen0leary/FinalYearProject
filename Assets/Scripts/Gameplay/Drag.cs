@@ -24,7 +24,7 @@ public class Drag : MonoBehaviour
         startingPos = gameObject.transform.position;
         mZCoord = Camera.main.WorldToScreenPoint(gameObject.transform.position).z;
         offset = gameObject.transform.position - GetMousePos();
-        checker.ActivatePanel(this.gameObject.name);
+        checker.activateTipPanel(this.gameObject.name);
         ifMoved = false;
     }
      void OnMouseDrag() {
@@ -38,6 +38,7 @@ public class Drag : MonoBehaviour
         // endingPos = transform.position;
             // man.sendWorker(startingPos, endingPos, this.gameObject);
             // this.gameObject.transform.position = startingPos;
+            checker.closeTipPanel();
         } else {
             ifMoved  = false;
         }

@@ -16,6 +16,7 @@ public class AutoMaterialController : MonoBehaviour
     WorkerManager wm;
     Queue<Vector3> locations;
     TheQueue queueCon;
+    IntelligentChecker checker;
 
     void Start()
     {
@@ -28,6 +29,7 @@ public class AutoMaterialController : MonoBehaviour
         locations.Enqueue(findBuilding().transform.position);
         queueCon = GameObject.Find("Workers").GetComponent<TheQueue>();
         queueCon.addToQueue(this.gameObject);
+        checker = GameObject.Find("ScoreController").GetComponent<IntelligentChecker>();
     }
     // makegamegud plz()
 
@@ -49,6 +51,7 @@ public class AutoMaterialController : MonoBehaviour
                 return true;
             }
         }
+        // checker.activateWrongPanel();
         return false;
     }
 

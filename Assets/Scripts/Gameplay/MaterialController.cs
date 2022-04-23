@@ -13,12 +13,16 @@ public class MaterialController : MonoBehaviour
     // Start is called before the first frame update
     ScoreController sc;
     WorkerManager wm;
+    IntelligentChecker checker;
+
+    
     void Start()
     {
         wm = GameObject.Find("Workers").GetComponent<WorkerManager>();
         print("sending workers" + wm.gameObject.name);
         GameObject gb = GameObject.FindGameObjectWithTag("score");
         sc = gb.GetComponent<ScoreController>();
+        checker = GameObject.Find("ScoreController").GetComponent<IntelligentChecker>();
     }
     // makegamegud plz()
 
@@ -37,6 +41,7 @@ public class MaterialController : MonoBehaviour
                 return true;
             }
         }
+        checker.activateWrongPanel(nextItem());
         return false;
     }
 
@@ -76,6 +81,17 @@ public class MaterialController : MonoBehaviour
         print("sending workers" + wm.gameObject.name);
         GameObject g = wm.getCloest(startPos);
         g.GetComponent<WorkerMovement>().sendToWork(startPos, endPos, this.gameObject);
+    }
+
+    string nextItem(){
+         for (int x = 0; x<material.Length; x++){
+            if (material[x] != -1){
+                if(material[x] == 9) return "<color=\"red\">washer<color>";
+                else if(material[x] == 10) return "<color=\"red\">sorter<color>";
+                else if(material[x] == 11) return "<color=\"red\">shreder<color>";
+            }
+        }
+        return "sell";
     }
 }
 
