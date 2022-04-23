@@ -29,6 +29,7 @@ public class WorkerFeelings : MonoBehaviour
         eatNeed -= 4 * Time.deltaTime;
         knowledge -= 1 * Time.deltaTime;
         accurcy = sleepNeed/3+ eatNeed/3+ knowledge/2;
+        
         if(sleepNeed<25 && !ifAuto){
             goap.ifLowSleep(true);
         }

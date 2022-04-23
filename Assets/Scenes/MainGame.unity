@@ -2818,6 +2818,7 @@ GameObject:
   - component: {fileID: 1944837905}
   - component: {fileID: 1944837906}
   - component: {fileID: 1944837907}
+  - component: {fileID: 1944837908}
   m_Layer: 0
   m_Name: ScoreController
   m_TagString: score
@@ -2878,6 +2879,18 @@ MonoBehaviour:
   scoreText: {fileID: 861180997}
   countText: {fileID: 1784333947}
   fillCircle: {fileID: 1134752288}
+--- !u!114 &1944837908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1944837903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c0962f4f0e28bb43912bb8e2c9950c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &2084193506 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5074947116093081820, guid: 9d4af84debbe147478cf1d17b239f766, type: 3}

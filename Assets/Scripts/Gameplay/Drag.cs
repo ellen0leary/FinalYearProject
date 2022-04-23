@@ -10,15 +10,21 @@ public class Drag : MonoBehaviour
     private Vector3 offset;
     float mZCoord;
     bool ifMoved;
+    public GameObject checkerObject;
+    public IntelligentChecker checker;
 
     void Start(){
         man = GameObject.Find("Workers").GetComponent<WorkerManager>();
+
+        checkerObject = GameObject.Find("ScoreController");
+        checker = checkerObject.GetComponent<IntelligentChecker>();
         ifMoved = false;
     }
     void OnMouseDown() {
         startingPos = gameObject.transform.position;
         mZCoord = Camera.main.WorldToScreenPoint(gameObject.transform.position).z;
         offset = gameObject.transform.position - GetMousePos();
+        checker.ActivatePanel(this.gameObject.name);
         ifMoved = false;
     }
      void OnMouseDrag() {
