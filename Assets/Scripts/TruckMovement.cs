@@ -56,6 +56,6 @@ public class TruckMovement : MonoBehaviour
     }
 
     public void IncreseMultipler(float value){
-        multipiler = value;
+        multipiler = value*1.2f;
     }
 }

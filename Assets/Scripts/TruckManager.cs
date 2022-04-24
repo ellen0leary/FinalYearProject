@@ -27,7 +27,7 @@ public class TruckManager : MonoBehaviour
     {
          if(timerActivate){
             timeLeft-=( 1f * Time.deltaTime* multipiler);
-            if(timeLeft<=0){
+            if(timeLeft<=5){
                 GameObject g = Instantiate(truck, truck.transform.position, truck.transform.rotation);
                 g.GetComponent<TruckMovement>().IncreseMultipler(multipiler);
                 timerActivate= false;
