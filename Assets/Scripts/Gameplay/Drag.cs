@@ -12,6 +12,7 @@ public class Drag : MonoBehaviour
     bool ifMoved;
     public GameObject checkerObject;
     public IntelligentChecker checker;
+    AudioSource audio;
 
     void Start(){
         man = GameObject.Find("Workers").GetComponent<WorkerManager>();
@@ -19,6 +20,7 @@ public class Drag : MonoBehaviour
         checkerObject = GameObject.Find("ScoreController");
         checker = checkerObject.GetComponent<IntelligentChecker>();
         ifMoved = false;
+        audio = GetComponent<AudioSource>();
     }
     void OnMouseDown() {
         startingPos = gameObject.transform.position;
@@ -26,6 +28,7 @@ public class Drag : MonoBehaviour
         offset = gameObject.transform.position - GetMousePos();
         checker.activateTipPanel(this.gameObject.name);
         ifMoved = false;
+        audio.Play();
     }
      void OnMouseDrag() {
         transform.position = GetMousePos()+offset;

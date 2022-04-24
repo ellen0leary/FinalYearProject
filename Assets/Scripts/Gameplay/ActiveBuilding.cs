@@ -17,11 +17,13 @@ public class ActiveBuilding : MonoBehaviour
     // Start is called before the first frame update
     public GameObject material;
     public GameObject scoreController;
+    AudioSource audio;
     void Start()
     {
         timer = maxTime;
         materialTimer = maxMaterialTimer;
         scoreController = GameObject.FindGameObjectWithTag("score");
+        audio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -44,6 +46,7 @@ public class ActiveBuilding : MonoBehaviour
                     ifActive = false;
                     int thisLayer = (int) this.gameObject.layer;
                     material.GetComponent<MaterialController>().upScore();
+                    audio.Stop();
                     // Debug.Log((int)this.gameObject.layer);
                 }
                 timer = maxTime;
@@ -65,6 +68,7 @@ public class ActiveBuilding : MonoBehaviour
                 materialTimer = maxMaterialTimer;
                 other.gameObject.SetActive(false);
                 material = other.gameObject;
+                audio.Play();
             } else {
                 print("no we are here");
                 other.gameObject.transform.position = new Vector3(transform.position.x + 1, transform.position.y+0.5f, transform.position.z + 1);
