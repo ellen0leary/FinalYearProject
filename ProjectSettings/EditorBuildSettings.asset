@@ -14,4 +14,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Quiz.unity
     guid: 294217bc85132ce449d5eb35803b1abc
+  - enabled: 1
+    path: Assets/Scenes/Wroking.unity
+    guid: 5bfc2d9a317b1cc4ab8258571eb17727
+  - enabled: 1
+    path: Assets/Scenes/LocalMultiplayer.unity
+    guid: 4011b5c7c5400ef49b26e5c21cd52716
   m_configObjects: {}

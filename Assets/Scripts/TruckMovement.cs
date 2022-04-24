@@ -11,6 +11,7 @@ public class TruckMovement : MonoBehaviour
     // Start is called before the first frame update
     private WorkerManager workerManager;
     public bool ifGOAP, ifAuto;
+    float multipiler = 1;
     void Start()
     {
         workerManager = FindObjectOfType<WorkerManager>();
@@ -25,7 +26,7 @@ public class TruckMovement : MonoBehaviour
     void Update()
     {
         if(!stop){
-            this.transform.Translate (Vector3.forward * 1.5f * Time.deltaTime);
+            this.transform.Translate (Vector3.forward * 1.5f * Time.deltaTime * multipiler);
         }
        
         if(transform.position.z >5){
@@ -52,5 +53,9 @@ public class TruckMovement : MonoBehaviour
         uiScreen.SetActive(false);
         // workerManager.sendWorker()s;
         stop = false;
+    }
+
+    public void IncreseMultipler(float value){
+        multipiler = value;
     }
 }

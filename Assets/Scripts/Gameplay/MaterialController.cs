@@ -14,6 +14,7 @@ public class MaterialController : MonoBehaviour
     ScoreController sc;
     WorkerManager wm;
     IntelligentChecker checker;
+    TruckManager tm;
 
     
     void Start()
@@ -23,6 +24,7 @@ public class MaterialController : MonoBehaviour
         GameObject gb = GameObject.FindGameObjectWithTag("score");
         sc = gb.GetComponent<ScoreController>();
         checker = GameObject.Find("ScoreController").GetComponent<IntelligentChecker>();
+        tm = GameObject.Find("Truck Manager").GetComponent<TruckManager>();
     }
     // makegamegud plz()
 
@@ -33,15 +35,15 @@ public class MaterialController : MonoBehaviour
     }
 
     public bool materialFinished(int layer){
-        //add to []
-        // Debug.Log(layer);
         for (int x = 0; x<material.Length; x++){
             if (material[x] == layer){
                 material[x] = -1;
+                tm.changeMultipiler(0.1f);
                 return true;
             }
         }
         checker.activateWrongPanel(nextItem());
+        tm.resetMultiplayiler();
         return false;
     }
 

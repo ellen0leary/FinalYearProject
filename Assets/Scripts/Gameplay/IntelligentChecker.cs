@@ -16,6 +16,7 @@ public class IntelligentChecker : MonoBehaviour
     bool isWrongPanelActive; 
     float maxTimer = 5;
     public float currentTimer;
+    public int worngCounter;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +29,7 @@ public class IntelligentChecker : MonoBehaviour
         wrongPanel.SetActive(false);
         isWrongPanelActive = false;
         currentTimer = maxTimer;
+        worngCounter = 0;
     }
 
     // Update is called once per frame
@@ -55,9 +57,9 @@ public class IntelligentChecker : MonoBehaviour
     }
 
     public void activateWrongPanel(string nextBuild){
-        // print("activating wrong panel");
         wrongPanel.SetActive(true);
         worngText.text = "This needs to go to " + nextBuild;
         isWrongPanelActive = true;
+        worngCounter++;
     }
 }

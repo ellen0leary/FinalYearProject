@@ -6,17 +6,21 @@ using UnityEngine.SceneManagement;
 public class MenuContriller : MonoBehaviour
 {
 
+
     public GameObject popUpScreen;
+    public GameObject optionsMenu;
 
     void Start() {
         popUpScreen.SetActive(false);
+        optionsMenu = GameObject.Find("Options");
+        optionsMenu.SetActive(false);
     }
     public void startSinglePlayer(){
         SceneManager.LoadScene("MainGame");
     }
 
     public void startOnline(){
-
+        SceneManager.LoadScene("LocalMultiplayer");
     }
 
     public void startLearn(){
@@ -24,7 +28,7 @@ public class MenuContriller : MonoBehaviour
     }
 
     public void startOptions(){
-
+        optionsMenu.SetActive(true);
     }
 
     public void exitGame(){

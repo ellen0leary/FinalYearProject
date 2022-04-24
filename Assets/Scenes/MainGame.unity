@@ -3109,6 +3109,7 @@ MonoBehaviour:
   tipText: {fileID: 0}
   worngText: {fileID: 0}
   currentTimer: 0
+  worngCounter: 0
 --- !u!4 &2084193506 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5074947116093081820, guid: 9d4af84debbe147478cf1d17b239f766, type: 3}
@@ -3305,6 +3306,14 @@ PrefabInstance:
     - target: {fileID: 1632734753, guid: 87da756a2670aea4583838cc4892d535, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -149.19995
+      objectReference: {fileID: 0}
+    - target: {fileID: 1981956124, guid: 87da756a2670aea4583838cc4892d535, type: 3}
+      propertyPath: m_margin.x
+      value: -135.90863
+      objectReference: {fileID: 0}
+    - target: {fileID: 1981956124, guid: 87da756a2670aea4583838cc4892d535, type: 3}
+      propertyPath: m_margin.z
+      value: -177.97272
       objectReference: {fileID: 0}
     - target: {fileID: 416457914771800053, guid: 87da756a2670aea4583838cc4892d535, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target

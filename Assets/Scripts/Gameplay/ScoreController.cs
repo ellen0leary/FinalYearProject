@@ -69,7 +69,7 @@ public class ScoreController : MonoBehaviour
         scorePanel.SetActive(true);
         GameObject.Find("FinalTextScore").GetComponent<TextMeshProUGUI>().text = text;
         //set final score
-        GameObject.Find("FinalScoreScore").GetComponent<TextMeshProUGUI>().text = "Final Score is "+ currentScore.ToString();
+        GameObject.Find("FinalScoreScore").GetComponent<TextMeshProUGUI>().text = "Final Score is "+ currentScore.ToString() + "\n You misplaced materials "+GetComponent<IntelligentChecker>().worngCounter + " times.";
     }
 
     public void goToMainMenu(){

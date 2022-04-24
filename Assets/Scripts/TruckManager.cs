@@ -6,11 +6,12 @@ using UnityEngine.SceneManagement;
 public class TruckManager : MonoBehaviour
 {
     bool timerActivate;
-    int timeLeft;
+    float timeLeft;
     public GameObject truck;
     public GameObject GOAPTruck;
 
     int numOfTrucks;
+    float multipiler;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,25 +19,24 @@ public class TruckManager : MonoBehaviour
         timeLeft = 0;
         numOfTrucks =2+ Random.Range(4, 7);
         Debug.Log(numOfTrucks.ToString());
+        multipiler = 1;
     }
 
     // Update is called once per frame
     void Update()
     {
-        // if(numOfTrucks<0){
-        //     // SceneManager.LoadScene(2);
-        // }else
          if(timerActivate){
-            timeLeft--;
+            timeLeft-=( 1f * Time.deltaTime* multipiler);
             if(timeLeft<=0){
-                Instantiate(truck, truck.transform.position, truck.transform.rotation);
+                GameObject g = Instantiate(truck, truck.transform.position, truck.transform.rotation);
+                g.GetComponent<TruckMovement>().IncreseMultipler(multipiler);
                 timerActivate= false;
             }
         }
     }
 
     public void startTimer(){
-        timeLeft = Random.Range(10,20);
+        timeLeft = Random.Range(1,3);
         timerActivate = true;
         numOfTrucks--;
     }
@@ -44,5 +44,14 @@ public class TruckManager : MonoBehaviour
     public void spawnInGOAP(GameObject g){
         GameObject truck = Instantiate(GOAPTruck, GOAPTruck.transform.position, GOAPTruck.transform.rotation);
         truck.GetComponent<GOAPItem>().item = g;
+    }
+
+    public void changeMultipiler(float value){
+        multipiler += value;
+        print(multipiler);
+    }
+
+    public void resetMultiplayiler(){
+        multipiler = 1;
     }
 }
