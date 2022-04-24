@@ -18,6 +18,7 @@ TagManager:
   - blanket
   - food
   - book
+  - uiPanel
   layers:
   - Default
   - TransparentFX

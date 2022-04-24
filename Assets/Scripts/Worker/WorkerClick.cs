@@ -28,7 +28,7 @@ public class WorkerClick : MonoBehaviour
                     wdScreen.SetActive(true);
                     hit.transform.gameObject.GetComponent<WorkerDisplay>().setDeatils();
                     }
-                else wdScreen.SetActive(false);
+                // else wdScreen.SetActive(false);
             }
             
         }
