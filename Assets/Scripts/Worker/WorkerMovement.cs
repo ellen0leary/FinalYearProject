@@ -58,27 +58,27 @@ public class WorkerMovement : MonoBehaviour
         //     // checkWorking();
         //     return;
         // } else {
-        //     // Patrolling();
-        // }
-        // if (!isBusy)
-        // {
-        //     randomInt = (int)Random.Range(0, 5);
-        //     isBusy = true;
-        // }
-        // if (randomInt == 0f || randomInt == 4f)
-        // {
         //     Patrolling();
-        //     isReady = true;
         // }
-        // else if (randomInt == 3f || randomInt == 1f)
-        // {
-        //     GoToEat();
-        //     isReady = false;
-        // }
-        // else if(randomInt == 2){
-        //     GoToWork();
-        //     isReady = false;
-        // }
+        if (!isBusy)
+        {
+            randomInt = (int)Random.Range(0, 5);
+            isBusy = true;
+        }
+        if (randomInt == 0f || randomInt == 4f)
+        {
+            Patrolling();
+            isReady = true;
+        }
+        else if (randomInt == 3f || randomInt == 1f)
+        {
+            GoToEat();
+            isReady = false;
+        }
+        else if(randomInt == 2){
+            GoToWork();
+            isReady = false;
+        }
     }
 
     void Patrolling()
