@@ -5,7 +5,7 @@ using UnityEngine;
 public class MaterialController : MonoBehaviour
 {
     int currentScore = 100;
-    int[] material = {9,10,11};
+    int[] material;// = {9,10,11};
     int value = 1000;
     int curentIndex = 0;
     int[] currentProcess = {-1-1,-1};
@@ -25,6 +25,14 @@ public class MaterialController : MonoBehaviour
         sc = gb.GetComponent<ScoreController>();
         checker = GameObject.Find("ScoreController").GetComponent<IntelligentChecker>();
         tm = GameObject.Find("Truck Manager").GetComponent<TruckManager>();
+        if(this.gameObject.name.Contains("Plastic")){
+            material = new int[]{9,10,11};
+        } else if(this.gameObject.name.Contains("Tin")){
+            material = new int[]{9,10};
+        } else {
+            material =new int[] {10, 11};
+        }
+        print(material.Length);
     }
     // makegamegud plz()
 
