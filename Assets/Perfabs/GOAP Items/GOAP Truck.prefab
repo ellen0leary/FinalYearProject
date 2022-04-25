@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 2570886634574814107}
   - component: {fileID: 2570886634574814106}
   - component: {fileID: 971005459696141583}
+  - component: {fileID: 7272700677033929657}
   m_Layer: 8
   m_Name: GOAP Truck
   m_TagString: truck
@@ -31,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 2570886634574814080}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4.467, y: 0.24999976, z: -4.678}
-  m_LocalScale: {x: 0.6, y: 0.5, z: 1}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -43,7 +44,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2570886634574814080}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 101861711042926850, guid: c30e20ad907a95342ae5548fb153a03e, type: 3}
 --- !u!23 &2570886634574814110
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -63,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 26ac1c6e4f2bfd443a6aa191ef56412e, type: 2}
+  - {fileID: 2100000, guid: a1cb40ccb7a34d347bb9d0677e1da1ee, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -112,6 +113,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiScreen: {fileID: 0}
   ifGOAP: 1
+  ifAuto: 0
 --- !u!54 &2570886634574814106
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -141,3 +143,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 0}
+--- !u!64 &7272700677033929657
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2570886634574814080}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 101861711042926850, guid: c30e20ad907a95342ae5548fb153a03e, type: 3}

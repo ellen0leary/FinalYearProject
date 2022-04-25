@@ -26,7 +26,7 @@ public class TruckMovement : MonoBehaviour
     void Update()
     {
         if(!stop){
-            this.transform.Translate (Vector3.forward * 1.5f * Time.deltaTime * multipiler);
+            this.transform.Translate (Vector3.right * 1.5f * Time.deltaTime * multipiler);
         }
        
         if(transform.position.z >5){

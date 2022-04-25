@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 4739966651755348799}
   - component: {fileID: 1795191024}
   - component: {fileID: 552569177737426889}
+  - component: {fileID: -2670136396901378248}
   m_Layer: 8
   m_Name: AutoTruck
   m_TagString: truck
@@ -32,7 +33,7 @@ Transform:
   m_GameObject: {fileID: 4739966651755348773}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -3.82, y: 0.25, z: -4.66}
-  m_LocalScale: {x: 0.6, y: 0.5, z: 1}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -44,7 +45,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4739966651755348773}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 101861711042926850, guid: c30e20ad907a95342ae5548fb153a03e, type: 3}
 --- !u!23 &4739966651755348795
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -64,7 +65,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 26ac1c6e4f2bfd443a6aa191ef56412e, type: 2}
+  - {fileID: 2100000, guid: a1cb40ccb7a34d347bb9d0677e1da1ee, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -112,6 +113,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiScreen: {fileID: 0}
+  ifGOAP: 0
+  ifAuto: 0
 --- !u!54 &4739966651755348799
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -164,3 +167,17 @@ MonoBehaviour:
   - {fileID: 6030292274503704423, guid: 76323fe588b0c7746a7b51fcbb96a7e0, type: 3}
   - {fileID: 407089972839730780, guid: 1853f55aa670b9a499d4b82a31136e15, type: 3}
   - {fileID: 147024178412740852, guid: d7ffcec528fb67c42b0bf07769d02efc, type: 3}
+--- !u!64 &-2670136396901378248
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4739966651755348773}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 101861711042926850, guid: c30e20ad907a95342ae5548fb153a03e, type: 3}
