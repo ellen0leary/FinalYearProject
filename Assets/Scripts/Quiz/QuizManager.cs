@@ -11,39 +11,59 @@ public class QuizManager : MonoBehaviour
 
     private string[] questions = {"Tin should be sorted first","Plastic should be cleaned first","Cardboard should be shreaded first"};
     private bool[] answers = {false, false, true};
+    List<Question> questionsToAsk;
     // Start is called before the first frame update
     int questionValue = -1;
-    int correctQuestions=0;
-    int currentQuestions=0;
-    int totalQuestions=2;
-    TextMeshProUGUI questionText;
+    public int correctQuestions=0;
+    public int currentQuestions=0;
+    public int totalQuestions=2;
+    TextMeshProUGUI questionText, leftAnswerTxt, rightAnswerTxt;
     public GameObject trueBtn;
     public GameObject falseBtn;
     public GameObject mainBtn;
+    bool ifQuestions = false;
+    string leftAnswer,rightAnswer;
     void Start()
     {
         mainBtn.SetActive(false);
         intelligentTutor = GetComponent<IntelligentTutor>();
         questionText =GetComponent<TextMeshProUGUI>();
-        setQuestion();
+        leftAnswerTxt = GameObject.Find("LeftAns").GetComponent<TextMeshProUGUI>();
+        rightAnswerTxt = GameObject.Find("RightAns").GetComponent<TextMeshProUGUI>();
+        // setQuestion();
     }
 
+    void Update(){
+        if(ifQuestions){
+            //remove loading screen#
+            totalQuestions = questionsToAsk.Count;
+            setQuestion();
+            ifQuestions = false;
+        }
+    }
     void setQuestion(){
         if(currentQuestions == totalQuestions){
             showResults();return;
         }
+        questionText.text = questionsToAsk[currentQuestions].question;
         currentQuestions++;
-        questionValue = Random.Range(0, questions.Length);
-        questionText.text = questions[questionValue];
-
-
+        int random = Random.Range(0,4);
+        if(random%2==0){
+            leftAnswer =questionsToAsk[currentQuestions].answer;
+            rightAnswer = questionsToAsk[currentQuestions].wrong;
+        } else{
+            leftAnswer =questionsToAsk[currentQuestions].wrong;
+            rightAnswer = questionsToAsk[currentQuestions].answer;
+        }
+        leftAnswerTxt.text = leftAnswer;
+        rightAnswerTxt.text = rightAnswer;
         // StartCoroutine(QuestionLoader.getJSON(1));
         
 
     }
 
-    void checkValidity(bool answer){
-        if(answer == answers[questionValue]){
+    void checkValidity(string answer){
+        if(answer == questionsToAsk[currentQuestions-1].answer){
             //correct
             correctQuestions++;
             print("correct");
@@ -68,6 +88,8 @@ public class QuizManager : MonoBehaviour
                 questionText.text += "\n You did worst than the last quiz. Try again";
             }
         }
+        Destroy(leftAnswerTxt);
+        Destroy(rightAnswerTxt);
         Destroy(trueBtn);
         Destroy(falseBtn);
         intelligentTutor.saveScores();
@@ -82,13 +104,21 @@ public class QuizManager : MonoBehaviour
     }
 
      public void clickTrue(){
-        checkValidity(true);
+         print("click left");
+        checkValidity(leftAnswer);
         setQuestion();
     }
 
     public void clickFalse(){
-        checkValidity(false);
+        print("click left");
+        checkValidity(rightAnswer);
         setQuestion();
+    }
+
+    public void setQuestions(List<Question> questions){
+        questionsToAsk = questions;
+        ifQuestions = true;
+        print("have Questions");
     }
 
 }

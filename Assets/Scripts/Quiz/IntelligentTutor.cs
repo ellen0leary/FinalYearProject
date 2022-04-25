@@ -13,8 +13,10 @@ public class IntelligentTutor : MonoBehaviour
     {
        if(PlayerPrefs.HasKey(playerPrefName)){
            string scoreString = PlayerPrefs.GetString(playerPrefName);
+           print(scoreString);
            string[] stringOfScores = scoreString.Split(',');
            foreach(string x in stringOfScores){
+                print(x);
                 int result = Int32.Parse(x);
                 listOfScores.Add(result);
                 getLastScore();
