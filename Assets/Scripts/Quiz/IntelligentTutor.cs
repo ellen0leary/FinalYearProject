@@ -11,12 +11,12 @@ public class IntelligentTutor : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        PlayerPrefs.SetString(playerPrefName,"2,1,4,5,2");
        if(PlayerPrefs.HasKey(playerPrefName)){
            string scoreString = PlayerPrefs.GetString(playerPrefName);
            print(scoreString);
            string[] stringOfScores = scoreString.Split(',');
            foreach(string x in stringOfScores){
-                print(x);
                 int result = Int32.Parse(x);
                 listOfScores.Add(result);
                 getLastScore();

@@ -13,7 +13,6 @@ public class MenuContriller : MonoBehaviour
     void Start() {
         popUpScreen.SetActive(false);
          levelSelectionPanel.SetActive(false);
-        optionsMenu = GameObject.Find("Options");
         optionsMenu.SetActive(false);
     }
     public void startSinglePlayer(){
