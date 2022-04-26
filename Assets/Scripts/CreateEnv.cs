@@ -6,9 +6,18 @@ public class CreateEnv : MonoBehaviour
 {
     public GameObject[] trees;
     public GameObject[] rocks;
+    int totalTrees, totalRocks;
     // Start is called before the first frame update
     void Start()
     {
+        string level = PlayerPrefs.GetString("level");
+        if(level == "grassy"){
+            totalTrees = 3;
+            totalRocks = 3;
+        } else {
+            totalTrees = 6;
+            totalRocks = 2;
+        }
         SetUpEnv();
     }
 
@@ -19,9 +28,14 @@ public class CreateEnv : MonoBehaviour
     }
 
     void SetUpEnv(){
-        int totalTrees = Random.Range(1,5);
         for(int i=0; i<totalTrees; i++){
-            float z = Random.Range(-5,5);
+            int yPos = Random.Range(0,4);
+            float z= 0;
+            if(yPos%2== 0){
+                z = Random.Range(-5,-2);
+            } else {
+                z = Random.Range(2,5);
+            }
             float y = 0f;
             float x = Random.Range(-3,10);
             //get random int for tree
@@ -34,7 +48,6 @@ public class CreateEnv : MonoBehaviour
             Instantiate(tree, tree.transform.position, tree.transform.rotation);
         }
 
-        int totalRocks = Random.Range(1,5);
         for(int i=0; i<totalRocks; i++){
             float rockZ = Random.Range(-5, 5);
             float rockY = 0.1f;

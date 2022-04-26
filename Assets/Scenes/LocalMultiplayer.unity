@@ -5333,7 +5333,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0.5, y: 0.5, z: -0.5, w: 0.5}
-  m_LocalPosition: {x: 1.2, y: 12.4, z: -0.05}
+  m_LocalPosition: {x: 1.2, y: 10, z: -0.05}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -7307,7 +7307,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1448059642}
   m_LocalRotation: {x: 0.5, y: 0.5, z: -0.5, w: 0.5}
-  m_LocalPosition: {x: -5.37, y: 19.1, z: -18.2}
+  m_LocalPosition: {x: -5.37, y: 16.7, z: -18.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 531469333}
@@ -11297,7 +11297,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 179120368, guid: 87da756a2670aea4583838cc4892d535, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 391391264, guid: 87da756a2670aea4583838cc4892d535, type: 3}
       propertyPath: m_LocalScale.x
@@ -11365,7 +11365,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 937764010, guid: 87da756a2670aea4583838cc4892d535, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 1010764580, guid: 87da756a2670aea4583838cc4892d535, type: 3}
       propertyPath: m_IsActive
@@ -11373,7 +11373,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1010764581, guid: 87da756a2670aea4583838cc4892d535, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1195335499, guid: 87da756a2670aea4583838cc4892d535, type: 3}
       propertyPath: m_IsActive
@@ -11389,7 +11389,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1702447994, guid: 87da756a2670aea4583838cc4892d535, type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 1773250911, guid: 87da756a2670aea4583838cc4892d535, type: 3}
       propertyPath: m_IsActive
@@ -11595,7 +11595,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 466092689270541318, guid: 87da756a2670aea4583838cc4892d535, type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 1106321510670519804, guid: 87da756a2670aea4583838cc4892d535, type: 3}
       propertyPath: m_fontSize

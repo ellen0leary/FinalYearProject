@@ -8,15 +8,17 @@ public class MenuContriller : MonoBehaviour
 
 
     public GameObject popUpScreen;
-    public GameObject optionsMenu;
+    public GameObject optionsMenu, levelSelectionPanel;
 
     void Start() {
         popUpScreen.SetActive(false);
+         levelSelectionPanel.SetActive(false);
         optionsMenu = GameObject.Find("Options");
         optionsMenu.SetActive(false);
     }
     public void startSinglePlayer(){
-        SceneManager.LoadScene("MainGame");
+        // SceneManager.LoadScene("MainGame");
+        levelSelectionPanel.SetActive(true);
     }
 
     public void startOnline(){
