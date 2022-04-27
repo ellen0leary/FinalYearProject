@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class Drag : MonoBehaviour
 {
     WorkerManager man;
@@ -13,9 +13,11 @@ public class Drag : MonoBehaviour
     public GameObject checkerObject;
     public IntelligentChecker checker;
     AudioSource audio;
-
+    bool ifMulti;
     void Start(){
-        man = GameObject.Find("Workers").GetComponent<WorkerManager>();
+        if(SceneManager.GetActiveScene().buildIndex ==4) ifMulti = true;
+        else ifMulti = false;
+        if(!ifMulti) man = GameObject.Find("Workers").GetComponent<WorkerManager>();
 
         checkerObject = GameObject.Find("ScoreController");
         checker = checkerObject.GetComponent<IntelligentChecker>();
@@ -41,7 +43,7 @@ public class Drag : MonoBehaviour
         // endingPos = transform.position;
             // man.sendWorker(startingPos, endingPos, this.gameObject);
             // this.gameObject.transform.position = startingPos;
-            checker.closeTipPanel();
+            if(!ifMulti)checker.closeTipPanel();
         } else {
             ifMoved  = false;
         }

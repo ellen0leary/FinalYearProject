@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class MaterialController : MonoBehaviour
 {
     int currentScore = 100;
@@ -15,12 +15,14 @@ public class MaterialController : MonoBehaviour
     WorkerManager wm;
     IntelligentChecker checker;
     TruckManager tm;
-
+    bool ifMulti;
+    
     
     void Start()
     {
-        wm = GameObject.Find("Workers").GetComponent<WorkerManager>();
-        print("sending workers" + wm.gameObject.name);
+        if(SceneManager.GetActiveScene().buildIndex ==4) ifMulti = true;
+        else ifMulti = false;
+        if(!ifMulti) wm = GameObject.Find("Workers").GetComponent<WorkerManager>();
         GameObject gb = GameObject.FindGameObjectWithTag("score");
         sc = gb.GetComponent<ScoreController>();
         checker = GameObject.Find("ScoreController").GetComponent<IntelligentChecker>();
@@ -77,7 +79,8 @@ public class MaterialController : MonoBehaviour
         if(other.gameObject.CompareTag("selling"))
         {
             Debug.Log(other.gameObject.tag);
-            sell();
+            if(!ifMulti) sell();
+            else sell(other.gameObject.layer);
             Destroy(this.gameObject);
         }
     }
@@ -105,6 +108,11 @@ public class MaterialController : MonoBehaviour
             }
         }
         return "sell";
+    }
+
+    public void sell(int layer){
+        //calculate
+        
     }
 }
 

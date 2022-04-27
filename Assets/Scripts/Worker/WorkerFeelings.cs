@@ -10,6 +10,7 @@ public class WorkerFeelings : MonoBehaviour
     public float accurcy;
     public bool ifAuto;
     GOAP goap;
+    WorkerMovement move;
 
     float max = 100f;
     public float sleepVal, eatVal, trainVal;
@@ -26,7 +27,8 @@ public class WorkerFeelings : MonoBehaviour
         eatNeed = max;
         knowledge = max;
         accurcy = max;
-        goap = gameObject.GetComponent<GOAP>();
+        if(!ifAuto) goap = gameObject.GetComponent<GOAP>();
+        else move = gameObject.GetComponent<WorkerMovement>();
     }
 
     // Update is called once per frame
@@ -37,45 +39,38 @@ public class WorkerFeelings : MonoBehaviour
         knowledge -= (trainVal * Time.deltaTime);
         accurcy = sleepNeed/3+ eatNeed/3+ knowledge/2;
         
-        if(sleepNeed<25 && !ifAuto){
-            goap.ifLowSleep(true);
+        if(sleepNeed<25 ){
+            if(!ifAuto) goap.ifLowSleep(true);
+            else move.setSpeed(false);
         }
         if(eatNeed<25 && !ifAuto){
-            goap.ifLowEat(true);
+            if(!ifAuto) goap.ifLowEat(true);
+            else move.setSpeed(false);
         }
         if(knowledge<25 && !ifAuto){
-            goap.ifLowTrain(true);
+            if(!ifAuto) goap.ifLowTrain(true);
+            else move.setSpeed(false);
         }
-        // if (sleepNeed < 10 || eatNeed <= 15)
-        // {
-        //     this.gameObject.GetComponent<WorkerMovement>().setSpeed(false);
-        //     this.gameObject.GetComponent<GOAP>().ifLowSleep(true);
-        // } else {
-        //     this.gameObject.GetComponent<WorkerMovement>().setSpeed(true);
-        //     this.gameObject.GetComponent<GOAP>().ifLowSleep(false);
-        // }
-        // if(sleepNeed<=0 || eatNeed<=0 || knowledge<=0){
-        //     this.gameObject.GetComponent<WorkerMovement>().noFeels(false);
-        // } else {
-        //     this.gameObject.GetComponent<WorkerMovement>().noFeels(true);
-        // }
     }
 
 
     public void IncreaseSleep(int value){
         sleepNeed += value;
-        goap.ifLowSleep(false);
+        if(!ifAuto) goap.ifLowSleep(false);
+        else move.setSpeed(true);
     }
 
     public void IncreaseEat(int value)
     {
-        goap.ifLowEat(false);
+        if(!ifAuto) goap.ifLowEat(false);
+        else move.setSpeed(true);
         eatNeed += value;
     }
 
     public void IncreaseKnowledge(int value)
     {
-        goap.ifLowTrain(false);
+        if(!ifAuto) goap.ifLowTrain(false);
+        else move.setSpeed(false);
         knowledge += value;
     }
 

@@ -21,9 +21,7 @@ public class IntelligentTutor : MonoBehaviour
                 listOfScores.Add(result);
                 getLastScore();
            }
-       } else {
-           PlayerPrefs.SetString(playerPrefName,"2,1,4,5,2");
-       }
+       } 
        Debug.Log(listOfScores.Count);
     }
 

@@ -25,7 +25,7 @@ public class MultScoreController : MonoBehaviour
 
     public TextMeshProUGUI timerTxtP2;
     public TextMeshProUGUI timerTxtP1;
-    float mainTimer = 1000f;
+    float mainTimer = 20f;
     int materGoal = 20;
     GameObject scorePanel;
     void Start()
@@ -33,7 +33,6 @@ public class MultScoreController : MonoBehaviour
         scoreP1 = startingScore;
         scoreP2 = startingScore;
         scorePanel = GameObject.Find("Score Panel");
-        scorePanel.SetActive(false);
 
         timerTxtP2 = GameObject.Find("P2TimerText").GetComponent<TextMeshProUGUI>();
         timerTxtP1 = GameObject.Find("P1TimerText").GetComponent<TextMeshProUGUI>();
@@ -42,8 +41,9 @@ public class MultScoreController : MonoBehaviour
         countTextP1.text = "Material Count " + materCountP1.ToString() + "/" + materGoal.ToString();
         countTextP2.text= "Material Count " + materCountP2.ToString() + "/" + materGoal.ToString();
         
-        // scoreTextP1.text = "Money - €" + scoreP1.ToString();/
-        // scoreTextP2.text = "Money - €" + scoreP2.ToString();
+        scorePanel.SetActive(false);
+        scoreTextP1.text = "Money - €" + scoreP1.ToString();
+        scoreTextP2.text = "Money - €" + scoreP2.ToString();
     }
 
     // Update is called once per frame
@@ -53,10 +53,12 @@ public class MultScoreController : MonoBehaviour
         if(mainTimer<=0){
             gameOverScreen();
         } else {
-            timerTxtP1.text =  "Timer Remaining : " + Mathf.FloorToInt(mainTimer % 60);
-            timerTxtP2.text = "Timer Remaining : " + Mathf.FloorToInt(mainTimer % 60);
+            timerTxtP1.text =  "Timer Remaining : " + (int) mainTimer;
+            timerTxtP2.text = "Timer Remaining : " +  (int)mainTimer;
             countTextP1.text = "Material Count " + materCountP1.ToString() + "/" + materGoal.ToString();
             countTextP2.text = "Material Count " + materCountP2.ToString() + "/" + materGoal.ToString();
+            scoreTextP1.text = "Money - €" + scoreP1.ToString();
+            scoreTextP2.text = "Money - €" + scoreP2.ToString();
         }
     }
 

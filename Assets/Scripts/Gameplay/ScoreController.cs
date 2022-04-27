@@ -21,6 +21,7 @@ public class ScoreController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        materGoal += Random.Range(0,4);
         currentScore = startingScore;
         setScoreText();
         scorePanel = GameObject.Find("Score Panel");

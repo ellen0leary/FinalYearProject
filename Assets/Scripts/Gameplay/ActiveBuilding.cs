@@ -15,7 +15,7 @@ public class ActiveBuilding : MonoBehaviour
     float maxMaterialTimer = 500;
     float materialTimer;
     // Start is called before the first frame update
-    public GameObject material;
+    public GameObject material = null;
     public GameObject scoreController;
     AudioSource audio;
     void Start()
