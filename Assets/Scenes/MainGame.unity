@@ -1564,6 +1564,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   truck: {fileID: 4739966651755348773, guid: 7e833cf6240c0c14fa477730df175453, type: 3}
   GOAPTruck: {fileID: 0}
+  ifAuto: 0
 --- !u!1001 &1259925788
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2050,6 +2051,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   truck: {fileID: 4739966651755348773, guid: 7e833cf6240c0c14fa477730df175453, type: 3}
   GOAPTruck: {fileID: 0}
+  ifAuto: 0
 --- !u!4 &1606096685
 Transform:
   m_ObjectHideFlags: 0
@@ -2585,6 +2587,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 209614804, guid: 87da756a2670aea4583838cc4892d535, type: 3}
+      propertyPath: m_fontSize
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 209614804, guid: 87da756a2670aea4583838cc4892d535, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 60
+      objectReference: {fileID: 0}
     - target: {fileID: 568643649, guid: 87da756a2670aea4583838cc4892d535, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 

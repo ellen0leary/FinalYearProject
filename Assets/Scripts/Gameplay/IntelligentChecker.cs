@@ -16,7 +16,7 @@ public class IntelligentChecker : MonoBehaviour
     bool isWrongPanelActive; 
     float maxTimer = 5;
     public float currentTimer;
-    public int worngCounter;
+    public int worngCounter, wrongProcessCounter;
     // Start is called before the first frame update
     void Start()
     {
@@ -61,5 +61,9 @@ public class IntelligentChecker : MonoBehaviour
         worngText.text = "This needs to go to " + nextBuild;
         isWrongPanelActive = true;
         worngCounter++;
+    }
+
+    public void increseWrongProcess(){
+        wrongProcessCounter++;
     }
 }

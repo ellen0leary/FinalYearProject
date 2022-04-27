@@ -3869,8 +3869,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Building description:\r\nWasher (pink) -> clean material\r\nSorter (orange)
-    -> sort material by type\r\nShredder (purple) -> shreds material\r"
+  m_text: "Building description:\r\n<color=#FF0062>Washer</color> -> clean material\r\n<color=#FF5800>Sorter</color>
+    -> sort material by type\r\n<color=#E600FF>Shredder </color>-> shreds material\r"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

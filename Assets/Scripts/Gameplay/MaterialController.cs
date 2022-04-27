@@ -43,12 +43,16 @@ public class MaterialController : MonoBehaviour
     }
 
     public bool materialFinished(int layer){
+        int pre = -1;
         for (int x = 0; x<material.Length; x++){
             if (material[x] == layer){
-                material[x] = -1;
-                tm.changeMultipiler(0.1f);
-                return true;
+                if(pre== -1){
+                    material[x] = -1;
+                    tm.changeMultipiler(0.1f);
+                    return true;
+                } else break;
             }
+            pre = material[x];
         }
         checker.activateWrongPanel(nextItem());
         tm.resetMultiplayiler();
@@ -60,16 +64,16 @@ public class MaterialController : MonoBehaviour
         Debug.Log("selling for " + currentScore);
         foreach (int i in material) {
             if( i !=-1){
-                break;
-            } else {
+                checker.increseWrongProcess();
+                sc.setScore(currentScore, true);
                 break;
             }
          }
-        sc.setScore(currentScore, true);
+        sc.setScore(1000, true);
     }
 
 
-    private void OnCollisionEnter(Collision other) {
+    private void OnCollisionStay(Collision other) {
         if(other.gameObject.CompareTag("selling"))
         {
             Debug.Log(other.gameObject.tag);
@@ -95,9 +99,9 @@ public class MaterialController : MonoBehaviour
     string nextItem(){
          for (int x = 0; x<material.Length; x++){
             if (material[x] != -1){
-                if(material[x] == 9) return "<color=\"red\">washer";
-                else if(material[x] == 10) return "<color=\"red\">sorter";
-                else if(material[x] == 11) return "<color=\"red\">shreder";
+                if(material[x] == 9) return "<color=#FF0062>washer";
+                else if(material[x] == 10) return "<color=#FF5800>sorter";
+                else if(material[x] == 11) return "<color=#E600FF>shreder";
             }
         }
         return "sell";
