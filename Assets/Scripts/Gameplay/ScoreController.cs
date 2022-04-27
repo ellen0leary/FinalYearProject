@@ -33,8 +33,9 @@ public class ScoreController : MonoBehaviour
     void Update(){
         mainTimer-= 1*Time.deltaTime;
         if(mainTimer< 0 || materCount >= materGoal){
-            gameOverScreen();
-            Time.timeScale = 0; 
+            print("game over");
+            Time.timeScale = 0;
+            gameOverScreen(); 
         } else{ 
             // fillCircle.fillAmount1 = 1 -( mainTimer/120);
             fillCircle.GetComponent<Image>().fillAmount =1 -( mainTimer/120);
@@ -69,7 +70,8 @@ public class ScoreController : MonoBehaviour
         scorePanel.SetActive(true);
         GameObject.Find("FinalTextScore").GetComponent<TextMeshProUGUI>().text = text;
         //set final score
-        GameObject.Find("FinalScoreScore").GetComponent<TextMeshProUGUI>().text = "Final Score is "+ currentScore.ToString() + "\n You misplaced materials "+GetComponent<IntelligentChecker>().worngCounter + " times.";
+        if(GetComponent<IntelligentChecker>()!=null)  GameObject.Find("FinalScoreScore").GetComponent<TextMeshProUGUI>().text = "Final Score is "+ currentScore.ToString() + "\n You misplaced materials "+GetComponent<IntelligentChecker>().worngCounter + " times.";
+        else GameObject.Find("FinalScoreScore").GetComponent<TextMeshProUGUI>().text = "Final Score is "+ currentScore.ToString() ;
     }
 
     public void goToMainMenu(){

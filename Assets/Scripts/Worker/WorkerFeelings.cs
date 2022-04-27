@@ -17,11 +17,11 @@ public class WorkerFeelings : MonoBehaviour
     void Start()
     {
         float diffence = (Random.Range(0,10));
-        sleepVal = diffence/3f;
+        sleepVal = diffence/4f;
         diffence = (Random.Range(0,10));
-        eatVal = diffence/3f;
+        eatVal = diffence/4f;
         diffence = (Random.Range(0,10));
-        trainVal = diffence/3f;
+        trainVal = diffence/4f;
         sleepNeed = max;
         eatNeed = max;
         knowledge = max;

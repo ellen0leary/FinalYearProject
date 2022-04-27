@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 2570886634574814107}
   - component: {fileID: 2570886634574814106}
   - component: {fileID: 971005459696141583}
-  - component: {fileID: 7272700677033929657}
   m_Layer: 7
   m_Name: GOAP Truck
   m_TagString: truck
@@ -143,17 +142,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 0}
---- !u!64 &7272700677033929657
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2570886634574814080}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 101861711042926850, guid: c30e20ad907a95342ae5548fb153a03e, type: 3}

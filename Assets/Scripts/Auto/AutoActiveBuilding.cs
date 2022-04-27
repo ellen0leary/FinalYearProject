@@ -68,6 +68,7 @@ public class AutoActiveBuilding : MonoBehaviour
             {
                 // other.gameObject.transform.parent.gameObject.GetComponent<WorkerMovement>().setIsBusy();
                 other.gameObject.transform.parent.gameObject.GetComponent<GOAP>().finMaterial();
+                other.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
                 print("here");
                 ifActive = true;
                 timer = maxTime;

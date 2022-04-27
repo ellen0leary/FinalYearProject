@@ -21,8 +21,11 @@ public class QuizManager : MonoBehaviour
     public GameObject trueBtn;
     public GameObject falseBtn;
     public GameObject mainBtn;
+    public GameObject rightPanel, wrongPanel;
     bool ifQuestions = false;
     string leftAnswer,rightAnswer;
+    bool ifTimerActive = false;
+    float timeRemaining = 2;
     void Start()
     {
         mainBtn.SetActive(false);
@@ -30,6 +33,8 @@ public class QuizManager : MonoBehaviour
         questionText =GetComponent<TextMeshProUGUI>();
         leftAnswerTxt = GameObject.Find("LeftAns").GetComponent<TextMeshProUGUI>();
         rightAnswerTxt = GameObject.Find("RightAns").GetComponent<TextMeshProUGUI>();
+        rightPanel.SetActive(false);
+        wrongPanel.SetActive(false);
         // setQuestion();
     }
 
@@ -39,6 +44,15 @@ public class QuizManager : MonoBehaviour
             totalQuestions = questionsToAsk.Count;
             setQuestion();
             ifQuestions = false;
+        }
+        if(ifTimerActive){
+            timeRemaining -=1f *Time.deltaTime;
+            if(timeRemaining<0){
+                rightPanel.SetActive(false);
+                wrongPanel.SetActive(false);
+                timeRemaining =2;
+                ifTimerActive = false;
+            }
         }
     }
     void setQuestion(){
@@ -67,9 +81,13 @@ public class QuizManager : MonoBehaviour
             //correct
             correctQuestions++;
             print("correct");
+            rightPanel.SetActive(true);
+            ifTimerActive = true;
         } else {
             //wrong
             print("wrong");
+            wrongPanel.SetActive(true);
+            ifTimerActive = true;
         }
     }
 

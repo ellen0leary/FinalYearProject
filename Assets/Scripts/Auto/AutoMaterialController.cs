@@ -89,10 +89,11 @@ public class AutoMaterialController : MonoBehaviour
             sell();
             Destroy(this.gameObject);
         } 
-        else if(other.gameObject.tag=="worker"  && this.gameObject.transform.parent== null){
+        else if(other.gameObject.tag=="worker"  && this.gameObject.transform.parent== null && other.gameObject.GetComponent<GOAP>().targetItem == this.gameObject){
             if(other.transform.childCount==3){
                 if(material.Length == curentIndex){
                     this.gameObject.transform.parent = other.gameObject.transform;
+                    GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition;
                     other.gameObject.GetComponent<GOAP>().haveMaterial(sellPoint.transform.position);
                 }
                 GameObject g = findBuilding();

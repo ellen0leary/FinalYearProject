@@ -12,6 +12,7 @@ public class TruckManager : MonoBehaviour
 
     int numOfTrucks;
     float multipiler;
+    public bool ifAuto = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,7 +27,8 @@ public class TruckManager : MonoBehaviour
     void Update()
     {
          if(timerActivate){
-            timeLeft-=( 1f * Time.deltaTime* multipiler);
+            if(ifAuto) timeLeft-=( 1f * Time.deltaTime* multipiler);
+            else timeLeft-=( 1f * Time.deltaTime);
             if(timeLeft<=0){
 
                 GameObject g = Instantiate(truck, truck.transform.position, truck.transform.rotation);
@@ -37,7 +39,7 @@ public class TruckManager : MonoBehaviour
     }
 
     public void startTimer(){
-        timeLeft = Random.Range(1,3);
+        timeLeft = Random.Range(3,5);
         timerActivate = true;
         numOfTrucks--;
     }
