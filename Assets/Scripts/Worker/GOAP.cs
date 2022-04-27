@@ -10,7 +10,7 @@ public class GOAP : MonoBehaviour
     TheQueue queueCon;
     WorkerManager wm;
     NavMeshAgent nav;
-    public bool isBusy, isWandering, walkPointSet;
+    public bool isBusy, isWandering, walkPointSet, ifcheckNeeded;
     public bool isLowSleep,isLowEat,isLowTrain;
     //for sleep
     bool hasBlanket, isBlanketOrdered;
@@ -27,7 +27,7 @@ public class GOAP : MonoBehaviour
     TruckManager tm;
 
     Vector3 target, dormPt, canteinPt, trainingPt;
-    GameObject targetItem;
+    public GameObject targetItem;
     Vector3 buildPos;
     // Start is called before the first frame update
     void Start()
@@ -38,13 +38,15 @@ public class GOAP : MonoBehaviour
         nav = GetComponent<NavMeshAgent>();
         isBusy = false;
         isWandering = false;
-        walkPointSet = false;
+        walkPointSet = false; ifcheckNeeded= false;
         isLowSleep = false; hasBlanket = false;   isBlanketOrdered = false;
         isLowEat = false; hasFood = false;  isFoodOrdered = false;
         isLowTrain = false; hasBook = false;  isBookOrdered = false;
         dorm = GameObject.Find("dormitory");
         tm = GameObject.Find("Truck Manager").GetComponent<TruckManager>();
         dormPt = GameObject.Find("dormPt").transform.position;
+        canteinPt = GameObject.Find("Cateain").transform.position;
+        trainingPt = GameObject.Find("TrainPt").transform.position;
 
     }
 
@@ -52,7 +54,9 @@ public class GOAP : MonoBehaviour
     void Update()
     {
         info = anim.GetCurrentAnimatorStateInfo(0);
-
+        if(isBusy && targetItem == null){
+            isBusy = false;
+        }
         if(info.IsName("Work")){
             // look at queue for stuff to do
             if(isWandering){
@@ -66,10 +70,10 @@ public class GOAP : MonoBehaviour
                     // go do it 
                     nav.SetDestination(g.transform.position);
                     isBusy = true;
+                    targetItem = g;
                     //idk bro
                 } else {
                     isWandering = true;
-                    print("start wandering");
                 }
             }
                 //mill about
@@ -131,7 +135,7 @@ public class GOAP : MonoBehaviour
                     nav.SetDestination(g.transform.position);
                     target = g.transform.position;
                     targetItem = g;
-                    if((transform.position - target).magnitude< 1.5f){
+                    if((transform.position - target).magnitude< 1f){
                         hasBlanket = true;
                         targetItem.transform.parent = this.gameObject.transform;
                     } 
@@ -233,17 +237,20 @@ public class GOAP : MonoBehaviour
     public void ifLowSleep(bool ifLow){
         isLowSleep = ifLow;
         if(!isBusy)anim.SetBool("StartSleep", isLowSleep);
+        else ifcheckNeeded = true;
     }
 
 
     public void ifLowEat(bool ifLow){
         isLowEat = ifLow;
         if(!isBusy)anim.SetBool("StartEat", isLowEat);
+        else ifcheckNeeded = true;
     }
 
     public void ifLowTrain(bool ifLow){
         isLowTrain = ifLow;
         if(!isBusy)anim.SetBool("StartTrain", isLowTrain);
+        else ifcheckNeeded = true;
     }
 
     public void haveMaterial(Vector3 nextPos){
@@ -254,7 +261,13 @@ public class GOAP : MonoBehaviour
 
     public void finMaterial(){
         isBusy = false;
-        nav.SetDestination(new Vector3(0,0,0));
+        // nav.SetDestination(new Vector3(0,0,0));
+        if(ifcheckNeeded){
+            anim.SetBool("StartTrain", isLowTrain);
+            anim.SetBool("StartEat", isLowEat);
+            anim.SetBool("StartSleep", isLowSleep);
+            ifcheckNeeded= false;
+        }
     }
 
     public bool ifBusy() {

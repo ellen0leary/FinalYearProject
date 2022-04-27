@@ -17,19 +17,25 @@ public class AutoMaterialController : MonoBehaviour
     Queue<Vector3> locations;
     TheQueue queueCon;
     IntelligentChecker checker;
+    GameObject sellPoint;
 
     void Start()
     {
+        sellPoint = GameObject.Find("Sell Area");
         wm = GameObject.Find("Workers").GetComponent<WorkerManager>();
         print("sending workers" + wm.gameObject.name);
         GameObject gb = GameObject.FindGameObjectWithTag("score");
         sc = gb.GetComponent<ScoreController>();
-        // locations = new Queue<Vector3>();
-        // locations.Enqueue(this.transform.position);
-        // locations.Enqueue(findBuilding().transform.position);
         queueCon = GameObject.Find("Workers").GetComponent<TheQueue>();
         queueCon.addToQueue(this.gameObject);
         checker = GameObject.Find("ScoreController").GetComponent<IntelligentChecker>();
+        if(this.gameObject.name.Contains("Plastic")){
+            material = new int[]{9,10,11};
+        } else if(this.gameObject.name.Contains("Tin")){
+            material = new int[]{9,10};
+        } else {
+            material =new int[] {10, 11};
+        }
     }
     // makegamegud plz()
 
@@ -78,19 +84,18 @@ public class AutoMaterialController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("selling"))
         {
-            // foreach (int i in material) { }
             Debug.Log(other.gameObject.tag);
+            this.gameObject.transform.parent.GetComponent<GOAP>().finMaterial();
             sell();
             Destroy(this.gameObject);
-        } else if (other.gameObject.CompareTag("building")){
-            //check layer
-            //report back
-            //start building
         } 
         else if(other.gameObject.tag=="worker"  && this.gameObject.transform.parent== null){
             if(other.transform.childCount==3){
-                print("coll childCount is 3");
-            GameObject g = findBuilding();
+                if(material.Length == curentIndex){
+                    this.gameObject.transform.parent = other.gameObject.transform;
+                    other.gameObject.GetComponent<GOAP>().haveMaterial(sellPoint.transform.position);
+                }
+                GameObject g = findBuilding();
                 if(g!= null){
                     this.gameObject.transform.parent = other.gameObject.transform;
                     other.gameObject.GetComponent<GOAP>().haveMaterial(g.transform.position);
@@ -99,18 +104,13 @@ public class AutoMaterialController : MonoBehaviour
                 print("coll childCount is not 3");
                  other.gameObject.GetComponent<GOAP>().checkChild();
             }
-
-            
-            // isFirstPos = false;
-            // walkPoint = endPos;
-            // nav.SetDestination(endPos);
         }
     }
 
     
     void upScore()
     {
-        currentScore += 1000;
+        currentScore += 100;
     }
 
 

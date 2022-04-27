@@ -19,8 +19,8 @@ public class BuildingManager : MonoBehaviour
             if(index>-1 &&index<allBuildings.Length ){
                 print(allBuildings[index].name);
             // int index = Random.Range(0, allBuildings.Length - 1);
-                float xValiue = Random.Range(-5,5);
-                float yValiue = Random.Range(-5, 5);
+                float xValiue = Random.Range(-3,3);
+                float yValiue = Random.Range(-3, 3);
                 GameObject gOb =Instantiate(allBuildings[index],new Vector3(-0.0384554863f+xValiue, 0.109999992f, -0.737234116f-yValiue) ,allBuildings[index].transform.rotation);
             }
         }

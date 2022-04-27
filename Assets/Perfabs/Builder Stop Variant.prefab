@@ -7,13 +7,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 477782318, guid: 77ade9ad62491b041a8b96319e2a6d3f, type: 3}
-      propertyPath: m_Center.y
-      value: 1
+    - target: {fileID: 870273618, guid: 77ade9ad62491b041a8b96319e2a6d3f, type: 3}
+      propertyPath: m_Height
+      value: 2.2003598
       objectReference: {fileID: 0}
-    - target: {fileID: 477782319, guid: 77ade9ad62491b041a8b96319e2a6d3f, type: 3}
-      propertyPath: m_CollisionDetection
-      value: 3
+    - target: {fileID: 870273618, guid: 77ade9ad62491b041a8b96319e2a6d3f, type: 3}
+      propertyPath: m_Center.y
+      value: 1.0372651
       objectReference: {fileID: 0}
     - target: {fileID: 474023254195062085, guid: 77ade9ad62491b041a8b96319e2a6d3f, type: 3}
       propertyPath: m_Name

@@ -42,7 +42,7 @@ public class AutoTruckMaterial : MonoBehaviour
         print("creating material");    
         float randX = Random.Range(-0.5f, 0.5f);
         float randY = Random.Range(-0.5f, 0.5f);
-        Vector3 pos = new Vector3(transform.position.x + 1+ randX, transform.position.y + 1+ randY, transform.position.z);
+        Vector3 pos = new Vector3(transform.position.x + 1, transform.position.y + 1, transform.position.z);
         GameObject g = Instantiate(go, pos, go.transform.rotation);
         // GetComponent<
         // g.GetComponent<AutoMaterialController>().sendWorker(pos, new Vector3(6.42000008f, -0.160999998f, 5.10999966f));

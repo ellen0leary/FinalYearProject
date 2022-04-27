@@ -72,7 +72,6 @@ public class MaterialController : MonoBehaviour
     private void OnCollisionEnter(Collision other) {
         if(other.gameObject.CompareTag("selling"))
         {
-            foreach(int i in material){}
             Debug.Log(other.gameObject.tag);
             sell();
             Destroy(this.gameObject);
@@ -105,4 +104,3 @@ public class MaterialController : MonoBehaviour
     }
 }
 
-//create base class with enum to track 

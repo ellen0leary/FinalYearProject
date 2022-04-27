@@ -27,7 +27,8 @@ public class TruckManager : MonoBehaviour
     {
          if(timerActivate){
             timeLeft-=( 1f * Time.deltaTime* multipiler);
-            if(timeLeft<=5){
+            if(timeLeft<=0){
+
                 GameObject g = Instantiate(truck, truck.transform.position, truck.transform.rotation);
                 g.GetComponent<TruckMovement>().IncreseMultipler(multipiler);
                 timerActivate= false;
@@ -48,8 +49,8 @@ public class TruckManager : MonoBehaviour
 
     public void changeMultipiler(float value){
         multipiler += 0.01f;
-        if(multipiler>1.3f){
-            multipiler =1.3f;
+        if(multipiler>1.2f){
+            multipiler =1.2f;
         }
         print(multipiler);
     }

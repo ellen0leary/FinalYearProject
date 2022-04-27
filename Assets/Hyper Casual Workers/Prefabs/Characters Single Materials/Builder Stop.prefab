@@ -77,9 +77,6 @@ GameObject:
   - component: {fileID: 870273620}
   - component: {fileID: 870273621}
   - component: {fileID: 477782319}
-  - component: {fileID: 477782318}
-  - component: {fileID: 477782315}
-  - component: {fileID: 477782316}
   - component: {fileID: 477782317}
   - component: {fileID: 1028217257}
   m_Layer: 0
@@ -192,7 +189,9 @@ MonoBehaviour:
   knowledge: 0
   accurcy: 0
   ifAuto: 0
-  diff: 0
+  sleepVal: 0
+  eatVal: 0
+  trainVal: 0
 --- !u!54 &477782319
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -208,55 +207,7 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!136 &477782318
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 474023254195062085}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.29699814
-  m_Height: 2.637445
-  m_Direction: 1
-  m_Center: {x: 0.004233122, y: 0.8187225, z: 0.04626453}
---- !u!114 &477782315
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 474023254195062085}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f60e7223ea583b84f896960a6074e1c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sleepNeed: 0
-  eatNeed: 0
-  knowledge: 0
-  accurcy: 0
-  ifAuto: 0
-  diff: 0
---- !u!114 &477782316
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 474023254195062085}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d45344df4f553034c91c5168a3a880e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sendToEatBtn: {fileID: 0}
-  sendToSleepBtn: {fileID: 0}
-  sendToTrainBtn: {fileID: 0}
-  closeBtn: {fileID: 0}
+  m_CollisionDetection: 3
 --- !u!195 &477782317
 NavMeshAgent:
   m_ObjectHideFlags: 0

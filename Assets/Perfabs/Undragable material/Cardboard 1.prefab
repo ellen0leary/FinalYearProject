@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 407089972839730781}
   - component: {fileID: 407089972839730769}
   - component: {fileID: 407089972839730770}
-  - component: {fileID: 4799797295022559946}
   - component: {fileID: 1470125037720834862}
   m_Layer: 8
   m_Name: Cardboard 1
@@ -129,18 +128,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   checkerObject: {fileID: 0}
   checker: {fileID: 0}
---- !u!114 &4799797295022559946
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 407089972839730780}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 966be33490a5fb74190716009bcb9e99, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1470125037720834862
 MonoBehaviour:
   m_ObjectHideFlags: 0

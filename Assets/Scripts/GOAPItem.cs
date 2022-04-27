@@ -18,9 +18,9 @@ public class GOAPItem : MonoBehaviour
     }
 
     public void spawnItem(){  
-        float randX = Random.Range(-0.5f, 0.5f);
-        float randY = Random.Range(-0.5f, 0.5f);
-        Vector3 pos = new Vector3(transform.position.x + 1.1f+ randX, transform.position.y + 1.1f+ randY, transform.position.z);
+        // float randX = Random.Range(-0.5f, 0.5f);
+        // float randY = Random.Range(-0.5f, 0.5f);
+        Vector3 pos = new Vector3(transform.position.x + 1.2f, transform.position.y + 1.2f, transform.position.z);
         GameObject g = Instantiate(item, pos, item.transform.rotation);
     }
 }
