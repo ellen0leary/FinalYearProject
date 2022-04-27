@@ -24,9 +24,9 @@ public class AutoMaterialController : MonoBehaviour
         print("sending workers" + wm.gameObject.name);
         GameObject gb = GameObject.FindGameObjectWithTag("score");
         sc = gb.GetComponent<ScoreController>();
-        locations = new Queue<Vector3>();
-        locations.Enqueue(this.transform.position);
-        locations.Enqueue(findBuilding().transform.position);
+        // locations = new Queue<Vector3>();
+        // locations.Enqueue(this.transform.position);
+        // locations.Enqueue(findBuilding().transform.position);
         queueCon = GameObject.Find("Workers").GetComponent<TheQueue>();
         queueCon.addToQueue(this.gameObject);
         checker = GameObject.Find("ScoreController").GetComponent<IntelligentChecker>();
@@ -87,11 +87,17 @@ public class AutoMaterialController : MonoBehaviour
             //report back
             //start building
         } 
-        else if(other.gameObject.tag=="worker" /**&& transform.childCount==0 **/&& this.gameObject.transform.parent== null){
+        else if(other.gameObject.tag=="worker"  && this.gameObject.transform.parent== null){
+            if(other.transform.childCount==3){
+                print("coll childCount is 3");
             GameObject g = findBuilding();
-            if(g!= null){
-                this.gameObject.transform.parent = other.gameObject.transform;
-                other.gameObject.GetComponent<GOAP>().haveMaterial(g.transform.position);
+                if(g!= null){
+                    this.gameObject.transform.parent = other.gameObject.transform;
+                    other.gameObject.GetComponent<GOAP>().haveMaterial(g.transform.position);
+                }
+            } else {
+                print("coll childCount is not 3");
+                 other.gameObject.GetComponent<GOAP>().checkChild();
             }
 
             

@@ -12,9 +12,12 @@ public class WorkerFeelings : MonoBehaviour
     GOAP goap;
 
     float max = 100f;
+    public float diff;
     // Start is called before the first frame update
     void Start()
     {
+        float diffence = (Random.Range(0,10));
+        diff = diffence/3f;
         sleepNeed = max;
         eatNeed = max;
         knowledge = max;
@@ -25,9 +28,9 @@ public class WorkerFeelings : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        sleepNeed -= 2 * Time.deltaTime;
-        eatNeed -= 4 * Time.deltaTime;
-        knowledge -= 1 * Time.deltaTime;
+        sleepNeed -=( (0+diff) * Time.deltaTime );
+        eatNeed -= ((0+diff)* Time.deltaTime);
+        knowledge -= ((0+diff) * Time.deltaTime);
         accurcy = sleepNeed/3+ eatNeed/3+ knowledge/2;
         
         if(sleepNeed<25 && !ifAuto){

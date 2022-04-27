@@ -96,9 +96,9 @@ public class MaterialController : MonoBehaviour
     string nextItem(){
          for (int x = 0; x<material.Length; x++){
             if (material[x] != -1){
-                if(material[x] == 9) return "<color=\"red\">washer<color>";
-                else if(material[x] == 10) return "<color=\"red\">sorter<color>";
-                else if(material[x] == 11) return "<color=\"red\">shreder<color>";
+                if(material[x] == 9) return "<color=\"red\">washer";
+                else if(material[x] == 10) return "<color=\"red\">sorter";
+                else if(material[x] == 11) return "<color=\"red\">shreder";
             }
         }
         return "sell";

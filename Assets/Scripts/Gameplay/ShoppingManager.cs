@@ -26,7 +26,7 @@ public class ShoppingManager : MonoBehaviour
     }
 
     public void addWorker(){
-        // wk.addWorker();
+        wk.addWorker();
     }
 
     public void addBuilding(){

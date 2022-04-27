@@ -28,6 +28,7 @@ public class GOAP : MonoBehaviour
 
     Vector3 target, dormPt, canteinPt, trainingPt;
     GameObject targetItem;
+    Vector3 buildPos;
     // Start is called before the first frame update
     void Start()
     {
@@ -130,7 +131,7 @@ public class GOAP : MonoBehaviour
                     nav.SetDestination(g.transform.position);
                     target = g.transform.position;
                     targetItem = g;
-                    if((transform.position - target).magnitude< 1f){
+                    if((transform.position - target).magnitude< 1.5f){
                         hasBlanket = true;
                         targetItem.transform.parent = this.gameObject.transform;
                     } 
@@ -149,6 +150,7 @@ public class GOAP : MonoBehaviour
                     hasBlanket = false;
                     isBlanketOrdered = false;
                     isBusy = false;
+                    GetComponent<WorkerFeelings>().IncreaseSleep(130);
                     anim.SetBool("StartSleep", isLowSleep);
                 }
             }
@@ -246,6 +248,7 @@ public class GOAP : MonoBehaviour
 
     public void haveMaterial(Vector3 nextPos){
         isBusy = true;
+        buildPos = nextPos;
         nav.SetDestination(nextPos);
     }
 
@@ -256,6 +259,15 @@ public class GOAP : MonoBehaviour
 
     public bool ifBusy() {
         return isBusy;
+    }
+
+    public void checkChild(){
+         foreach (Transform child in transform) {
+            if (child.name.Contains("Tin")||child.name.Contains("Cardboard")||child.name.Contains("Plastic")) {
+                // Debug.Log ("Child found. Mame: " + child.name);
+                nav.SetDestination(buildPos);
+            }
+        }
     }
 }
 

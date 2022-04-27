@@ -47,7 +47,10 @@ public class TruckManager : MonoBehaviour
     }
 
     public void changeMultipiler(float value){
-        multipiler += value;
+        multipiler += 0.01f;
+        if(multipiler>1.3f){
+            multipiler =1.3f;
+        }
         print(multipiler);
     }
 
