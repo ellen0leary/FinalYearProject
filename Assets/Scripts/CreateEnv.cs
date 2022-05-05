@@ -15,7 +15,7 @@ public class CreateEnv : MonoBehaviour
             totalTrees = 3;
             totalRocks = 3;
         } else {
-            totalTrees = 6;
+            totalTrees = 8;
             totalRocks = 2;
         }
         SetUpEnv();

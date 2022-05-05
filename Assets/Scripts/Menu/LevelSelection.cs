@@ -20,6 +20,7 @@ public class LevelSelection : MonoBehaviour
 
     void levelSelect(string level){
         PlayerPrefs.SetString("level", level);
+        print(level);
         if(toggle.isOn){
             SceneManager.LoadScene("Wroking");
         } else {

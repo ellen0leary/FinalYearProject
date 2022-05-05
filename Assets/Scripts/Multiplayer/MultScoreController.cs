@@ -25,9 +25,9 @@ public class MultScoreController : MonoBehaviour
 
     public TextMeshProUGUI timerTxtP2;
     public TextMeshProUGUI timerTxtP1;
-    float mainTimer = 20f;
-    int materGoal = 20;
-    GameObject scorePanel;
+    float mainTimer = 2000f;
+    int materGoal = 5;
+    public GameObject scorePanel;
     void Start()
     {
         scoreP1 = startingScore;
@@ -50,7 +50,7 @@ public class MultScoreController : MonoBehaviour
     void Update()
     {
         mainTimer -= 1 * Time.deltaTime;
-        if(mainTimer<=0){
+        if(mainTimer<=0|| materCountP1==materGoal||materCountP2==materGoal){
             gameOverScreen();
         } else {
             timerTxtP1.text =  "Timer Remaining : " + (int) mainTimer;
@@ -65,8 +65,8 @@ public class MultScoreController : MonoBehaviour
     public bool setP1Score(int addition, bool increseCounter){
         if(scoreP1 + addition >=0){
             scoreP1 += addition;
-            setScoreText();
             if(increseCounter) materCountP1++;
+            setScoreText();
             return true;
         }
         return false;
@@ -76,8 +76,8 @@ public class MultScoreController : MonoBehaviour
     {
         if(scoreP2 + addition >=0){
             scoreP2 += addition;
-            setScoreText();
             if(increseCounter) materCountP1++;
+            setScoreText();
             return true;
         }
         return false;
@@ -85,6 +85,8 @@ public class MultScoreController : MonoBehaviour
     void setScoreText(){
         scoreTextP1.text = "Money - €" + scoreP1.ToString();
         scoreTextP2.text = "Money - €" + scoreP2.ToString();
+        countTextP1.text = "Material Count " + materCountP1.ToString() + "/" + materGoal.ToString();
+        countTextP2.text = "Material Count " + materCountP2.ToString() + "/" + materGoal.ToString();
     }
     void gameOverScreen(){
         string p1EndText = "";

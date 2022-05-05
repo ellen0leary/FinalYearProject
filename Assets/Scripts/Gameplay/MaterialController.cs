@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+
 public class MaterialController : MonoBehaviour
 {
     int currentScore = 100;
@@ -16,11 +17,14 @@ public class MaterialController : MonoBehaviour
     IntelligentChecker checker;
     TruckManager tm;
     bool ifMulti;
-    
+    MultScoreController scoreController;
     
     void Start()
     {
-        if(SceneManager.GetActiveScene().buildIndex ==4) ifMulti = true;
+        if(SceneManager.GetActiveScene().buildIndex ==4) {
+            ifMulti = true;
+            scoreController = GameObject.Find("ScoreController").GetComponent<MultScoreController>();
+        }
         else ifMulti = false;
         if(!ifMulti) wm = GameObject.Find("Workers").GetComponent<WorkerManager>();
         GameObject gb = GameObject.FindGameObjectWithTag("score");
@@ -112,6 +116,11 @@ public class MaterialController : MonoBehaviour
 
     public void sell(int layer){
         //calculate
+        if(layer==13) {
+            scoreController.setP1Score(1000, true);
+        } else if (layer == 14){
+            scoreController.setP2Score(1000, true);
+        }
         
     }
 }
